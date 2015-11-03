@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E91B59071BE8C8CC00FA18FE /* TWGLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B59061BE8C8CC00FA18FE /* TWGLNode.swift */; };
+		E91B590B1BE8CA9F00FA18FE /* TWGLShaderReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B590A1BE8CA9F00FA18FE /* TWGLShaderReference.swift */; };
+		E91B590D1BE8D31E00FA18FE /* TWGLVertexInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B590C1BE8D31E00FA18FE /* TWGLVertexInfo.swift */; };
+		E91B590F1BE9030F00FA18FE /* TWGLScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B590E1BE9030F00FA18FE /* TWGLScene.swift */; };
+		E91B59181BE9047700FA18FE /* mushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = E91B59161BE9047700FA18FE /* mushroom.png */; };
+		E91B591A1BE9055000FA18FE /* MushroomNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B59191BE9055000FA18FE /* MushroomNode.swift */; };
+		E9C927C91BE13A3C00B983C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C927C81BE13A3C00B983C9 /* AppDelegate.swift */; };
+		E9C927CB1BE13A3C00B983C9 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = E9C927CA1BE13A3C00B983C9 /* Shader.fsh */; };
+		E9C927CD1BE13A3C00B983C9 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = E9C927CC1BE13A3C00B983C9 /* Shader.vsh */; };
+		E9C927CF1BE13A3C00B983C9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C927CE1BE13A3C00B983C9 /* GameViewController.swift */; };
+		E9C927D21BE13A3C00B983C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C927D01BE13A3C00B983C9 /* Main.storyboard */; };
+		E9C927D41BE13A3C00B983C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C927D31BE13A3C00B983C9 /* Assets.xcassets */; };
+		E9C927D71BE13A3C00B983C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C927D51BE13A3C00B983C9 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E91B59061BE8C8CC00FA18FE /* TWGLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWGLNode.swift; sourceTree = "<group>"; };
+		E91B590A1BE8CA9F00FA18FE /* TWGLShaderReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWGLShaderReference.swift; sourceTree = "<group>"; };
+		E91B590C1BE8D31E00FA18FE /* TWGLVertexInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWGLVertexInfo.swift; sourceTree = "<group>"; };
+		E91B590E1BE9030F00FA18FE /* TWGLScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TWGLScene.swift; path = MarioKart/TWGL/TWGLScene.swift; sourceTree = SOURCE_ROOT; };
+		E91B59101BE9041100FA18FE /* MarioKart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MarioKart-Bridging-Header.h"; path = "Nodes/MarioKart-Bridging-Header.h"; sourceTree = "<group>"; };
+		E91B59161BE9047700FA18FE /* mushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mushroom.png; sourceTree = "<group>"; };
+		E91B59191BE9055000FA18FE /* MushroomNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MushroomNode.swift; sourceTree = "<group>"; };
+		E9C927C51BE13A3C00B983C9 /* MarioKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarioKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9C927C81BE13A3C00B983C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E9C927CA1BE13A3C00B983C9 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		E9C927CC1BE13A3C00B983C9 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		E9C927CE1BE13A3C00B983C9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		E9C927D11BE13A3C00B983C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E9C927D31BE13A3C00B983C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E9C927D61BE13A3C00B983C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E9C927D81BE13A3C00B983C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E9C927C21BE13A3C00B983C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E91B58FC1BE8C5F700FA18FE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E91B590E1BE9030F00FA18FE /* TWGLScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E91B59021BE8C69400FA18FE /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				E91B59161BE9047700FA18FE /* mushroom.png */,
+				E91B59191BE9055000FA18FE /* MushroomNode.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		E91B59051BE8C8BC00FA18FE /* TWGL */ = {
+			isa = PBXGroup;
+			children = (
+				E91B590A1BE8CA9F00FA18FE /* TWGLShaderReference.swift */,
+				E91B59061BE8C8CC00FA18FE /* TWGLNode.swift */,
+				E91B590C1BE8D31E00FA18FE /* TWGLVertexInfo.swift */,
+			);
+			path = TWGL;
+			sourceTree = "<group>";
+		};
+		E9C927BC1BE13A3C00B983C9 = {
+			isa = PBXGroup;
+			children = (
+				E9C927C71BE13A3C00B983C9 /* MarioKart */,
+				E9C927C61BE13A3C00B983C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E9C927C61BE13A3C00B983C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9C927C51BE13A3C00B983C9 /* MarioKart.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9C927C71BE13A3C00B983C9 /* MarioKart */ = {
+			isa = PBXGroup;
+			children = (
+				E91B59101BE9041100FA18FE /* MarioKart-Bridging-Header.h */,
+				E91B59051BE8C8BC00FA18FE /* TWGL */,
+				E91B59021BE8C69400FA18FE /* Nodes */,
+				E91B58FC1BE8C5F700FA18FE /* Scenes */,
+				E9C927C81BE13A3C00B983C9 /* AppDelegate.swift */,
+				E9C927CA1BE13A3C00B983C9 /* Shader.fsh */,
+				E9C927CC1BE13A3C00B983C9 /* Shader.vsh */,
+				E9C927CE1BE13A3C00B983C9 /* GameViewController.swift */,
+				E9C927D01BE13A3C00B983C9 /* Main.storyboard */,
+				E9C927D31BE13A3C00B983C9 /* Assets.xcassets */,
+				E9C927D51BE13A3C00B983C9 /* LaunchScreen.storyboard */,
+				E9C927D81BE13A3C00B983C9 /* Info.plist */,
+			);
+			path = MarioKart;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E9C927C41BE13A3C00B983C9 /* MarioKart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9C927DB1BE13A3C00B983C9 /* Build configuration list for PBXNativeTarget "MarioKart" */;
+			buildPhases = (
+				E9C927C11BE13A3C00B983C9 /* Sources */,
+				E9C927C21BE13A3C00B983C9 /* Frameworks */,
+				E9C927C31BE13A3C00B983C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarioKart;
+			productName = MarioKart;
+			productReference = E9C927C51BE13A3C00B983C9 /* MarioKart.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E9C927BD1BE13A3C00B983C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Txai Wieser";
+				TargetAttributes = {
+					E9C927C41BE13A3C00B983C9 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = E9C927C01BE13A3C00B983C9 /* Build configuration list for PBXProject "MarioKart" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E9C927BC1BE13A3C00B983C9;
+			productRefGroup = E9C927C61BE13A3C00B983C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E9C927C41BE13A3C00B983C9 /* MarioKart */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E9C927C31BE13A3C00B983C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9C927D21BE13A3C00B983C9 /* Main.storyboard in Resources */,
+				E91B59181BE9047700FA18FE /* mushroom.png in Resources */,
+				E9C927CD1BE13A3C00B983C9 /* Shader.vsh in Resources */,
+				E9C927D41BE13A3C00B983C9 /* Assets.xcassets in Resources */,
+				E9C927D71BE13A3C00B983C9 /* LaunchScreen.storyboard in Resources */,
+				E9C927CB1BE13A3C00B983C9 /* Shader.fsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9C927C11BE13A3C00B983C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91B590F1BE9030F00FA18FE /* TWGLScene.swift in Sources */,
+				E91B590B1BE8CA9F00FA18FE /* TWGLShaderReference.swift in Sources */,
+				E91B590D1BE8D31E00FA18FE /* TWGLVertexInfo.swift in Sources */,
+				E91B59071BE8C8CC00FA18FE /* TWGLNode.swift in Sources */,
+				E91B591A1BE9055000FA18FE /* MushroomNode.swift in Sources */,
+				E9C927CF1BE13A3C00B983C9 /* GameViewController.swift in Sources */,
+				E9C927C91BE13A3C00B983C9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E9C927D01BE13A3C00B983C9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9C927D11BE13A3C00B983C9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E9C927D51BE13A3C00B983C9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9C927D61BE13A3C00B983C9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E9C927D91BE13A3C00B983C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E9C927DA1BE13A3C00B983C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E9C927DC1BE13A3C00B983C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = MarioKart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TDW.MarioKart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarioKart/Nodes/MarioKart-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E9C927DD1BE13A3C00B983C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = MarioKart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TDW.MarioKart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarioKart/Nodes/MarioKart-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E9C927C01BE13A3C00B983C9 /* Build configuration list for PBXProject "MarioKart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9C927D91BE13A3C00B983C9 /* Debug */,
+				E9C927DA1BE13A3C00B983C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9C927DB1BE13A3C00B983C9 /* Build configuration list for PBXNativeTarget "MarioKart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9C927DC1BE13A3C00B983C9 /* Debug */,
+				E9C927DD1BE13A3C00B983C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E9C927BD1BE13A3C00B983C9 /* Project object */;
+}
