@@ -26,6 +26,47 @@ class TWGLNode {
     var matColor:GLKVector4 = GLKVector4Make(1, 1, 1, 1)
     var children:[TWGLNode] = []
     
+
+    
+    init(name:String, texture:String?, shader:TWGLShaderReference, vertices:[TWGLVertexInfo]) {
+        self.name = name
+        self.shader = shader
+        self.vertexCount = vertices.count
+        
+        glGenVertexArraysOES(1, &vao)
+        glBindVertexArrayOES(vao)
+        
+        // Generate vertex buffer
+        glGenBuffers(1, &vertexBuffer)
+        glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexBuffer)
+        glBufferData(GLenum(GL_ARRAY_BUFFER), vertexCount * sizeof(TWGLVertexInfo), vertices, GLenum(GL_STATIC_DRAW))
+        // Enable vertex attributes
+        
+        let positionSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: 0)
+        glEnableVertexAttribArray(0)
+        glVertexAttribPointer(0, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), positionSlotFirstComponent)
+        
+        let colorSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: sizeof(Float) * 3)
+        glEnableVertexAttribArray(GLuint(TWGLVertexAttrib.Color.rawValue))
+        glVertexAttribPointer(GLuint(TWGLVertexAttrib.Color.rawValue), 4, GLenum( GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), colorSlotFirstComponent)
+
+        let texCoordSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: sizeof(Float) * 7)
+        glEnableVertexAttribArray(GLuint(TWGLVertexAttrib.TexCoord.rawValue))
+        glVertexAttribPointer(GLuint(TWGLVertexAttrib.TexCoord.rawValue), 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), texCoordSlotFirstComponent)
+
+        let normalSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: sizeof(Float) * 9)
+        glEnableVertexAttribArray(GLuint(TWGLVertexAttrib.Normal.rawValue))
+        glVertexAttribPointer(GLuint(TWGLVertexAttrib.Normal.rawValue), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), normalSlotFirstComponent)
+        
+        glBindVertexArrayOES(0)
+        glBindBuffer(GLenum(GL_ARRAY_BUFFER), 0)
+        glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), 0)
+        
+        if let t = texture {
+            loadTexture(t)
+        }
+    }
+    
     
     func loadTexture(filename:String) {
         let path = NSBundle.mainBundle().pathForResource(filename, ofType: nil)
@@ -42,38 +83,6 @@ class TWGLNode {
     }
     
     
-    init(name:String, texture:String?, shader:TWGLShaderReference, vertices:[TWGLVertexInfo]) {
-        self.name = name
-        self.shader = shader
-        self.vertexCount = vertices.count
-        
-        glGenVertexArraysOES(1, &vao)
-        glBindVertexArrayOES(vao)
-        
-        // Generate vertex buffer
-        glGenBuffers(1, &vertexBuffer)
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexBuffer)
-        glBufferData(GLenum(GL_ARRAY_BUFFER), vertexCount * sizeof(TWGLVertexInfo), vertices, GLenum(GL_STATIC_DRAW))
-        
-        // Enable vertex attributes
-        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.Position.rawValue))
-        glVertexAttribPointer(GLuint(GLKVertexAttrib.Position.rawValue), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE),  GLsizei(sizeof(TWGLVertexInfo)), BUFFER_OFFSET(0))
-        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.Color.rawValue))
-        glVertexAttribPointer(GLuint(GLKVertexAttrib.Color.rawValue), 4, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), BUFFER_OFFSET(3))
-        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.TexCoord0.rawValue))
-        glVertexAttribPointer(GLuint(GLKVertexAttrib.TexCoord0.rawValue), 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), BUFFER_OFFSET((3+4)))
-        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.Normal.rawValue))
-        glVertexAttribPointer(GLuint(GLKVertexAttrib.Normal.rawValue), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), BUFFER_OFFSET((3+4+3)))
-        
-        glBindVertexArrayOES(0)
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), 0)
-        glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), 0)
-        
-        if let t = texture {
-            loadTexture(t)
-        }
-    }
-    
     func modelMatrix() -> GLKMatrix4 {
         var modelMatrix = GLKMatrix4Identity
         modelMatrix = GLKMatrix4Translate(modelMatrix, position.x, position.y, position.z)
@@ -88,10 +97,10 @@ class TWGLNode {
         let modelViewMatrix = GLKMatrix4Multiply(parentModelViewMatrix, modelMatrix())
         children.forEach { $0.render(modelViewMatrix) }
         
-        shader?.modelViewMatrix = modelViewMatrix
-        shader?.texture = self.texture
-        shader?.matColor = self.matColor
-        shader?.prepareToDraw()
+        shader!.modelViewMatrix = modelViewMatrix
+        shader!.texture = self.texture
+        shader!.matColor = self.matColor
+        shader!.prepareToDraw()
         
         glBindVertexArrayOES(vao)
         glDrawArrays(GLenum(GL_TRIANGLES), 0, Int32(vertexCount))

@@ -13,6 +13,8 @@
 		E91B590F1BE9030F00FA18FE /* TWGLScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B590E1BE9030F00FA18FE /* TWGLScene.swift */; };
 		E91B59181BE9047700FA18FE /* mushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = E91B59161BE9047700FA18FE /* mushroom.png */; };
 		E91B591A1BE9055000FA18FE /* MushroomNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B59191BE9055000FA18FE /* MushroomNode.swift */; };
+		E966F8781BE9987E006DEBBB /* CubeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E966F8771BE9987E006DEBBB /* CubeNode.swift */; };
+		E966F87A1BEA6B83006DEBBB /* dungeon_01.png in Resources */ = {isa = PBXBuildFile; fileRef = E966F8791BEA6B83006DEBBB /* dungeon_01.png */; };
 		E9C927C91BE13A3C00B983C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C927C81BE13A3C00B983C9 /* AppDelegate.swift */; };
 		E9C927CB1BE13A3C00B983C9 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = E9C927CA1BE13A3C00B983C9 /* Shader.fsh */; };
 		E9C927CD1BE13A3C00B983C9 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = E9C927CC1BE13A3C00B983C9 /* Shader.vsh */; };
@@ -30,6 +32,8 @@
 		E91B59101BE9041100FA18FE /* MarioKart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MarioKart-Bridging-Header.h"; path = "Nodes/MarioKart-Bridging-Header.h"; sourceTree = "<group>"; };
 		E91B59161BE9047700FA18FE /* mushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mushroom.png; sourceTree = "<group>"; };
 		E91B59191BE9055000FA18FE /* MushroomNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MushroomNode.swift; sourceTree = "<group>"; };
+		E966F8771BE9987E006DEBBB /* CubeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeNode.swift; sourceTree = "<group>"; };
+		E966F8791BEA6B83006DEBBB /* dungeon_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungeon_01.png; sourceTree = "<group>"; };
 		E9C927C51BE13A3C00B983C9 /* MarioKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarioKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C927C81BE13A3C00B983C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9C927CA1BE13A3C00B983C9 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
@@ -55,7 +59,6 @@
 		E91B58FC1BE8C5F700FA18FE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				E91B590E1BE9030F00FA18FE /* TWGLScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -63,8 +66,10 @@
 		E91B59021BE8C69400FA18FE /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				E966F8791BEA6B83006DEBBB /* dungeon_01.png */,
 				E91B59161BE9047700FA18FE /* mushroom.png */,
 				E91B59191BE9055000FA18FE /* MushroomNode.swift */,
+				E966F8771BE9987E006DEBBB /* CubeNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -75,6 +80,7 @@
 				E91B590A1BE8CA9F00FA18FE /* TWGLShaderReference.swift */,
 				E91B59061BE8C8CC00FA18FE /* TWGLNode.swift */,
 				E91B590C1BE8D31E00FA18FE /* TWGLVertexInfo.swift */,
+				E91B590E1BE9030F00FA18FE /* TWGLScene.swift */,
 			);
 			path = TWGL;
 			sourceTree = "<group>";
@@ -176,6 +182,7 @@
 				E91B59181BE9047700FA18FE /* mushroom.png in Resources */,
 				E9C927CD1BE13A3C00B983C9 /* Shader.vsh in Resources */,
 				E9C927D41BE13A3C00B983C9 /* Assets.xcassets in Resources */,
+				E966F87A1BEA6B83006DEBBB /* dungeon_01.png in Resources */,
 				E9C927D71BE13A3C00B983C9 /* LaunchScreen.storyboard in Resources */,
 				E9C927CB1BE13A3C00B983C9 /* Shader.fsh in Resources */,
 			);
@@ -194,6 +201,7 @@
 				E91B59071BE8C8CC00FA18FE /* TWGLNode.swift in Sources */,
 				E91B591A1BE9055000FA18FE /* MushroomNode.swift in Sources */,
 				E9C927CF1BE13A3C00B983C9 /* GameViewController.swift in Sources */,
+				E966F8781BE9987E006DEBBB /* CubeNode.swift in Sources */,
 				E9C927C91BE13A3C00B983C9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,30 +6,19 @@
 //  Copyright © 2015 Txai Wieser. All rights reserved.
 //
 
-import UIKit
+import GLKit
+import OpenGLES
 
-class TWGLScene: TWGLNode {
+class TWGLScene:TWGLNode {
     let mushroom:TWGLNode
-    
+    let cube:TWGLNode
     init(shader: TWGLShaderReference) {
-        super.init(name: "TWGLScene", texture: nil, shader: shader, vertices: nil)
-        
-        shader = mushroom
+        mushroom = MushroomNode(shader: shader)
+        mushroom.position = GLKVector3Make(mushroom.position.x, mushroom.position.y-2, mushroom.position.z)
+        cube = CubeNode(shader: shader)
+        cube.position = GLKVector3Make(cube.position.x, cube.position.y+2, cube.position.z)
+        super.init(name: "TWGLScene", texture: nil, shader: shader, vertices: [TWGLVertexInfo]())
+        children.append(mushroom)
+        children.append(cube)
     }
-    
-    - (instancetype)initWithShader:(RWTBaseEffect *)shader {
-    if ((self = [super initWithName:"RWTestScene" shader:shader vertices:nil vertexCount:0])) {
-    
-    _mushroom = [[RWTMushroom alloc] initWithShader:shader];
-    [self.children addObject:_mushroom];
-    
-    self.position = GLKVector3Make(0, -1, -5);
-    
-    }
-    return self;
-    }
-    
-    @end
-
-    
 }

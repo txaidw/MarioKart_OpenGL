@@ -47,35 +47,35 @@ class TWGLShaderReference {
         
         //#if defined(DEBUG)
         //        var logLength: GLint = 0
-        //        glGetShaderiv(shader, GLenum(GL_INFO_LOG_LENGTH), &logLength);
+        //        glGetShaderiv(shader, GLenum(GL_INFO_LOG_LENGTH), &logLength)
         //        if logLength > 0 {
         //            var log = UnsafeMutablePointer<GLchar>(malloc(Int(logLength)))
-        //            glGetShaderInfoLog(shader, logLength, &logLength, log);
-        //            NSLog("Shader compile log: \n%s", log);
+        //            glGetShaderInfoLog(shader, logLength, &logLength, log)
+        //            NSLog("Shader compile log: \n%s", log)
         //            free(log)
         //        }
         //#endif
         
         glGetShaderiv(shader, GLenum(GL_COMPILE_STATUS), &status)
         if status == 0 {
-            glDeleteShader(shader);
+            glDeleteShader(shader)
             assertionFailure("Failed to load shader")
         }
         return shader
     }
     
     init(vertexShader:String, fragmentShader:String) {
-        let vertexShaderName:GLuint = compileShader(GLenum(GL_VERTEX_SHADER), file: NSBundle.mainBundle().pathForResource(vertexShader, ofType: nil)!)
+        let vertexShaderName = compileShader(GLenum(GL_VERTEX_SHADER), file: NSBundle.mainBundle().pathForResource(vertexShader, ofType: nil)!)
         let fragmentShaderName = compileShader(GLenum(GL_FRAGMENT_SHADER), file: NSBundle.mainBundle().pathForResource(fragmentShader, ofType: nil)!)
         
         programHandle = glCreateProgram()
         glAttachShader(programHandle, vertexShaderName)
         glAttachShader(programHandle, fragmentShaderName)
         
-        glBindAttribLocation(programHandle, GLuint(GLKVertexAttrib.Position.rawValue), "a_Position")
-        glBindAttribLocation(programHandle, GLuint(GLKVertexAttrib.Color.rawValue), "a_Color")
-        glBindAttribLocation(programHandle, GLuint(GLKVertexAttrib.TexCoord0.rawValue), "a_TexCoord")
-        glBindAttribLocation(programHandle, GLuint(GLKVertexAttrib.Normal.rawValue), "a_Normal")
+        glBindAttribLocation(programHandle, GLuint(TWGLVertexAttrib.Position.rawValue), "a_Position")
+        glBindAttribLocation(programHandle, GLuint(TWGLVertexAttrib.Color.rawValue), "a_Color")
+        glBindAttribLocation(programHandle, GLuint(TWGLVertexAttrib.TexCoord.rawValue), "a_TexCoord")
+        glBindAttribLocation(programHandle, GLuint(TWGLVertexAttrib.Normal.rawValue), "a_Normal")
         
         glLinkProgram(programHandle)
         
@@ -89,22 +89,17 @@ class TWGLShaderReference {
         matSpecularIntensityUniform = glGetUniformLocation(programHandle, "u_MatSpecularIntensity")
         shininessUniform = glGetUniformLocation(programHandle, "u_Shininess")
         matColorUniform = glGetUniformLocation(programHandle, "u_MatColor")
-    }
-    
-    func linkProgram() {
-        glLinkProgram(programHandle)
-        
+                
         //#if defined(DEBUG)
         //        var logLength: GLint = 0
-        //        glGetShaderiv(shader, GLenum(GL_INFO_LOG_LENGTH), &logLength);
+        //        glGetShaderiv(shader, GLenum(GL_INFO_LOG_LENGTH), &logLength)
         //        if logLength > 0 {
         //            var log = UnsafeMutablePointer<GLchar>(malloc(Int(logLength)))
-        //            glGetShaderInfoLog(shader, logLength, &logLength, log);
-        //            NSLog("Shader compile log: \n%s", log);
+        //            glGetShaderInfoLog(shader, logLength, &logLength, log)
+        //            NSLog("Shader compile log: \n%s", log)
         //            free(log)
         //        }
         //#endif
-        
         var status = GLint()
         glGetProgramiv(programHandle, GLenum(GL_LINK_STATUS), &status)
         if status == 0 {
@@ -112,15 +107,16 @@ class TWGLShaderReference {
         }
     }
     
+    
     func prepareToDraw() {
         glUseProgram(programHandle)
         
         withUnsafePointer(&modelViewMatrix, {
-            glUniformMatrix4fv(modelViewMatrixUniform, 1, 0, UnsafePointer($0));
+            glUniformMatrix4fv(modelViewMatrixUniform, 1, 0, UnsafePointer($0))
         })
         
         withUnsafePointer(&projectionMatrix, {
-            glUniformMatrix3fv(projectionMatrixUniform, 1, 0, UnsafePointer($0));
+            glUniformMatrix4fv(projectionMatrixUniform, 1, 0, UnsafePointer($0))
         })
         
         glActiveTexture(GLenum(GL_TEXTURE1))
