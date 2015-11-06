@@ -5,10 +5,16 @@
 //  Created by Txai Wieser on 10/28/15.
 //  Copyright © 2015 Txai Wieser. All rights reserved.
 //
+//
+//  The App icon is not made by me
+//  The App icon can be found here:
+//  https://www.behance.net/gallery/21974585/Super-Mario-64-Intro-Remastered-for-Android-(Fan-Game)
+//
 
 import UIKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

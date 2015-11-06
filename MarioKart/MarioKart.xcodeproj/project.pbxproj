@@ -41,7 +41,7 @@
 		E91B59191BE9055000FA18FE /* MushroomNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MushroomNode.swift; sourceTree = "<group>"; };
 		E966F8771BE9987E006DEBBB /* CubeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeNode.swift; sourceTree = "<group>"; };
 		E966F8791BEA6B83006DEBBB /* dungeon_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungeon_01.png; sourceTree = "<group>"; };
-		E9C927C51BE13A3C00B983C9 /* MarioKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarioKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9C927C51BE13A3C00B983C9 /* Mario Kart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mario Kart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C927C81BE13A3C00B983C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9C927CA1BE13A3C00B983C9 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
 		E9C927CC1BE13A3C00B983C9 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		E9C927C61BE13A3C00B983C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E9C927C51BE13A3C00B983C9 /* MarioKart.app */,
+				E9C927C51BE13A3C00B983C9 /* Mario Kart.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 			);
 			name = MarioKart;
 			productName = MarioKart;
-			productReference = E9C927C51BE13A3C00B983C9 /* MarioKart.app */;
+			productReference = E9C927C51BE13A3C00B983C9 /* Mario Kart.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -361,7 +361,7 @@
 				INFOPLIST_FILE = MarioKart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TDW.MarioKart;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Mario Kart";
 				SWIFT_OBJC_BRIDGING_HEADER = "MarioKart/Nodes/MarioKart-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -376,7 +376,7 @@
 				INFOPLIST_FILE = MarioKart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TDW.MarioKart;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Mario Kart";
 				SWIFT_OBJC_BRIDGING_HEADER = "MarioKart/Nodes/MarioKart-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
