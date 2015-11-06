@@ -44,3 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension Array where Element: Equatable { //Proper syntax for generic constraint in Swift 2
+    mutating func removeItem(item: Element) { //No need to make removeItem method generic, as Array itself is generic
+        if let index = self.indexOf(item) { //Swift 2 does not have find function.
+            removeAtIndex(index)
+        }
+    }
+}

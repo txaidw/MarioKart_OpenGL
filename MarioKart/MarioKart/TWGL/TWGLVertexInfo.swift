@@ -28,4 +28,11 @@ struct TWGLVertexInfo {
         texCoord = (all.7, all.8)
         normal = (all.9, all.10, all.11)
     }
+    
+    init(_ all:(GLfloat, GLfloat, GLfloat)) {
+        position = (all.0, all.1, all.2)
+        color = (1.0, 0.0, 0.0, 1.0)
+        texCoord = (1.0, 1.0)
+        normal = (0.0, 0.0, 1.0)
+    }
 }

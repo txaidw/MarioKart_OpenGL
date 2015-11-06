@@ -10,15 +10,53 @@ import GLKit
 import OpenGLES
 
 
-class GameViewController: GLKViewController {
+class GameViewController: GLKViewController, JSAnalogueStickDelegate, JSButtonDelegate {
+    
+    @IBOutlet weak var analogueController: JSAnalogueStick! {
+        didSet {
+            analogueController.delegate = self
+        }
+    }
+    @IBOutlet weak var aButton: JSButton! {
+        didSet {
+            aButton.delegate = self
+        }
+    }
+    @IBOutlet weak var bButton: JSButton! {
+        didSet {
+            bButton.delegate = self
+        }
+    }
+    
+    func analogueStickDidChangeValue(analogueStick: JSAnalogueStick!) {
+        scene.carNode.acceleration = Float(analogueStick.yValue)
+        scene.carNode.direction = Float(analogueStick.xValue)
+    }
+    
+    func buttonPressed(button: JSButton!) {
+        if button === aButton {
+            
+        } else if button === bButton {
+            
+        }
+    }
+    
+    func buttonReleased(button: JSButton!) {
+        if button === aButton {
+            
+        } else if button === bButton {
+            
+        }
+    }
+    
     lazy var shader:TWGLShaderReference = {
         let s = TWGLShaderReference(vertexShader: "Shader.vsh", fragmentShader: "Shader.fsh")
         s.projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(85.0), Float(self.view.bounds.size.width / self.view.bounds.size.height), 1, 150)
         return s
     }()
     
-    lazy var scene:TWGLScene = {
-       let s = TWGLScene(shader: self.shader)
+    lazy var scene:GameScene = {
+       let s = GameScene(shader: self.shader)
         return s
     }()
     
@@ -66,10 +104,7 @@ class GameViewController: GLKViewController {
         glEnable(GLenum(GL_BLEND))
         glBlendFunc(GLenum(GL_SRC_ALPHA), GLenum(GL_ONE_MINUS_SRC_ALPHA));
         
-        var viewMatrix = GLKMatrix4MakeTranslation(0, -1, -5)
-        viewMatrix = GLKMatrix4Rotate(viewMatrix, GLKMathDegreesToRadians(7), 1, 0, 0)
-        
-        scene.render(viewMatrix)
+        scene.render()
     }
     
     func update() {

@@ -10,15 +10,18 @@ import GLKit
 import OpenGLES
 
 class TWGLScene:TWGLNode {
-    let mushroom:TWGLNode
-    let cube:TWGLNode
+    var camera:TWGLNode!
     init(shader: TWGLShaderReference) {
-        mushroom = MushroomNode(shader: shader)
-        mushroom.position = GLKVector3Make(mushroom.position.x, mushroom.position.y-2, mushroom.position.z)
-        cube = CubeNode(shader: shader)
-        cube.position = GLKVector3Make(cube.position.x, cube.position.y+2, cube.position.z)
+        camera = CameraNode(shader: shader)
+        camera.position.y = -2
+        
         super.init(name: "TWGLScene", texture: nil, shader: shader, vertices: [TWGLVertexInfo]())
-        children.append(mushroom)
-        children.append(cube)
+//        children.append(camera)
     }
+    
+    
+//    func render() {
+//        let viewMatrix = carnode.modelMatrix()
+//        render(viewMatrix)
+//    }
 }

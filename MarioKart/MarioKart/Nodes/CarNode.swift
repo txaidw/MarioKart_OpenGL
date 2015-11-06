@@ -1,35 +1,34 @@
 //
-//  MushroomNode.swift
+//  CarNode.swift
 //  MarioKart
 //
-//  Created by Txai Wieser on 11/3/15.
+//  Created by Txai Wieser on 06/11/15.
 //  Copyright © 2015 Txai Wieser. All rights reserved.
 //
 
 import GLKit
 import OpenGLES
 
-class MushroomNode: TWGLNode {
+class CarNode: TWGLNode {
     
-    init(shader:TWGLShaderReference) {
-        super.init(name: "mushroom", texture: "mushroom.png", shader: shader, vertices: Mushroom_Cylinder_mushroom_Vertices)
-        rotation = (Float(M_PI_2), Float(M_PI), 0)
-        scale = 0.5
+    let ACCELERATION_RATE:Float = 0.3
+    let DIRECTION_RATE:Float = 0.1
+    var acceleration:Float = 0
+    var direction:Float = 0
+
+    
+    init(shader: TWGLShaderReference) {
+        super.init(name: "car", texture: "mushroom.png", shader: shader, vertices: vertices)
+        matColor = (0.0, 0.0, 1.0, 1.0)
     }
     
-    override func update(delta:NSTimeInterval) {
-        super.update(delta)
-        rotation.z = rotation.z + Float(M_PI * delta)
+    override func update(delta: NSTimeInterval) {
+        rotation.y -= direction * DIRECTION_RATE
+        position.x -= acceleration * ACCELERATION_RATE * sin(rotation.y)
+        position.z -= acceleration * ACCELERATION_RATE * cos(rotation.y)
     }
     
-    
-    
-    let Mushroom_Cylinder_mushroom_ambient = GLKVector4Make(0, 0, 0, 1)
-    let Mushroom_Cylinder_mushroom_diffuse = GLKVector4Make(0.64, 0.64, 0.64, 1)
-    let Mushroom_Cylinder_mushroom_specular = GLKVector4Make(0.5, 0.5, 0.5, 1)
-    let Mushroom_Cylinder_mushroom_shininess:GLfloat = 96.078430
-    
-    let Mushroom_Cylinder_mushroom_Vertices:[TWGLVertexInfo] = [
+    let vertices:[TWGLVertexInfo] = [
         TWGLVertexInfo((-1.120554, 0.364090, 1.768647, 1, 1, 1, 1, 0.206538, 0.909188, -0.809017, 0.587785, 0.000000)),
         TWGLVertexInfo((-0.692540, 0.953201, 1.768647, 1, 1, 1, 1, 0.167902, 0.904787, -0.809017, 0.587785, 0.000000)),
         TWGLVertexInfo((-0.692540, 0.953201, 0.124417, 1, 1, 1, 1, 0.170951, 0.594958, -0.809017, 0.587785, 0.000000)),
@@ -450,6 +449,4 @@ class MushroomNode: TWGLNode {
         TWGLVertexInfo((0.000000, -0.000000, 0.000000, 1, 1, 1, 1, 0.049802, 0.381361, -0.000000, 0.000000, -1.000000)),
         TWGLVertexInfo((-0.610565, 0.840372, 0.000000, 1, 1, 1, 1, 0.171180, 0.571325, -0.000000, 0.000000, -1.000000)),
         TWGLVertexInfo((0.000000, 1.038756, 0.000000, 1, 1, 1, 1, 0.133490, 0.566910, -0.000000, 0.000000, -1.000000))]
-    
-    
 }

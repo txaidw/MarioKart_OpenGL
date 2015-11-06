@@ -22,6 +22,13 @@
 		E9C927D21BE13A3C00B983C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C927D01BE13A3C00B983C9 /* Main.storyboard */; };
 		E9C927D41BE13A3C00B983C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C927D31BE13A3C00B983C9 /* Assets.xcassets */; };
 		E9C927D71BE13A3C00B983C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C927D51BE13A3C00B983C9 /* LaunchScreen.storyboard */; };
+		E9DEF2BB1BEB70FE004F8168 /* JSAnalogueStick.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DEF2B61BEB70FE004F8168 /* JSAnalogueStick.m */; };
+		E9DEF2BC1BEB70FE004F8168 /* JSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DEF2B81BEB70FE004F8168 /* JSButton.m */; };
+		E9DEF2BD1BEB70FE004F8168 /* JSDPad.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DEF2BA1BEB70FE004F8168 /* JSDPad.m */; };
+		E9DEF2BF1BEB7AC0004F8168 /* FloorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DEF2BE1BEB7AC0004F8168 /* FloorNode.swift */; };
+		E9DEF2C11BEB7C9B004F8168 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DEF2C01BEB7C9B004F8168 /* GameScene.swift */; };
+		E9DEF2C71BECBC68004F8168 /* CameraNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DEF2C61BECBC68004F8168 /* CameraNode.swift */; };
+		E9DEF2C91BECC6EC004F8168 /* CarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DEF2C81BECC6EC004F8168 /* CarNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +50,16 @@
 		E9C927D31BE13A3C00B983C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9C927D61BE13A3C00B983C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9C927D81BE13A3C00B983C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9DEF2B51BEB70FE004F8168 /* JSAnalogueStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAnalogueStick.h; sourceTree = "<group>"; };
+		E9DEF2B61BEB70FE004F8168 /* JSAnalogueStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAnalogueStick.m; sourceTree = "<group>"; };
+		E9DEF2B71BEB70FE004F8168 /* JSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSButton.h; sourceTree = "<group>"; };
+		E9DEF2B81BEB70FE004F8168 /* JSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSButton.m; sourceTree = "<group>"; };
+		E9DEF2B91BEB70FE004F8168 /* JSDPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDPad.h; sourceTree = "<group>"; };
+		E9DEF2BA1BEB70FE004F8168 /* JSDPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDPad.m; sourceTree = "<group>"; };
+		E9DEF2BE1BEB7AC0004F8168 /* FloorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorNode.swift; sourceTree = "<group>"; };
+		E9DEF2C01BEB7C9B004F8168 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		E9DEF2C61BECBC68004F8168 /* CameraNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraNode.swift; sourceTree = "<group>"; };
+		E9DEF2C81BECC6EC004F8168 /* CarNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +76,7 @@
 		E91B58FC1BE8C5F700FA18FE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E9DEF2C01BEB7C9B004F8168 /* GameScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -69,7 +87,10 @@
 				E966F8791BEA6B83006DEBBB /* dungeon_01.png */,
 				E91B59161BE9047700FA18FE /* mushroom.png */,
 				E91B59191BE9055000FA18FE /* MushroomNode.swift */,
+				E9DEF2C61BECBC68004F8168 /* CameraNode.swift */,
 				E966F8771BE9987E006DEBBB /* CubeNode.swift */,
+				E9DEF2BE1BEB7AC0004F8168 /* FloorNode.swift */,
+				E9DEF2C81BECC6EC004F8168 /* CarNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -104,7 +125,6 @@
 		E9C927C71BE13A3C00B983C9 /* MarioKart */ = {
 			isa = PBXGroup;
 			children = (
-				E91B59101BE9041100FA18FE /* MarioKart-Bridging-Header.h */,
 				E91B59051BE8C8BC00FA18FE /* TWGL */,
 				E91B59021BE8C69400FA18FE /* Nodes */,
 				E91B58FC1BE8C5F700FA18FE /* Scenes */,
@@ -116,8 +136,23 @@
 				E9C927D31BE13A3C00B983C9 /* Assets.xcassets */,
 				E9C927D51BE13A3C00B983C9 /* LaunchScreen.storyboard */,
 				E9C927D81BE13A3C00B983C9 /* Info.plist */,
+				E9DEF2B41BEB70FE004F8168 /* Controllers */,
+				E91B59101BE9041100FA18FE /* MarioKart-Bridging-Header.h */,
 			);
 			path = MarioKart;
+			sourceTree = "<group>";
+		};
+		E9DEF2B41BEB70FE004F8168 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9DEF2B51BEB70FE004F8168 /* JSAnalogueStick.h */,
+				E9DEF2B61BEB70FE004F8168 /* JSAnalogueStick.m */,
+				E9DEF2B71BEB70FE004F8168 /* JSButton.h */,
+				E9DEF2B81BEB70FE004F8168 /* JSButton.m */,
+				E9DEF2B91BEB70FE004F8168 /* JSDPad.h */,
+				E9DEF2BA1BEB70FE004F8168 /* JSDPad.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,13 +230,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9DEF2BB1BEB70FE004F8168 /* JSAnalogueStick.m in Sources */,
 				E91B590F1BE9030F00FA18FE /* TWGLScene.swift in Sources */,
+				E9DEF2BD1BEB70FE004F8168 /* JSDPad.m in Sources */,
+				E9DEF2BC1BEB70FE004F8168 /* JSButton.m in Sources */,
 				E91B590B1BE8CA9F00FA18FE /* TWGLShaderReference.swift in Sources */,
 				E91B590D1BE8D31E00FA18FE /* TWGLVertexInfo.swift in Sources */,
 				E91B59071BE8C8CC00FA18FE /* TWGLNode.swift in Sources */,
 				E91B591A1BE9055000FA18FE /* MushroomNode.swift in Sources */,
+				E9DEF2C71BECBC68004F8168 /* CameraNode.swift in Sources */,
+				E9DEF2C11BEB7C9B004F8168 /* GameScene.swift in Sources */,
 				E9C927CF1BE13A3C00B983C9 /* GameViewController.swift in Sources */,
 				E966F8781BE9987E006DEBBB /* CubeNode.swift in Sources */,
+				E9DEF2C91BECC6EC004F8168 /* CarNode.swift in Sources */,
+				E9DEF2BF1BEB7AC0004F8168 /* FloorNode.swift in Sources */,
 				E9C927C91BE13A3C00B983C9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +364,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MarioKart/Nodes/MarioKart-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -335,6 +378,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = TDW.MarioKart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MarioKart/Nodes/MarioKart-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

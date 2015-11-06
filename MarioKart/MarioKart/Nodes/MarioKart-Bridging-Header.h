@@ -3,3 +3,6 @@
 //
 
 
+
+#import "JSAnalogueStick.h"
+#import "JSButton.h"

@@ -74,6 +74,6 @@ class CubeNode: TWGLNode {
     
     
     override func update(delta: NSTimeInterval) {
-        rotation = GLKVector3Make(rotation.x, rotation.y + Float(M_PI/8 * delta), rotation.z)
+        rotation.y = rotation.y + Float(M_PI/8 * delta)
     }
 }
