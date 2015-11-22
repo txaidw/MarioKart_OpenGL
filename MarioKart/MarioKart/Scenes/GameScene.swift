@@ -22,8 +22,8 @@ class GameScene: TWGLScene {
     override init(shader: TWGLShaderReference) {
         super.init(shader: shader)
 
-        floor = FloorNode(shader: shader)
-        children.append(floor)
+//        floor = FloorNode(shader: shader)
+//        children.append(floor)
 
         xCube = CubeNode(shader: shader)
         xCube.matColor = (1.0, 0.0, 0.0, 1.0)

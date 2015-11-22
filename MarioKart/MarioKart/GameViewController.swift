@@ -9,7 +9,6 @@
 import GLKit
 import OpenGLES
 
-
 class GameViewController: GLKViewController, JSAnalogueStickDelegate, JSButtonDelegate {
     
     @IBOutlet weak var analogueController: JSAnalogueStick! {
@@ -67,10 +66,10 @@ class GameViewController: GLKViewController, JSAnalogueStickDelegate, JSButtonDe
             EAGLContext.setCurrentContext(nil)
         }
     }
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.context = EAGLContext(API: .OpenGLES2)
+        self.context = EAGLContext(API: .OpenGLES3)
         
         if !(self.context != nil) {
             print("Failed to create ES context")

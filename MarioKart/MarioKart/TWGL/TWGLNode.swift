@@ -13,6 +13,10 @@ class TWGLNode {
     let name:String
     var vao = GLuint()
     var vertexBuffer = GLuint()
+    var indexBuffer = GLuint()
+
+//    var vertexPointBuffer = GLuint()
+//    var vertexUVBuffer = GLuint()
     var vertexCount:Int = 0
     weak var shader:TWGLShaderReference?
     
@@ -35,28 +39,40 @@ class TWGLNode {
             
             glGenVertexArraysOES(1, &vao)
             glBindVertexArrayOES(vao)
+
             
-            // Generate vertex buffer
-            glGenBuffers(1, &vertexBuffer)
-            glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexBuffer)
-            glBufferData(GLenum(GL_ARRAY_BUFFER), vertexCount * sizeof(TWGLVertexInfo), v, GLenum(GL_STATIC_DRAW))
-            // Enable vertex attributes
+            glVertexAttribPointer(TWGLVertexAttrib.Position.rawValue, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), 0, newmarioPositions);
+            glVertexAttribPointer(TWGLVertexAttrib.TexCoord.rawValue, 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), 0, newmarioTexels);
+            glVertexAttribPointer(TWGLVertexAttrib.Normal.rawValue, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), 0, newmarioNormals);
             
-            let positionSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: 0)
-            glEnableVertexAttribArray(0)
-            glVertexAttribPointer(0, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), positionSlotFirstComponent)
+            for i in 0..<newmarioMaterials {
+                glUniform3f(TWGLVertexAttrib.Diffuse.rawValue, newmarioDiffuses[i][0], newmarioDiffuses[i][1], newmarioDiffuses[i][2]);
+                glUniform3f(TWGLVertexAttrib.Specular.rawValue, newmarioSpeculars[i][0], newmarioSpeculars[i][1], newmarioSpeculars[i][2]);
+                
+                glDrawArrays(GLenum(GL_TRIANGLES), newmarioFirsts[i], newmarioCounts[i]);
+            }
             
-            let colorSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: sizeof(Float) * 3)
-            glEnableVertexAttribArray(GLuint(TWGLVertexAttrib.Color.rawValue))
-            glVertexAttribPointer(GLuint(TWGLVertexAttrib.Color.rawValue), 4, GLenum( GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), colorSlotFirstComponent)
-            
-            let texCoordSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: sizeof(Float) * 7)
-            glEnableVertexAttribArray(GLuint(TWGLVertexAttrib.TexCoord.rawValue))
-            glVertexAttribPointer(GLuint(TWGLVertexAttrib.TexCoord.rawValue), 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), texCoordSlotFirstComponent)
-            
-            let normalSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: sizeof(Float) * 9)
-            glEnableVertexAttribArray(GLuint(TWGLVertexAttrib.Normal.rawValue))
-            glVertexAttribPointer(GLuint(TWGLVertexAttrib.Normal.rawValue), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), normalSlotFirstComponent)
+//            // Generate vertex buffer
+//            glGenBuffers(1, &vertexBuffer)
+//            glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexBuffer)
+//            glBufferData(GLenum(GL_ARRAY_BUFFER), vertexCount * sizeof(TWGLVertexInfo), v, GLenum(GL_STATIC_DRAW))
+//            // Enable vertex attributes
+//            
+//            let positionSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: 0)
+//            glEnableVertexAttribArray(0)
+//            glVertexAttribPointer(0, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), positionSlotFirstComponent)
+//            
+//            let colorSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: sizeof(Float) * 3)
+//            glEnableVertexAttribArray(GLuint(TWGLVertexAttrib.Color.rawValue))
+//            glVertexAttribPointer(GLuint(TWGLVertexAttrib.Color.rawValue), 4, GLenum( GL_FLOAT), GLboolean(GLboolean(GL_FALSE)), GLsizei(sizeof(TWGLVertexInfo)), colorSlotFirstComponent)
+//            
+//            let texCoordSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: sizeof(Float) * 7)
+//            glEnableVertexAttribArray(GLuint(TWGLVertexAttrib.TexCoord.rawValue))
+//            glVertexAttribPointer(GLuint(TWGLVertexAttrib.TexCoord.rawValue), 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), texCoordSlotFirstComponent)
+//            
+//            let normalSlotFirstComponent: UnsafePointer = UnsafePointer<Int>(bitPattern: sizeof(Float) * 9)
+//            glEnableVertexAttribArray(GLuint(TWGLVertexAttrib.Normal.rawValue))
+//            glVertexAttribPointer(GLuint(TWGLVertexAttrib.Normal.rawValue), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(sizeof(TWGLVertexInfo)), normalSlotFirstComponent)
             
             glBindVertexArrayOES(0)
             glBindBuffer(GLenum(GL_ARRAY_BUFFER), 0)

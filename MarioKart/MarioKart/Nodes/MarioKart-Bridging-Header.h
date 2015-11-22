@@ -6,3 +6,5 @@
 
 #import "JSAnalogueStick.h"
 #import "JSButton.h"
+#import "TWGLOBJLoader.h"
+#import "newmario.h"
