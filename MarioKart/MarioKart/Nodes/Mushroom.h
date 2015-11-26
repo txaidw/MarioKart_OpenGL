@@ -10,6 +10,6 @@
 
 @interface Mushroom : TWGLNode
 
-//- (instancetype)initWithShader:(TWGLShadersReference *)shader;
+- (instancetype)initWithShader:(TWGLShadersReference *)shader;
 
 @end

@@ -9,10 +9,11 @@
 #import "GameScene.h"
 #import "Mushroom.h"
 #import "RWTCube.h"
+#import "QMarkBox.h"
 
 @interface GameScene ()
 
-@property (strong, nonatomic) TWGLNode *mushroom;
+@property (strong, nonatomic) TWGLNode *qmark;
 
 @end
 
@@ -27,22 +28,22 @@
     if (self) {
         _camera = [[TWGLCamera alloc] initWithShader:shader];
         _carNode = [[CarNode alloc] initWithShader:shader];
-        _mushroom = [[RWTCube alloc] initWithShader:shader];
+        _qmark = [[QMarkBox alloc] initWithShader:shader];
         [self.children addObject:_carNode];
         [self.children addObject:_camera];
-        [self.children addObject:_mushroom];
+        [self.children addObject:_qmark];
         
-        //        xCube = [[RWTMushroom alloc] initWithShader:shader];
-        //        xCube.position = GLKVector3Make(20, 0, 0);
-        //        [self.children addObject:xCube];
-        //
-        //        yCube = [[RWTMushroom alloc] initWithShader:shader];
-        //        yCube.position = GLKVector3Make(0, 20, 0);
-        //        [self.children addObject:yCube];
-        //
-        //        zCube = [[RWTMushroom alloc] initWithShader:shader];
-        //        zCube.position = GLKVector3Make(0, 0, 20);
-        //        [self.children addObject:zCube];
+        xCube = [[Mushroom alloc] initWithShader:shader];
+        xCube.position = GLKVector3Make(20, 0, 0);
+        [self.children addObject:xCube];
+        
+        yCube = [[Mushroom alloc] initWithShader:shader];
+        yCube.position = GLKVector3Make(0, 20, 0);
+        [self.children addObject:yCube];
+        
+        zCube = [[Mushroom alloc] initWithShader:shader];
+        zCube.position = GLKVector3Make(0, 0, 20);
+        [self.children addObject:zCube];
 
     }
     return self;

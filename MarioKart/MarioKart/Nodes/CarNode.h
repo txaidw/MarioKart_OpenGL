@@ -7,9 +7,11 @@
 //
 
 #import "TWGLNode.h"
-#import "RWTCube.h"
+#import "Mushroom.h"
 
-@interface CarNode: RWTCube
+@interface CarNode: TWGLNode
+
+- (instancetype)initWithShader:(TWGLShadersReference *)shader;
 
 @property (nonatomic) CGFloat acceleration;
 @property (nonatomic) CGFloat direction;
