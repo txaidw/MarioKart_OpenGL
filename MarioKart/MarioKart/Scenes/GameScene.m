@@ -33,15 +33,15 @@
         [self.children addObject:_camera];
         [self.children addObject:_qmark];
         
-        xCube = [[Mushroom alloc] initWithShader:shader];
+        xCube = [[RWTCube alloc] initWithShader:shader];
         xCube.position = GLKVector3Make(20, 0, 0);
         [self.children addObject:xCube];
         
-        yCube = [[Mushroom alloc] initWithShader:shader];
+        yCube = [[RWTCube alloc] initWithShader:shader];
         yCube.position = GLKVector3Make(0, 20, 0);
         [self.children addObject:yCube];
         
-        zCube = [[Mushroom alloc] initWithShader:shader];
+        zCube = [[RWTCube alloc] initWithShader:shader];
         zCube.position = GLKVector3Make(0, 0, 20);
         [self.children addObject:zCube];
 

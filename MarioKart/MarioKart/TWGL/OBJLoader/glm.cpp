@@ -288,7 +288,8 @@ int glmFindOrAddTexture(GLMmodel* model, char* name,mycallback *call)
     model->numtextures++;
     model->textures = (GLMtexture*)realloc(model->textures, sizeof(GLMtexture)*model->numtextures);
     model->textures[model->numtextures-1].name = strdup(numefis);
-    model->textures[model->numtextures-1].id = glmLoadTexture(filename, GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE, &width, &height);
+#warning OPSSSS
+//    model->textures[model->numtextures-1].id = glmLoadTexture(filename, GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE, &width, &height);
     model->textures[model->numtextures-1].width = width;
     model->textures[model->numtextures-1].height = height;
 

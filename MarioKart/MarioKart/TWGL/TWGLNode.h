@@ -24,7 +24,9 @@
 
 @property (nonatomic, strong) NSMutableArray *children;
 
-- (instancetype)initWithName:(char *)name shader:(TWGLShadersReference *)shader vertices:(GLfloat *)vertices vertexCount:(unsigned int)vertexCount;
+- (instancetype)initWithName:(char *)name shader:(TWGLShadersReference *)shader;
+- (instancetype)initWithName:(char *)name shader:(TWGLShadersReference *)shader vertices:(GLfloat *)vertices vertexCount:(unsigned int)vertexCount inidices:(GLubyte *)indices indexCount:(unsigned int)indexCount;
+
 - (void)renderWithParentModelViewMatrix:(GLKMatrix4)parentModelViewMatrix;
 - (void)updateWithDelta:(NSTimeInterval)dt;
 - (void)loadTexture:(NSString *)filename;

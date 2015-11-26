@@ -14,16 +14,27 @@
     char *_name;
     GLuint _vao;
     GLuint _vertexBuffer;
+    GLuint _indexBuffer;
     unsigned int _vertexCount;
+    unsigned int _indexCount;
     TWGLShadersReference *_shader;
 }
 
-- (instancetype)initWithName:(char *)name shader:(TWGLShadersReference *)shader vertices:(GLfloat *)vertices vertexCount:(unsigned int)vertexCount {
+- (instancetype)initWithName:(char *)name shader:(TWGLShadersReference *)shader
+{
+    self = [self initWithName:name shader:shader vertices:NULL vertexCount:0 inidices:NULL indexCount:0];
+    if (self) {
+    }
+    return self;
+}
+
+- (instancetype)initWithName:(char *)name shader:(TWGLShadersReference *)shader vertices:(GLfloat *)vertices vertexCount:(unsigned int)vertexCount inidices:(GLubyte *)indices indexCount:(unsigned int)indexCount {
     
     if (self = [super init]) {
         
         _name = name;
         _vertexCount = vertexCount;
+        _indexCount = indexCount;
         _shader = shader;
         self.position = GLKVector3Make(0, 0, 0);
         self.rotationX = 0;
@@ -38,19 +49,16 @@
         // Generate vertex buffer
         glGenBuffers(1, &_vertexBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-        glBufferData(GL_ARRAY_BUFFER, vertexCount * 3 * sizeof(GL_FLOAT), vertices, GL_STATIC_DRAW);
-//        glBufferData(GL_ARRAY_BUFFER, vertexCount * sizeof(GL_FLOAT), vertices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, vertexCount * sizeof(GLfloat), vertices, GL_STATIC_DRAW);
         
-//        // Generate index buffer
-//        glGenBuffers(1, &_indexBuffer);
-//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
-//        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexCount * sizeof(GLubyte), indices, GL_STATIC_DRAW);
+        // Generate index buffer
+        glGenBuffers(1, &_indexBuffer);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexCount * sizeof(GLubyte), indices, GL_STATIC_DRAW);
         
         // Enable vertex attributes
         glEnableVertexAttribArray(TWGLVertexAttribPosition);
-//        glVertexAttribPointer(TWGLVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT), (const GLvoid *) offsetof(TWGLVertex, Position));
-        glVertexAttribPointer(TWGLVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GL_FLOAT), 0);
-//        glVertexAttribPointer(TWGLVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT), 0);
+        glVertexAttribPointer(TWGLVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), 0);
 //        glEnableVertexAttribArray(TWGLVertexAttribColor);
 //        glVertexAttribPointer(TWGLVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(TWGLVertex), (const GLvoid *) offsetof(TWGLVertex, Color));
 //        glEnableVertexAttribArray(TWGLVertexAttribTexCoord);
@@ -88,7 +96,7 @@
     [_shader prepareToDraw];
     
     glBindVertexArrayOES(_vao);
-    glDrawArrays(GL_TRIANGLES, 0, _vertexCount);
+    glDrawElements(GL_TRIANGLES, _indexCount, GL_UNSIGNED_BYTE, 0);
     glBindVertexArrayOES(0);
     
 }

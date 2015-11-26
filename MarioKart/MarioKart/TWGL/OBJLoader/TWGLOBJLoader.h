@@ -12,6 +12,6 @@
 
 @interface TWGLOBJLoader : NSObject
 
-+ (GLMmodel)loadOBJ:(NSString *)named;
++ (GLMmodel *)loadOBJ:(NSString *)named;
 + (GLfloat *)parseGLMmodel:(GLMmodel *)model;
 @end

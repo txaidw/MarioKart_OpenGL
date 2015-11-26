@@ -12,7 +12,7 @@
 
 
 - (instancetype)initWithShader:(TWGLShadersReference *)shader {
-    self = [super initWithName:"TWGLDefaultScene" shader:nil vertices:0 vertexCount:0];
+    self = [super initWithName:"TWGLDefaultScene" shader:shader];
     if (self) {
         
     }

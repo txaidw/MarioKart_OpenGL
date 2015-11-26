@@ -15,7 +15,7 @@
 
 - (instancetype)initWithShader:(TWGLShadersReference *)shader
 {
-    if ((self = [super initWithName:"carNode" shader:shader vertices:NULL vertexCount:0])) {
+    if ((self = [super initWithName:"carNode" shader:shader])) {
 //
 //        [self loadTexture:@"mushroom.png"];
 //        

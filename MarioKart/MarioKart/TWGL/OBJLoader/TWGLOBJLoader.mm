@@ -11,7 +11,7 @@
 
 @implementation TWGLOBJLoader
 
-+ (GLMmodel)loadOBJ:(NSString *)named {
++ (GLMmodel *)loadOBJ:(NSString *)named {
 //    
 //    // Read our .obj file
 //    std::vector<glm::vec3> vertices;
@@ -20,7 +20,7 @@
 //    
     NSString *path = [[NSBundle mainBundle] pathForResource:named ofType:@"obj"];
     
-    return *glmReadOBJ((char *)path.UTF8String);
+    return glmReadOBJ((char *)path.UTF8String);
 }
 
 
@@ -45,7 +45,7 @@
         total += tt->numtriangles;
         tt = tt->next;
     }
-    GLfloat *totalArray = (GLfloat*)malloc(sizeof(GLfloat)*3*(total+1));
+    GLfloat *totalArray = (GLfloat*)malloc(sizeof(GLfloat)*3*3*(total+1));
     
     GLuint accumulator = 0;
     GLuint index = 0;
@@ -64,9 +64,10 @@
             //                glNormal3fv(&model->normals[3 * triangle->nindices[0]]);
             //            if (mode & GLM_TEXTURE)
             //                glTexCoord2fv(&model->texcoords[2 * triangle->tindices[0]]);
-            ind = accumulator +(3 * i)+ 0;
+            ind = accumulator +(3*3*i)+ 0*3;
             totalArray[ind] = model->vertices[3 * triangle->vindices[0]];
             printf("ind %d\n", ind);
+//            printf("[%d] p: %d {%d, %d, %d}\n", ind);
             
             //            if (mode & GLM_SMOOTH)
             //                glNormal3fv(&model->normals[3 * triangle->nindices[1]]);
@@ -75,19 +76,19 @@
             //                if (IDTextura==-1) printf("Warning: GLM_TEXTURE este on dar nu este setata nici o textura in material!");
             //                glTexCoord2fv(&model->texcoords[2 * triangle->tindices[1]]);
             //            }
-            ind = accumulator +(3 * i)+ 1;
+            ind = accumulator +(3*3*i)+ 1*3;
             totalArray[ind] = model->vertices[3 * triangle->vindices[1]];
             printf("ind %d\n", ind);
             //            if (mode & GLM_SMOOTH)
             //                glNormal3fv(&model->normals[3 * triangle->nindices[2]]);
             //            if (mode & GLM_TEXTURE)
             //                glTexCoord2fv(&model->texcoords[2 * triangle->tindices[2]]);
-            ind = accumulator +(3 * i)+ 2;
+            ind = accumulator +(3*3*i)+ 2*3;
             totalArray[ind] = model->vertices[3 * triangle->vindices[2]];
             printf("ind %d\n", ind);
             
         }
-        accumulator += 3*group->numtriangles;
+        accumulator += 3*3*group->numtriangles;
         group = group->next;
     }
     return totalArray;

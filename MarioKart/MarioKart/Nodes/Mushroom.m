@@ -11,7 +11,7 @@
 @implementation Mushroom
 
 - (instancetype)initWithShader:(TWGLShadersReference *)shader {
-    if ((self = [super initWithName:"mushroom" shader:shader vertices:(GLfloat *) Mushroom_Cylinder_mushroom_Vertices vertexCount:420])) {
+    if ((self = [super initWithName:"mushroom" shader:shader])) {
     
     [self loadTexture:@"mushroom.png"];
     self.rotationX = -M_PI/2;
