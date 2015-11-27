@@ -7,461 +7,255 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E93B1C821C02468A00F309F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B1C811C02468A00F309F2 /* main.m */; };
-		E93B1C851C02468A00F309F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B1C841C02468A00F309F2 /* AppDelegate.m */; };
-		E93B1C871C02468A00F309F2 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = E93B1C861C02468A00F309F2 /* Shader.fsh */; };
-		E93B1C891C02468A00F309F2 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = E93B1C881C02468A00F309F2 /* Shader.vsh */; };
-		E93B1C8C1C02468A00F309F2 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B1C8B1C02468A00F309F2 /* GameViewController.m */; };
-		E93B1C8F1C02468A00F309F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93B1C8D1C02468A00F309F2 /* Main.storyboard */; };
-		E93B1C911C02468A00F309F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E93B1C901C02468A00F309F2 /* Assets.xcassets */; };
-		E93B1C941C02468A00F309F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93B1C921C02468A00F309F2 /* LaunchScreen.storyboard */; };
-		E93B1CD31C02471E00F309F2 /* KE_face.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1C9D1C02471E00F309F2 /* KE_face.tga */; };
-		E93B1CD41C02471E00F309F2 /* KE_main.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1C9E1C02471E00F309F2 /* KE_main.tga */; };
-		E93B1CD51C02471E00F309F2 /* kk_kart.mtl in Resources */ = {isa = PBXBuildFile; fileRef = E93B1C9F1C02471E00F309F2 /* kk_kart.mtl */; };
-		E93B1CD61C02471E00F309F2 /* kk_kart.obj in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CA01C02471E00F309F2 /* kk_kart.obj */; };
-		E93B1CD71C02471E00F309F2 /* Kkart_body.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CA11C02471E00F309F2 /* Kkart_body.tga */; };
-		E93B1CD81C02471E00F309F2 /* Kkart_e.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CA21C02471E00F309F2 /* Kkart_e.tga */; };
-		E93B1CD91C02471E00F309F2 /* Kkart_tire.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CA31C02471E00F309F2 /* Kkart_tire.tga */; };
-		E93B1CDA1C02471E00F309F2 /* qmark.mtl in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CA51C02471E00F309F2 /* qmark.mtl */; };
-		E93B1CDB1C02471E00F309F2 /* qmark.obj in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CA61C02471E00F309F2 /* qmark.obj */; };
-		E93B1CDC1C02471E00F309F2 /* t0023_0.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CA71C02471E00F309F2 /* t0023_0.tga */; };
-		E93B1CDD1C02471E00F309F2 /* t0157_0.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CA81C02471E00F309F2 /* t0157_0.tga */; };
-		E93B1CDE1C02471E00F309F2 /* ball.mtl in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CAA1C02471E00F309F2 /* ball.mtl */; };
-		E93B1CDF1C02471E00F309F2 /* ball.obj in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CAB1C02471E00F309F2 /* ball.obj */; };
-		E93B1CE01C02471E00F309F2 /* orange3.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CAC1C02471E00F309F2 /* orange3.tga */; };
-		E93B1CE11C02471E00F309F2 /* e_face_luigi.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CAE1C02471E00F309F2 /* e_face_luigi.tga */; };
-		E93B1CE21C02471E00F309F2 /* e_main_luigi.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CAF1C02471E00F309F2 /* e_main_luigi.tga */; };
-		E93B1CE31C02471E00F309F2 /* kart_body_luigi.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CB01C02471E00F309F2 /* kart_body_luigi.tga */; };
-		E93B1CE41C02471E00F309F2 /* kart_e_luigi.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CB11C02471E00F309F2 /* kart_e_luigi.tga */; };
-		E93B1CE51C02471E00F309F2 /* kart_tire_luigi.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CB21C02471E00F309F2 /* kart_tire_luigi.tga */; };
-		E93B1CE61C02471E00F309F2 /* luigi.mtl in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CB31C02471E00F309F2 /* luigi.mtl */; };
-		E93B1CE71C02471E00F309F2 /* luigi.obj in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CB41C02471E00F309F2 /* luigi.obj */; };
-		E93B1CE81C02471E00F309F2 /* e_face.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CB61C02471E00F309F2 /* e_face.tga */; };
-		E93B1CE91C02471E00F309F2 /* e_main.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CB71C02471E00F309F2 /* e_main.tga */; };
-		E93B1CEA1C02471E00F309F2 /* kart_body.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CB81C02471E00F309F2 /* kart_body.tga */; };
-		E93B1CEB1C02471E00F309F2 /* kart_e.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CB91C02471E00F309F2 /* kart_e.tga */; };
-		E93B1CEC1C02471E00F309F2 /* kart_tire.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CBA1C02471E00F309F2 /* kart_tire.tga */; };
-		E93B1CED1C02471E00F309F2 /* mk_kart.mtl in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CBB1C02471E00F309F2 /* mk_kart.mtl */; };
-		E93B1CEE1C02471E00F309F2 /* mk_kart.obj in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CBC1C02471E00F309F2 /* mk_kart.obj */; };
-		E93B1CEF1C02471E00F309F2 /* pe_face.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CBE1C02471E00F309F2 /* pe_face.tga */; };
-		E93B1CF01C02471E00F309F2 /* pe_main.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CBF1C02471E00F309F2 /* pe_main.tga */; };
-		E93B1CF11C02471E00F309F2 /* pk_kart.mtl in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CC01C02471E00F309F2 /* pk_kart.mtl */; };
-		E93B1CF21C02471E00F309F2 /* pk_kart.obj in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CC11C02471E00F309F2 /* pk_kart.obj */; };
-		E93B1CF31C02471E00F309F2 /* pkart_body.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CC21C02471E00F309F2 /* pkart_body.tga */; };
-		E93B1CF41C02471E00F309F2 /* pkart_e.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CC31C02471E00F309F2 /* pkart_e.tga */; };
-		E93B1CF51C02471E00F309F2 /* pkart_tire.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CC41C02471E00F309F2 /* pkart_tire.tga */; };
-		E93B1CF61C02471E00F309F2 /* brick_wall.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CC61C02471E00F309F2 /* brick_wall.tga */; };
-		E93B1CF71C02471E00F309F2 /* grey_asphalt.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CC71C02471E00F309F2 /* grey_asphalt.tga */; };
-		E93B1CF81C02471E00F309F2 /* race_flag.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CC81C02471E00F309F2 /* race_flag.tga */; };
-		E93B1CF91C02471E00F309F2 /* raceway_mariokart.mtl in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CC91C02471E00F309F2 /* raceway_mariokart.mtl */; };
-		E93B1CFA1C02471E00F309F2 /* raceway_mariokart.obj in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CCA1C02471E00F309F2 /* raceway_mariokart.obj */; };
-		E93B1CFB1C02471E00F309F2 /* e_face.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CCC1C02471E00F309F2 /* e_face.tga */; };
-		E93B1CFC1C02471E00F309F2 /* e_main.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CCD1C02471E00F309F2 /* e_main.tga */; };
-		E93B1CFD1C02471E00F309F2 /* kart_body.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CCE1C02471E00F309F2 /* kart_body.tga */; };
-		E93B1CFE1C02471E00F309F2 /* kart_e.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CCF1C02471E00F309F2 /* kart_e.tga */; };
-		E93B1CFF1C02471E00F309F2 /* kart_tire.tga in Resources */ = {isa = PBXBuildFile; fileRef = E93B1CD01C02471E00F309F2 /* kart_tire.tga */; };
-		E93B1D001C02471E00F309F2 /* newmario.c in Sources */ = {isa = PBXBuildFile; fileRef = E93B1CD11C02471E00F309F2 /* newmario.c */; };
-		E93B1D081C02472F00F309F2 /* JSAnalogueStick.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B1D031C02472F00F309F2 /* JSAnalogueStick.m */; };
-		E93B1D091C02472F00F309F2 /* JSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B1D051C02472F00F309F2 /* JSButton.m */; };
-		E93B1D0A1C02472F00F309F2 /* JSDPad.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B1D071C02472F00F309F2 /* JSDPad.m */; };
-		E93B1D0E1C02473800F309F2 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = E93B1D0C1C02473800F309F2 /* Shader.fsh */; };
-		E93B1D0F1C02473800F309F2 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = E93B1D0D1C02473800F309F2 /* Shader.vsh */; };
-		E93B1D281C0252FE00F309F2 /* TWGLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B1D1C1C0252FE00F309F2 /* TWGLNode.m */; };
-		E93B1D2F1C02531900F309F2 /* TWGLShadersReference.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B1D2D1C02531900F309F2 /* TWGLShadersReference.m */; };
-		E93B1D321C02532200F309F2 /* TWGLDefaultScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B1D311C02532200F309F2 /* TWGLDefaultScene.m */; };
-		E93B1D391C02536800F309F2 /* Mushroom.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B1D371C02536800F309F2 /* Mushroom.m */; };
-		E93B1D3F1C02583E00F309F2 /* mushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = E93B1D3D1C02583E00F309F2 /* mushroom.png */; };
-		E96A50241C0269760087282D /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E96A50231C0269760087282D /* GameScene.m */; };
-		E96A50271C027EFF0087282D /* CarNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E96A50261C027EFF0087282D /* CarNode.m */; };
-		E96A502B1C0382640087282D /* TWGLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = E96A502A1C0382640087282D /* TWGLCamera.m */; };
-		E97EC5411C06267800A84650 /* FloorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E97EC5401C06267800A84650 /* FloorNode.m */; };
-		E97EC5471C063AEB00A84650 /* RWTCube.m in Sources */ = {isa = PBXBuildFile; fileRef = E97EC5461C063AEB00A84650 /* RWTCube.m */; };
-		E97EC5491C063BC000A84650 /* dungeon_01.png in Resources */ = {isa = PBXBuildFile; fileRef = E97EC5481C063BC000A84650 /* dungeon_01.png */; };
-		E97EC5541C063F6000A84650 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E97EC54B1C063F6000A84650 /* glm.cpp */; };
-		E97EC5551C063F6000A84650 /* glmimg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E97EC54D1C063F6000A84650 /* glmimg.cpp */; };
-		E97EC5571C063F6000A84650 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E97EC54F1C063F6000A84650 /* Texture.cpp */; };
-		E97EC5581C063F6000A84650 /* TWGLOBJLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = E97EC5521C063F6000A84650 /* TWGLOBJLoader.mm */; };
-		E97EC55B1C06423000A84650 /* QMarkBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E97EC55A1C06423000A84650 /* QMarkBox.m */; };
+		E90F49F41C081F1400DEE4CE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E90F49F31C081F1400DEE4CE /* main.cpp */; };
+		E90F4A001C081F4700DEE4CE /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E90F49FA1C081F4700DEE4CE /* glm.cpp */; };
+		E90F4A021C081F4700DEE4CE /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E90F49FD1C081F4700DEE4CE /* Texture.cpp */; };
+		E90F4A041C081F8000DEE4CE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F4A031C081F8000DEE4CE /* OpenGL.framework */; };
+		E90F4A061C081F8600DEE4CE /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F4A051C081F8600DEE4CE /* GLUT.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E90F49EE1C081F1400DEE4CE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		E93B1C7D1C02468A00F309F2 /* MarioKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarioKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E93B1C811C02468A00F309F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E93B1C831C02468A00F309F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E93B1C841C02468A00F309F2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E93B1C861C02468A00F309F2 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
-		E93B1C881C02468A00F309F2 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
-		E93B1C8A1C02468A00F309F2 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		E93B1C8B1C02468A00F309F2 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		E93B1C8E1C02468A00F309F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E93B1C901C02468A00F309F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E93B1C931C02468A00F309F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E93B1C951C02468A00F309F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E93B1C9D1C02471E00F309F2 /* KE_face.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = KE_face.tga; sourceTree = "<group>"; };
-		E93B1C9E1C02471E00F309F2 /* KE_main.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = KE_main.tga; sourceTree = "<group>"; };
-		E93B1C9F1C02471E00F309F2 /* kk_kart.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kk_kart.mtl; sourceTree = "<group>"; };
-		E93B1CA01C02471E00F309F2 /* kk_kart.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kk_kart.obj; sourceTree = "<group>"; };
-		E93B1CA11C02471E00F309F2 /* Kkart_body.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kkart_body.tga; sourceTree = "<group>"; };
-		E93B1CA21C02471E00F309F2 /* Kkart_e.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kkart_e.tga; sourceTree = "<group>"; };
-		E93B1CA31C02471E00F309F2 /* Kkart_tire.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kkart_tire.tga; sourceTree = "<group>"; };
-		E93B1CA51C02471E00F309F2 /* qmark.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qmark.mtl; sourceTree = "<group>"; };
-		E93B1CA61C02471E00F309F2 /* qmark.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qmark.obj; sourceTree = "<group>"; };
-		E93B1CA71C02471E00F309F2 /* t0023_0.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = t0023_0.tga; sourceTree = "<group>"; };
-		E93B1CA81C02471E00F309F2 /* t0157_0.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = t0157_0.tga; sourceTree = "<group>"; };
-		E93B1CAA1C02471E00F309F2 /* ball.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ball.mtl; sourceTree = "<group>"; };
-		E93B1CAB1C02471E00F309F2 /* ball.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ball.obj; sourceTree = "<group>"; };
-		E93B1CAC1C02471E00F309F2 /* orange3.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = orange3.tga; sourceTree = "<group>"; };
-		E93B1CAE1C02471E00F309F2 /* e_face_luigi.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = e_face_luigi.tga; sourceTree = "<group>"; };
-		E93B1CAF1C02471E00F309F2 /* e_main_luigi.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = e_main_luigi.tga; sourceTree = "<group>"; };
-		E93B1CB01C02471E00F309F2 /* kart_body_luigi.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_body_luigi.tga; sourceTree = "<group>"; };
-		E93B1CB11C02471E00F309F2 /* kart_e_luigi.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_e_luigi.tga; sourceTree = "<group>"; };
-		E93B1CB21C02471E00F309F2 /* kart_tire_luigi.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_tire_luigi.tga; sourceTree = "<group>"; };
-		E93B1CB31C02471E00F309F2 /* luigi.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = luigi.mtl; sourceTree = "<group>"; };
-		E93B1CB41C02471E00F309F2 /* luigi.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = luigi.obj; sourceTree = "<group>"; };
-		E93B1CB61C02471E00F309F2 /* e_face.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = e_face.tga; sourceTree = "<group>"; };
-		E93B1CB71C02471E00F309F2 /* e_main.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = e_main.tga; sourceTree = "<group>"; };
-		E93B1CB81C02471E00F309F2 /* kart_body.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_body.tga; sourceTree = "<group>"; };
-		E93B1CB91C02471E00F309F2 /* kart_e.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_e.tga; sourceTree = "<group>"; };
-		E93B1CBA1C02471E00F309F2 /* kart_tire.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_tire.tga; sourceTree = "<group>"; };
-		E93B1CBB1C02471E00F309F2 /* mk_kart.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mk_kart.mtl; sourceTree = "<group>"; };
-		E93B1CBC1C02471E00F309F2 /* mk_kart.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mk_kart.obj; sourceTree = "<group>"; };
-		E93B1CBE1C02471E00F309F2 /* pe_face.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pe_face.tga; sourceTree = "<group>"; };
-		E93B1CBF1C02471E00F309F2 /* pe_main.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pe_main.tga; sourceTree = "<group>"; };
-		E93B1CC01C02471E00F309F2 /* pk_kart.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pk_kart.mtl; sourceTree = "<group>"; };
-		E93B1CC11C02471E00F309F2 /* pk_kart.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pk_kart.obj; sourceTree = "<group>"; };
-		E93B1CC21C02471E00F309F2 /* pkart_body.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pkart_body.tga; sourceTree = "<group>"; };
-		E93B1CC31C02471E00F309F2 /* pkart_e.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pkart_e.tga; sourceTree = "<group>"; };
-		E93B1CC41C02471E00F309F2 /* pkart_tire.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pkart_tire.tga; sourceTree = "<group>"; };
-		E93B1CC61C02471E00F309F2 /* brick_wall.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = brick_wall.tga; sourceTree = "<group>"; };
-		E93B1CC71C02471E00F309F2 /* grey_asphalt.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = grey_asphalt.tga; sourceTree = "<group>"; };
-		E93B1CC81C02471E00F309F2 /* race_flag.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = race_flag.tga; sourceTree = "<group>"; };
-		E93B1CC91C02471E00F309F2 /* raceway_mariokart.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = raceway_mariokart.mtl; sourceTree = "<group>"; };
-		E93B1CCA1C02471E00F309F2 /* raceway_mariokart.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = raceway_mariokart.obj; sourceTree = "<group>"; };
-		E93B1CCC1C02471E00F309F2 /* e_face.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = e_face.tga; sourceTree = "<group>"; };
-		E93B1CCD1C02471E00F309F2 /* e_main.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = e_main.tga; sourceTree = "<group>"; };
-		E93B1CCE1C02471E00F309F2 /* kart_body.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_body.tga; sourceTree = "<group>"; };
-		E93B1CCF1C02471E00F309F2 /* kart_e.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_e.tga; sourceTree = "<group>"; };
-		E93B1CD01C02471E00F309F2 /* kart_tire.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_tire.tga; sourceTree = "<group>"; };
-		E93B1CD11C02471E00F309F2 /* newmario.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = newmario.c; sourceTree = "<group>"; };
-		E93B1CD21C02471E00F309F2 /* newmario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newmario.h; sourceTree = "<group>"; };
-		E93B1D021C02472F00F309F2 /* JSAnalogueStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAnalogueStick.h; sourceTree = "<group>"; };
-		E93B1D031C02472F00F309F2 /* JSAnalogueStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAnalogueStick.m; sourceTree = "<group>"; };
-		E93B1D041C02472F00F309F2 /* JSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSButton.h; sourceTree = "<group>"; };
-		E93B1D051C02472F00F309F2 /* JSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSButton.m; sourceTree = "<group>"; };
-		E93B1D061C02472F00F309F2 /* JSDPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDPad.h; sourceTree = "<group>"; };
-		E93B1D071C02472F00F309F2 /* JSDPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDPad.m; sourceTree = "<group>"; };
-		E93B1D0C1C02473800F309F2 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
-		E93B1D0D1C02473800F309F2 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
-		E93B1D1B1C0252FE00F309F2 /* TWGLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGLNode.h; sourceTree = "<group>"; };
-		E93B1D1C1C0252FE00F309F2 /* TWGLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWGLNode.m; sourceTree = "<group>"; };
-		E93B1D2C1C02531900F309F2 /* TWGLShadersReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGLShadersReference.h; sourceTree = "<group>"; };
-		E93B1D2D1C02531900F309F2 /* TWGLShadersReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWGLShadersReference.m; sourceTree = "<group>"; };
-		E93B1D2E1C02531900F309F2 /* TWGLVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGLVertex.h; sourceTree = "<group>"; };
-		E93B1D301C02532200F309F2 /* TWGLDefaultScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGLDefaultScene.h; sourceTree = "<group>"; };
-		E93B1D311C02532200F309F2 /* TWGLDefaultScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWGLDefaultScene.m; sourceTree = "<group>"; };
-		E93B1D361C02536800F309F2 /* Mushroom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mushroom.h; sourceTree = "<group>"; };
-		E93B1D371C02536800F309F2 /* Mushroom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mushroom.m; sourceTree = "<group>"; };
-		E93B1D3D1C02583E00F309F2 /* mushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mushroom.png; sourceTree = "<group>"; };
-		E96A50221C0269760087282D /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		E96A50231C0269760087282D /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		E96A50251C027EFF0087282D /* CarNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarNode.h; sourceTree = "<group>"; };
-		E96A50261C027EFF0087282D /* CarNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarNode.m; sourceTree = "<group>"; };
-		E96A50291C0382640087282D /* TWGLCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGLCamera.h; sourceTree = "<group>"; };
-		E96A502A1C0382640087282D /* TWGLCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWGLCamera.m; sourceTree = "<group>"; };
-		E97EC53F1C06267800A84650 /* FloorNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorNode.h; sourceTree = "<group>"; };
-		E97EC5401C06267800A84650 /* FloorNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorNode.m; sourceTree = "<group>"; };
-		E97EC5451C063AEB00A84650 /* RWTCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWTCube.h; sourceTree = "<group>"; };
-		E97EC5461C063AEB00A84650 /* RWTCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWTCube.m; sourceTree = "<group>"; };
-		E97EC5481C063BC000A84650 /* dungeon_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungeon_01.png; sourceTree = "<group>"; };
-		E97EC54B1C063F6000A84650 /* glm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glm.cpp; sourceTree = "<group>"; };
-		E97EC54C1C063F6000A84650 /* glm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glm.h; sourceTree = "<group>"; };
-		E97EC54D1C063F6000A84650 /* glmimg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glmimg.cpp; sourceTree = "<group>"; };
-		E97EC54F1C063F6000A84650 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
-		E97EC5501C063F6000A84650 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
-		E97EC5511C063F6000A84650 /* TWGLOBJLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGLOBJLoader.h; sourceTree = "<group>"; };
-		E97EC5521C063F6000A84650 /* TWGLOBJLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TWGLOBJLoader.mm; sourceTree = "<group>"; };
-		E97EC5531C063F6000A84650 /* vector3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector3f.h; sourceTree = "<group>"; };
-		E97EC5591C06423000A84650 /* QMarkBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMarkBox.h; sourceTree = "<group>"; };
-		E97EC55A1C06423000A84650 /* QMarkBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMarkBox.m; sourceTree = "<group>"; };
+		E90F49F01C081F1400DEE4CE /* MarioKart */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MarioKart; sourceTree = BUILT_PRODUCTS_DIR; };
+		E90F49F31C081F1400DEE4CE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E90F49FA1C081F4700DEE4CE /* glm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glm.cpp; sourceTree = "<group>"; };
+		E90F49FB1C081F4700DEE4CE /* glm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glm.h; sourceTree = "<group>"; };
+		E90F49FD1C081F4700DEE4CE /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		E90F49FE1C081F4700DEE4CE /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		E90F49FF1C081F4700DEE4CE /* vector3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector3f.h; sourceTree = "<group>"; };
+		E90F4A031C081F8000DEE4CE /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		E90F4A051C081F8600DEE4CE /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		E90F4A0A1C08277C00DEE4CE /* KE_face.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = KE_face.tga; sourceTree = "<group>"; };
+		E90F4A0B1C08277C00DEE4CE /* KE_main.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = KE_main.tga; sourceTree = "<group>"; };
+		E90F4A0C1C08277C00DEE4CE /* kk_kart.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kk_kart.mtl; sourceTree = "<group>"; };
+		E90F4A0D1C08277C00DEE4CE /* kk_kart.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kk_kart.obj; sourceTree = "<group>"; };
+		E90F4A0E1C08277C00DEE4CE /* Kkart_body.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kkart_body.tga; sourceTree = "<group>"; };
+		E90F4A0F1C08277C00DEE4CE /* Kkart_e.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kkart_e.tga; sourceTree = "<group>"; };
+		E90F4A101C08277C00DEE4CE /* Kkart_tire.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kkart_tire.tga; sourceTree = "<group>"; };
+		E90F4A121C08277C00DEE4CE /* qmark.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qmark.mtl; sourceTree = "<group>"; };
+		E90F4A131C08277C00DEE4CE /* qmark.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qmark.obj; sourceTree = "<group>"; };
+		E90F4A141C08277C00DEE4CE /* t0023_0.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = t0023_0.tga; sourceTree = "<group>"; };
+		E90F4A151C08277C00DEE4CE /* t0157_0.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = t0157_0.tga; sourceTree = "<group>"; };
+		E90F4A171C08277C00DEE4CE /* ball.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ball.mtl; sourceTree = "<group>"; };
+		E90F4A181C08277C00DEE4CE /* ball.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ball.obj; sourceTree = "<group>"; };
+		E90F4A191C08277C00DEE4CE /* orange3.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = orange3.tga; sourceTree = "<group>"; };
+		E90F4A1B1C08277C00DEE4CE /* e_face_luigi.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = e_face_luigi.tga; sourceTree = "<group>"; };
+		E90F4A1C1C08277C00DEE4CE /* e_main_luigi.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = e_main_luigi.tga; sourceTree = "<group>"; };
+		E90F4A1D1C08277C00DEE4CE /* kart_body_luigi.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_body_luigi.tga; sourceTree = "<group>"; };
+		E90F4A1E1C08277C00DEE4CE /* kart_e_luigi.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_e_luigi.tga; sourceTree = "<group>"; };
+		E90F4A1F1C08277C00DEE4CE /* kart_tire_luigi.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_tire_luigi.tga; sourceTree = "<group>"; };
+		E90F4A201C08277C00DEE4CE /* luigi.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = luigi.mtl; sourceTree = "<group>"; };
+		E90F4A211C08277C00DEE4CE /* luigi.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = luigi.obj; sourceTree = "<group>"; };
+		E90F4A231C08277C00DEE4CE /* e_face.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = e_face.tga; sourceTree = "<group>"; };
+		E90F4A241C08277C00DEE4CE /* e_main.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = e_main.tga; sourceTree = "<group>"; };
+		E90F4A251C08277C00DEE4CE /* kart_body.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_body.tga; sourceTree = "<group>"; };
+		E90F4A261C08277C00DEE4CE /* kart_e.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_e.tga; sourceTree = "<group>"; };
+		E90F4A271C08277C00DEE4CE /* kart_tire.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = kart_tire.tga; sourceTree = "<group>"; };
+		E90F4A281C08277C00DEE4CE /* mk_kart.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mk_kart.mtl; sourceTree = "<group>"; };
+		E90F4A291C08277C00DEE4CE /* mk_kart.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mk_kart.obj; sourceTree = "<group>"; };
+		E90F4A2B1C08277C00DEE4CE /* pe_face.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pe_face.tga; sourceTree = "<group>"; };
+		E90F4A2C1C08277C00DEE4CE /* pe_main.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pe_main.tga; sourceTree = "<group>"; };
+		E90F4A2D1C08277C00DEE4CE /* pk_kart.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pk_kart.mtl; sourceTree = "<group>"; };
+		E90F4A2E1C08277C00DEE4CE /* pk_kart.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pk_kart.obj; sourceTree = "<group>"; };
+		E90F4A2F1C08277C00DEE4CE /* pkart_body.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pkart_body.tga; sourceTree = "<group>"; };
+		E90F4A301C08277C00DEE4CE /* pkart_e.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pkart_e.tga; sourceTree = "<group>"; };
+		E90F4A311C08277C00DEE4CE /* pkart_tire.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pkart_tire.tga; sourceTree = "<group>"; };
+		E90F4A331C08277C00DEE4CE /* brick_wall.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = brick_wall.tga; sourceTree = "<group>"; };
+		E90F4A341C08277C00DEE4CE /* grey_asphalt.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = grey_asphalt.tga; sourceTree = "<group>"; };
+		E90F4A351C08277C00DEE4CE /* race_flag.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = race_flag.tga; sourceTree = "<group>"; };
+		E90F4A361C08277C00DEE4CE /* raceway_mariokart.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = raceway_mariokart.mtl; sourceTree = "<group>"; };
+		E90F4A371C08277C00DEE4CE /* raceway_mariokart.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = raceway_mariokart.obj; sourceTree = "<group>"; };
+		E90F4A391C08277C00DEE4CE /* test_plane.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_plane.mtl; sourceTree = "<group>"; };
+		E90F4A3A1C08277C00DEE4CE /* test_plane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_plane.obj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E93B1C7A1C02468A00F309F2 /* Frameworks */ = {
+		E90F49ED1C081F1400DEE4CE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E90F4A061C081F8600DEE4CE /* GLUT.framework in Frameworks */,
+				E90F4A041C081F8000DEE4CE /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E93B1C741C02468A00F309F2 = {
+		E90F49E71C081F1400DEE4CE = {
 			isa = PBXGroup;
 			children = (
-				E93B1C7F1C02468A00F309F2 /* MarioKart */,
-				E93B1C7E1C02468A00F309F2 /* Products */,
+				E90F49F21C081F1400DEE4CE /* MarioKart */,
+				E90F4A071C081F8C00DEE4CE /* Frameworks */,
+				E90F49F11C081F1400DEE4CE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E93B1C7E1C02468A00F309F2 /* Products */ = {
+		E90F49F11C081F1400DEE4CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1C7D1C02468A00F309F2 /* MarioKart.app */,
+				E90F49F01C081F1400DEE4CE /* MarioKart */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E93B1C7F1C02468A00F309F2 /* MarioKart */ = {
+		E90F49F21C081F1400DEE4CE /* MarioKart */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1D101C0252FE00F309F2 /* TWGL */,
-				E93B1D011C02472F00F309F2 /* Controllers */,
-				E93B1C9B1C02471E00F309F2 /* Models */,
-				E93B1CCB1C02471E00F309F2 /* NewModels */,
-				E93B1D0B1C02473800F309F2 /* Shaders */,
-				E93B1D3A1C02583A00F309F2 /* Tests */,
-				E93B1D331C02536800F309F2 /* Nodes */,
-				E96A50211C0269620087282D /* Scenes */,
-				E93B1C831C02468A00F309F2 /* AppDelegate.h */,
-				E93B1C841C02468A00F309F2 /* AppDelegate.m */,
-				E93B1C861C02468A00F309F2 /* Shader.fsh */,
-				E93B1C881C02468A00F309F2 /* Shader.vsh */,
-				E93B1C8A1C02468A00F309F2 /* GameViewController.h */,
-				E93B1C8B1C02468A00F309F2 /* GameViewController.m */,
-				E93B1C8D1C02468A00F309F2 /* Main.storyboard */,
-				E93B1C901C02468A00F309F2 /* Assets.xcassets */,
-				E93B1C921C02468A00F309F2 /* LaunchScreen.storyboard */,
-				E93B1C951C02468A00F309F2 /* Info.plist */,
-				E93B1C801C02468A00F309F2 /* Supporting Files */,
+				E90F4A081C08277C00DEE4CE /* Models */,
+				E90F49FA1C081F4700DEE4CE /* glm.cpp */,
+				E90F49FB1C081F4700DEE4CE /* glm.h */,
+				E90F49FD1C081F4700DEE4CE /* Texture.cpp */,
+				E90F49FE1C081F4700DEE4CE /* Texture.h */,
+				E90F49FF1C081F4700DEE4CE /* vector3f.h */,
+				E90F49F31C081F1400DEE4CE /* main.cpp */,
 			);
 			path = MarioKart;
 			sourceTree = "<group>";
 		};
-		E93B1C801C02468A00F309F2 /* Supporting Files */ = {
+		E90F4A071C081F8C00DEE4CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1C811C02468A00F309F2 /* main.m */,
+				E90F4A051C081F8600DEE4CE /* GLUT.framework */,
+				E90F4A031C081F8000DEE4CE /* OpenGL.framework */,
 			);
-			name = "Supporting Files";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E93B1C9B1C02471E00F309F2 /* Models */ = {
+		E90F4A081C08277C00DEE4CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1C9C1C02471E00F309F2 /* Bowser */,
-				E93B1CA41C02471E00F309F2 /* Caixa */,
-				E93B1CA91C02471E00F309F2 /* Esfera */,
-				E93B1CAD1C02471E00F309F2 /* Luigi */,
-				E93B1CB51C02471E00F309F2 /* Mario */,
-				E93B1CBD1C02471E00F309F2 /* Peach */,
-				E93B1CC51C02471E00F309F2 /* Pista */,
+				E90F4A091C08277C00DEE4CE /* Bowser */,
+				E90F4A111C08277C00DEE4CE /* Caixa */,
+				E90F4A161C08277C00DEE4CE /* Esfera */,
+				E90F4A1A1C08277C00DEE4CE /* Luigi */,
+				E90F4A221C08277C00DEE4CE /* Mario */,
+				E90F4A2A1C08277C00DEE4CE /* Peach */,
+				E90F4A321C08277C00DEE4CE /* Pista */,
+				E90F4A381C08277C00DEE4CE /* Tests */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E93B1C9C1C02471E00F309F2 /* Bowser */ = {
+		E90F4A091C08277C00DEE4CE /* Bowser */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1C9D1C02471E00F309F2 /* KE_face.tga */,
-				E93B1C9E1C02471E00F309F2 /* KE_main.tga */,
-				E93B1C9F1C02471E00F309F2 /* kk_kart.mtl */,
-				E93B1CA01C02471E00F309F2 /* kk_kart.obj */,
-				E93B1CA11C02471E00F309F2 /* Kkart_body.tga */,
-				E93B1CA21C02471E00F309F2 /* Kkart_e.tga */,
-				E93B1CA31C02471E00F309F2 /* Kkart_tire.tga */,
+				E90F4A0A1C08277C00DEE4CE /* KE_face.tga */,
+				E90F4A0B1C08277C00DEE4CE /* KE_main.tga */,
+				E90F4A0C1C08277C00DEE4CE /* kk_kart.mtl */,
+				E90F4A0D1C08277C00DEE4CE /* kk_kart.obj */,
+				E90F4A0E1C08277C00DEE4CE /* Kkart_body.tga */,
+				E90F4A0F1C08277C00DEE4CE /* Kkart_e.tga */,
+				E90F4A101C08277C00DEE4CE /* Kkart_tire.tga */,
 			);
 			path = Bowser;
 			sourceTree = "<group>";
 		};
-		E93B1CA41C02471E00F309F2 /* Caixa */ = {
+		E90F4A111C08277C00DEE4CE /* Caixa */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1CA51C02471E00F309F2 /* qmark.mtl */,
-				E93B1CA61C02471E00F309F2 /* qmark.obj */,
-				E93B1CA71C02471E00F309F2 /* t0023_0.tga */,
-				E93B1CA81C02471E00F309F2 /* t0157_0.tga */,
+				E90F4A121C08277C00DEE4CE /* qmark.mtl */,
+				E90F4A131C08277C00DEE4CE /* qmark.obj */,
+				E90F4A141C08277C00DEE4CE /* t0023_0.tga */,
+				E90F4A151C08277C00DEE4CE /* t0157_0.tga */,
 			);
 			path = Caixa;
 			sourceTree = "<group>";
 		};
-		E93B1CA91C02471E00F309F2 /* Esfera */ = {
+		E90F4A161C08277C00DEE4CE /* Esfera */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1CAA1C02471E00F309F2 /* ball.mtl */,
-				E93B1CAB1C02471E00F309F2 /* ball.obj */,
-				E93B1CAC1C02471E00F309F2 /* orange3.tga */,
+				E90F4A171C08277C00DEE4CE /* ball.mtl */,
+				E90F4A181C08277C00DEE4CE /* ball.obj */,
+				E90F4A191C08277C00DEE4CE /* orange3.tga */,
 			);
 			path = Esfera;
 			sourceTree = "<group>";
 		};
-		E93B1CAD1C02471E00F309F2 /* Luigi */ = {
+		E90F4A1A1C08277C00DEE4CE /* Luigi */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1CAE1C02471E00F309F2 /* e_face_luigi.tga */,
-				E93B1CAF1C02471E00F309F2 /* e_main_luigi.tga */,
-				E93B1CB01C02471E00F309F2 /* kart_body_luigi.tga */,
-				E93B1CB11C02471E00F309F2 /* kart_e_luigi.tga */,
-				E93B1CB21C02471E00F309F2 /* kart_tire_luigi.tga */,
-				E93B1CB31C02471E00F309F2 /* luigi.mtl */,
-				E93B1CB41C02471E00F309F2 /* luigi.obj */,
+				E90F4A1B1C08277C00DEE4CE /* e_face_luigi.tga */,
+				E90F4A1C1C08277C00DEE4CE /* e_main_luigi.tga */,
+				E90F4A1D1C08277C00DEE4CE /* kart_body_luigi.tga */,
+				E90F4A1E1C08277C00DEE4CE /* kart_e_luigi.tga */,
+				E90F4A1F1C08277C00DEE4CE /* kart_tire_luigi.tga */,
+				E90F4A201C08277C00DEE4CE /* luigi.mtl */,
+				E90F4A211C08277C00DEE4CE /* luigi.obj */,
 			);
 			path = Luigi;
 			sourceTree = "<group>";
 		};
-		E93B1CB51C02471E00F309F2 /* Mario */ = {
+		E90F4A221C08277C00DEE4CE /* Mario */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1CB61C02471E00F309F2 /* e_face.tga */,
-				E93B1CB71C02471E00F309F2 /* e_main.tga */,
-				E93B1CB81C02471E00F309F2 /* kart_body.tga */,
-				E93B1CB91C02471E00F309F2 /* kart_e.tga */,
-				E93B1CBA1C02471E00F309F2 /* kart_tire.tga */,
-				E93B1CBB1C02471E00F309F2 /* mk_kart.mtl */,
-				E93B1CBC1C02471E00F309F2 /* mk_kart.obj */,
+				E90F4A231C08277C00DEE4CE /* e_face.tga */,
+				E90F4A241C08277C00DEE4CE /* e_main.tga */,
+				E90F4A251C08277C00DEE4CE /* kart_body.tga */,
+				E90F4A261C08277C00DEE4CE /* kart_e.tga */,
+				E90F4A271C08277C00DEE4CE /* kart_tire.tga */,
+				E90F4A281C08277C00DEE4CE /* mk_kart.mtl */,
+				E90F4A291C08277C00DEE4CE /* mk_kart.obj */,
 			);
 			path = Mario;
 			sourceTree = "<group>";
 		};
-		E93B1CBD1C02471E00F309F2 /* Peach */ = {
+		E90F4A2A1C08277C00DEE4CE /* Peach */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1CBE1C02471E00F309F2 /* pe_face.tga */,
-				E93B1CBF1C02471E00F309F2 /* pe_main.tga */,
-				E93B1CC01C02471E00F309F2 /* pk_kart.mtl */,
-				E93B1CC11C02471E00F309F2 /* pk_kart.obj */,
-				E93B1CC21C02471E00F309F2 /* pkart_body.tga */,
-				E93B1CC31C02471E00F309F2 /* pkart_e.tga */,
-				E93B1CC41C02471E00F309F2 /* pkart_tire.tga */,
+				E90F4A2B1C08277C00DEE4CE /* pe_face.tga */,
+				E90F4A2C1C08277C00DEE4CE /* pe_main.tga */,
+				E90F4A2D1C08277C00DEE4CE /* pk_kart.mtl */,
+				E90F4A2E1C08277C00DEE4CE /* pk_kart.obj */,
+				E90F4A2F1C08277C00DEE4CE /* pkart_body.tga */,
+				E90F4A301C08277C00DEE4CE /* pkart_e.tga */,
+				E90F4A311C08277C00DEE4CE /* pkart_tire.tga */,
 			);
 			path = Peach;
 			sourceTree = "<group>";
 		};
-		E93B1CC51C02471E00F309F2 /* Pista */ = {
+		E90F4A321C08277C00DEE4CE /* Pista */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1CC61C02471E00F309F2 /* brick_wall.tga */,
-				E93B1CC71C02471E00F309F2 /* grey_asphalt.tga */,
-				E93B1CC81C02471E00F309F2 /* race_flag.tga */,
-				E93B1CC91C02471E00F309F2 /* raceway_mariokart.mtl */,
-				E93B1CCA1C02471E00F309F2 /* raceway_mariokart.obj */,
+				E90F4A331C08277C00DEE4CE /* brick_wall.tga */,
+				E90F4A341C08277C00DEE4CE /* grey_asphalt.tga */,
+				E90F4A351C08277C00DEE4CE /* race_flag.tga */,
+				E90F4A361C08277C00DEE4CE /* raceway_mariokart.mtl */,
+				E90F4A371C08277C00DEE4CE /* raceway_mariokart.obj */,
 			);
 			path = Pista;
 			sourceTree = "<group>";
 		};
-		E93B1CCB1C02471E00F309F2 /* NewModels */ = {
+		E90F4A381C08277C00DEE4CE /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E93B1CCC1C02471E00F309F2 /* e_face.tga */,
-				E93B1CCD1C02471E00F309F2 /* e_main.tga */,
-				E93B1CCE1C02471E00F309F2 /* kart_body.tga */,
-				E93B1CCF1C02471E00F309F2 /* kart_e.tga */,
-				E93B1CD01C02471E00F309F2 /* kart_tire.tga */,
-				E93B1CD11C02471E00F309F2 /* newmario.c */,
-				E93B1CD21C02471E00F309F2 /* newmario.h */,
-			);
-			path = NewModels;
-			sourceTree = "<group>";
-		};
-		E93B1D011C02472F00F309F2 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E93B1D021C02472F00F309F2 /* JSAnalogueStick.h */,
-				E93B1D031C02472F00F309F2 /* JSAnalogueStick.m */,
-				E93B1D041C02472F00F309F2 /* JSButton.h */,
-				E93B1D051C02472F00F309F2 /* JSButton.m */,
-				E93B1D061C02472F00F309F2 /* JSDPad.h */,
-				E93B1D071C02472F00F309F2 /* JSDPad.m */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		E93B1D0B1C02473800F309F2 /* Shaders */ = {
-			isa = PBXGroup;
-			children = (
-				E93B1D0C1C02473800F309F2 /* Shader.fsh */,
-				E93B1D0D1C02473800F309F2 /* Shader.vsh */,
-			);
-			path = Shaders;
-			sourceTree = "<group>";
-		};
-		E93B1D101C0252FE00F309F2 /* TWGL */ = {
-			isa = PBXGroup;
-			children = (
-				E97EC54A1C063F6000A84650 /* OBJLoader */,
-				E93B1D301C02532200F309F2 /* TWGLDefaultScene.h */,
-				E93B1D311C02532200F309F2 /* TWGLDefaultScene.m */,
-				E93B1D2C1C02531900F309F2 /* TWGLShadersReference.h */,
-				E93B1D2D1C02531900F309F2 /* TWGLShadersReference.m */,
-				E93B1D2E1C02531900F309F2 /* TWGLVertex.h */,
-				E93B1D1B1C0252FE00F309F2 /* TWGLNode.h */,
-				E93B1D1C1C0252FE00F309F2 /* TWGLNode.m */,
-				E96A50291C0382640087282D /* TWGLCamera.h */,
-				E96A502A1C0382640087282D /* TWGLCamera.m */,
-			);
-			path = TWGL;
-			sourceTree = "<group>";
-		};
-		E93B1D331C02536800F309F2 /* Nodes */ = {
-			isa = PBXGroup;
-			children = (
-				E97EC5451C063AEB00A84650 /* RWTCube.h */,
-				E97EC5461C063AEB00A84650 /* RWTCube.m */,
-				E97EC53F1C06267800A84650 /* FloorNode.h */,
-				E97EC5401C06267800A84650 /* FloorNode.m */,
-				E93B1D361C02536800F309F2 /* Mushroom.h */,
-				E93B1D371C02536800F309F2 /* Mushroom.m */,
-				E96A50251C027EFF0087282D /* CarNode.h */,
-				E96A50261C027EFF0087282D /* CarNode.m */,
-				E97EC5591C06423000A84650 /* QMarkBox.h */,
-				E97EC55A1C06423000A84650 /* QMarkBox.m */,
-			);
-			path = Nodes;
-			sourceTree = "<group>";
-		};
-		E93B1D3A1C02583A00F309F2 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				E93B1D3D1C02583E00F309F2 /* mushroom.png */,
-				E97EC5481C063BC000A84650 /* dungeon_01.png */,
+				E90F4A391C08277C00DEE4CE /* test_plane.mtl */,
+				E90F4A3A1C08277C00DEE4CE /* test_plane.obj */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		E96A50211C0269620087282D /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				E96A50221C0269760087282D /* GameScene.h */,
-				E96A50231C0269760087282D /* GameScene.m */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		E97EC54A1C063F6000A84650 /* OBJLoader */ = {
-			isa = PBXGroup;
-			children = (
-				E97EC54B1C063F6000A84650 /* glm.cpp */,
-				E97EC54C1C063F6000A84650 /* glm.h */,
-				E97EC54D1C063F6000A84650 /* glmimg.cpp */,
-				E97EC54F1C063F6000A84650 /* Texture.cpp */,
-				E97EC5501C063F6000A84650 /* Texture.h */,
-				E97EC5511C063F6000A84650 /* TWGLOBJLoader.h */,
-				E97EC5521C063F6000A84650 /* TWGLOBJLoader.mm */,
-				E97EC5531C063F6000A84650 /* vector3f.h */,
-			);
-			path = OBJLoader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E93B1C7C1C02468A00F309F2 /* MarioKart */ = {
+		E90F49EF1C081F1400DEE4CE /* MarioKart */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E93B1C981C02468A00F309F2 /* Build configuration list for PBXNativeTarget "MarioKart" */;
+			buildConfigurationList = E90F49F71C081F1400DEE4CE /* Build configuration list for PBXNativeTarget "MarioKart" */;
 			buildPhases = (
-				E93B1C791C02468A00F309F2 /* Sources */,
-				E93B1C7A1C02468A00F309F2 /* Frameworks */,
-				E93B1C7B1C02468A00F309F2 /* Resources */,
+				E90F49EC1C081F1400DEE4CE /* Sources */,
+				E90F49ED1C081F1400DEE4CE /* Frameworks */,
+				E90F49EE1C081F1400DEE4CE /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -469,157 +263,55 @@
 			);
 			name = MarioKart;
 			productName = MarioKart;
-			productReference = E93B1C7D1C02468A00F309F2 /* MarioKart.app */;
-			productType = "com.apple.product-type.application";
+			productReference = E90F49F01C081F1400DEE4CE /* MarioKart */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E93B1C751C02468A00F309F2 /* Project object */ = {
+		E90F49E81C081F1400DEE4CE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Txai Wieser";
 				TargetAttributes = {
-					E93B1C7C1C02468A00F309F2 = {
+					E90F49EF1C081F1400DEE4CE = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
 				};
 			};
-			buildConfigurationList = E93B1C781C02468A00F309F2 /* Build configuration list for PBXProject "MarioKart" */;
+			buildConfigurationList = E90F49EB1C081F1400DEE4CE /* Build configuration list for PBXProject "MarioKart" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = E93B1C741C02468A00F309F2;
-			productRefGroup = E93B1C7E1C02468A00F309F2 /* Products */;
+			mainGroup = E90F49E71C081F1400DEE4CE;
+			productRefGroup = E90F49F11C081F1400DEE4CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E93B1C7C1C02468A00F309F2 /* MarioKart */,
+				E90F49EF1C081F1400DEE4CE /* MarioKart */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		E93B1C7B1C02468A00F309F2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E93B1C8F1C02468A00F309F2 /* Main.storyboard in Resources */,
-				E93B1CE61C02471E00F309F2 /* luigi.mtl in Resources */,
-				E93B1CF21C02471E00F309F2 /* pk_kart.obj in Resources */,
-				E93B1CF61C02471E00F309F2 /* brick_wall.tga in Resources */,
-				E93B1D0F1C02473800F309F2 /* Shader.vsh in Resources */,
-				E93B1CF01C02471E00F309F2 /* pe_main.tga in Resources */,
-				E93B1CF91C02471E00F309F2 /* raceway_mariokart.mtl in Resources */,
-				E93B1CE81C02471E00F309F2 /* e_face.tga in Resources */,
-				E93B1CE41C02471E00F309F2 /* kart_e_luigi.tga in Resources */,
-				E93B1CFC1C02471E00F309F2 /* e_main.tga in Resources */,
-				E93B1CDC1C02471E00F309F2 /* t0023_0.tga in Resources */,
-				E93B1CD31C02471E00F309F2 /* KE_face.tga in Resources */,
-				E93B1CDA1C02471E00F309F2 /* qmark.mtl in Resources */,
-				E93B1CFF1C02471E00F309F2 /* kart_tire.tga in Resources */,
-				E93B1CDE1C02471E00F309F2 /* ball.mtl in Resources */,
-				E93B1CF41C02471E00F309F2 /* pkart_e.tga in Resources */,
-				E93B1CFB1C02471E00F309F2 /* e_face.tga in Resources */,
-				E93B1C891C02468A00F309F2 /* Shader.vsh in Resources */,
-				E93B1CE91C02471E00F309F2 /* e_main.tga in Resources */,
-				E93B1CE21C02471E00F309F2 /* e_main_luigi.tga in Resources */,
-				E93B1CEC1C02471E00F309F2 /* kart_tire.tga in Resources */,
-				E93B1CEF1C02471E00F309F2 /* pe_face.tga in Resources */,
-				E93B1CF81C02471E00F309F2 /* race_flag.tga in Resources */,
-				E93B1CF11C02471E00F309F2 /* pk_kart.mtl in Resources */,
-				E93B1CFD1C02471E00F309F2 /* kart_body.tga in Resources */,
-				E93B1CE11C02471E00F309F2 /* e_face_luigi.tga in Resources */,
-				E93B1CEA1C02471E00F309F2 /* kart_body.tga in Resources */,
-				E93B1CDF1C02471E00F309F2 /* ball.obj in Resources */,
-				E93B1CED1C02471E00F309F2 /* mk_kart.mtl in Resources */,
-				E93B1CF51C02471E00F309F2 /* pkart_tire.tga in Resources */,
-				E93B1CE31C02471E00F309F2 /* kart_body_luigi.tga in Resources */,
-				E93B1CE51C02471E00F309F2 /* kart_tire_luigi.tga in Resources */,
-				E93B1CE01C02471E00F309F2 /* orange3.tga in Resources */,
-				E93B1CDD1C02471E00F309F2 /* t0157_0.tga in Resources */,
-				E93B1C911C02468A00F309F2 /* Assets.xcassets in Resources */,
-				E97EC5491C063BC000A84650 /* dungeon_01.png in Resources */,
-				E93B1CD41C02471E00F309F2 /* KE_main.tga in Resources */,
-				E93B1CD51C02471E00F309F2 /* kk_kart.mtl in Resources */,
-				E93B1CD71C02471E00F309F2 /* Kkart_body.tga in Resources */,
-				E93B1CFA1C02471E00F309F2 /* raceway_mariokart.obj in Resources */,
-				E93B1CD61C02471E00F309F2 /* kk_kart.obj in Resources */,
-				E93B1CD91C02471E00F309F2 /* Kkart_tire.tga in Resources */,
-				E93B1CDB1C02471E00F309F2 /* qmark.obj in Resources */,
-				E93B1C941C02468A00F309F2 /* LaunchScreen.storyboard in Resources */,
-				E93B1D0E1C02473800F309F2 /* Shader.fsh in Resources */,
-				E93B1CEE1C02471E00F309F2 /* mk_kart.obj in Resources */,
-				E93B1CF31C02471E00F309F2 /* pkart_body.tga in Resources */,
-				E93B1CEB1C02471E00F309F2 /* kart_e.tga in Resources */,
-				E93B1CD81C02471E00F309F2 /* Kkart_e.tga in Resources */,
-				E93B1CFE1C02471E00F309F2 /* kart_e.tga in Resources */,
-				E93B1CF71C02471E00F309F2 /* grey_asphalt.tga in Resources */,
-				E93B1D3F1C02583E00F309F2 /* mushroom.png in Resources */,
-				E93B1CE71C02471E00F309F2 /* luigi.obj in Resources */,
-				E93B1C871C02468A00F309F2 /* Shader.fsh in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		E93B1C791C02468A00F309F2 /* Sources */ = {
+		E90F49EC1C081F1400DEE4CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E97EC5471C063AEB00A84650 /* RWTCube.m in Sources */,
-				E93B1C851C02468A00F309F2 /* AppDelegate.m in Sources */,
-				E96A50271C027EFF0087282D /* CarNode.m in Sources */,
-				E93B1D281C0252FE00F309F2 /* TWGLNode.m in Sources */,
-				E93B1D001C02471E00F309F2 /* newmario.c in Sources */,
-				E97EC5571C063F6000A84650 /* Texture.cpp in Sources */,
-				E93B1D091C02472F00F309F2 /* JSButton.m in Sources */,
-				E93B1C8C1C02468A00F309F2 /* GameViewController.m in Sources */,
-				E97EC55B1C06423000A84650 /* QMarkBox.m in Sources */,
-				E93B1D321C02532200F309F2 /* TWGLDefaultScene.m in Sources */,
-				E93B1D2F1C02531900F309F2 /* TWGLShadersReference.m in Sources */,
-				E93B1D391C02536800F309F2 /* Mushroom.m in Sources */,
-				E97EC5551C063F6000A84650 /* glmimg.cpp in Sources */,
-				E97EC5411C06267800A84650 /* FloorNode.m in Sources */,
-				E97EC5541C063F6000A84650 /* glm.cpp in Sources */,
-				E93B1D0A1C02472F00F309F2 /* JSDPad.m in Sources */,
-				E93B1C821C02468A00F309F2 /* main.m in Sources */,
-				E96A50241C0269760087282D /* GameScene.m in Sources */,
-				E96A502B1C0382640087282D /* TWGLCamera.m in Sources */,
-				E93B1D081C02472F00F309F2 /* JSAnalogueStick.m in Sources */,
-				E97EC5581C063F6000A84650 /* TWGLOBJLoader.mm in Sources */,
+				E90F4A001C081F4700DEE4CE /* glm.cpp in Sources */,
+				E90F4A021C081F4700DEE4CE /* Texture.cpp in Sources */,
+				E90F49F41C081F1400DEE4CE /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		E93B1C8D1C02468A00F309F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E93B1C8E1C02468A00F309F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E93B1C921C02468A00F309F2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E93B1C931C02468A00F309F2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		E93B1C961C02468A00F309F2 /* Debug */ = {
+		E90F49F51C081F1400DEE4CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -636,9 +328,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -655,15 +347,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		E93B1C971C02468A00F309F2 /* Release */ = {
+		E90F49F61C081F1400DEE4CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -680,7 +371,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -693,32 +384,22 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
-				VALIDATE_PRODUCT = YES;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		E93B1C991C02468A00F309F2 /* Debug */ = {
+		E90F49F81C081F1400DEE4CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = MarioKart/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TWGL.MarioKart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		E93B1C9A1C02468A00F309F2 /* Release */ = {
+		E90F49F91C081F1400DEE4CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = MarioKart/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TWGL.MarioKart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -726,25 +407,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E93B1C781C02468A00F309F2 /* Build configuration list for PBXProject "MarioKart" */ = {
+		E90F49EB1C081F1400DEE4CE /* Build configuration list for PBXProject "MarioKart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E93B1C961C02468A00F309F2 /* Debug */,
-				E93B1C971C02468A00F309F2 /* Release */,
+				E90F49F51C081F1400DEE4CE /* Debug */,
+				E90F49F61C081F1400DEE4CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E93B1C981C02468A00F309F2 /* Build configuration list for PBXNativeTarget "MarioKart" */ = {
+		E90F49F71C081F1400DEE4CE /* Build configuration list for PBXNativeTarget "MarioKart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E93B1C991C02468A00F309F2 /* Debug */,
-				E93B1C9A1C02468A00F309F2 /* Release */,
+				E90F49F81C081F1400DEE4CE /* Debug */,
+				E90F49F91C081F1400DEE4CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E93B1C751C02468A00F309F2 /* Project object */;
+	rootObject = E90F49E81C081F1400DEE4CE /* Project object */;
 }
