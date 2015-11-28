@@ -12,8 +12,7 @@
 #import "JSButton.h"
 #import "GameScene.h"
 #import "TWGLShadersReference.h"
-#import "glm.h"
-#import "TWGLOBJLoader.h"
+//#import "TWGLOBJLoader.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
@@ -63,10 +62,10 @@
 //    [self.scene render];
     
     
-    GLMmodel *glmModel = [TWGLOBJLoader loadOBJ:@"test_plane"];
+//    GLMmodel *glmModel = [TWGLOBJLoader loadOBJ:@"test_plane"];
     
-    glmCreateArrays(glmModel, GLM_NONE);
-    glmDrawArrays(glmModel, 0);
+//    glmCreateArrays(glmModel, GLM_NONE);
+//    glmDrawArrays(glmModel, 0);
 }
 
 - (void)update {

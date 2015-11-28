@@ -19,7 +19,7 @@
     unsigned int _vertexCount;
     unsigned int _indexCount;
     TWGLShadersReference *_shader;
-    GLMmodel *model;
+//    GLMmodel *model;
 }
 
 - (instancetype)initWithName:(char *)name shader:(TWGLShadersReference *)shader
@@ -32,7 +32,7 @@
 
 - (instancetype)initWithName:(char *)name shader:(TWGLShadersReference *)shader modelNamed:(NSString *)modelNamed {
     if (self = [super init]) {
-        model = [TWGLOBJLoader loadOBJ:modelNamed];
+//        model = [TWGLOBJLoader loadOBJ:modelNamed];
         _name = name;
         _shader = shader;
         self.position = GLKVector3Make(0, 0, 0);
@@ -41,7 +41,7 @@
         self.rotationZ = 0;
         self.scale = 1.0;
         self.children = [NSMutableArray array];
-        glmCreateArrays(model, GLM_NONE);
+//        glmCreateArrays(model, GLM_NONE);
 
 //        glGenVertexArraysOES(1, &_vao);
 //        glBindVertexArrayOES(_vao);
@@ -144,13 +144,13 @@
     [_shader prepareToDraw];
     
 
-    if (model) {
-        glmDrawArrays(model, 0);
-    } else {
+//    if (model) {
+//        glmDrawArrays(model, 0);
+//    } else {
         glBindVertexArrayOES(_vao);
         glDrawElements(GL_TRIANGLES, _indexCount, GL_UNSIGNED_BYTE, 0);
         glBindVertexArrayOES(0);
-    }
+//    }
 }
 
 - (void)updateWithDelta:(NSTimeInterval)dt {

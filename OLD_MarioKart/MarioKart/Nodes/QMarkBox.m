@@ -7,7 +7,7 @@
 //
 
 #import "QMarkBox.h"
-#import "TWGLOBJLoader.h"
+//#import "TWGLOBJLoader.h"
 
 @implementation QMarkBox
 

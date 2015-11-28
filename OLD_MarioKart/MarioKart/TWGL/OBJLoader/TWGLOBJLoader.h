@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "glm.h"
 #import "TWGLVertex.h"
 
 @interface TWGLOBJLoader : NSObject
 
-+ (GLMmodel *)loadOBJ:(NSString *)named;
-+ (GLfloat *)parseGLMmodel:(GLMmodel *)model;
+//+ (GLMmodel *)loadOBJ:(NSString *)named;
+//+ (GLfloat *)parseGLMmodel:(GLMmodel *)model;
 @end
