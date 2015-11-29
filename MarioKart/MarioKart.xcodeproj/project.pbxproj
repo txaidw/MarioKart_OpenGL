@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9A9EECC1C0B63A600059AAA /* game code.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A9EEC91C0B63A600059AAA /* game code.cpp */; };
+		E9A9EECD1C0B63A600059AAA /* game main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A9EECB1C0B63A600059AAA /* game main.cpp */; };
+		E9C1BA5F1C0A4AD5007E3B7A /* Trap.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9C1BA5E1C0A4AD5007E3B7A /* Trap.mm */; };
+		E9C1BA621C0A4E47007E3B7A /* Missile.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9C1BA611C0A4E47007E3B7A /* Missile.mm */; };
 		E9FCCB161C08E204003ED405 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9FCCB151C08E204003ED405 /* main.mm */; };
 		E9FCCB231C08E249003ED405 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9FCCB1D1C08E249003ED405 /* glm.cpp */; };
 		E9FCCB241C08E249003ED405 /* glmimg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9FCCB1F1C08E249003ED405 /* glmimg.cpp */; };
@@ -35,6 +39,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E9071C3C1C0B8A14009B0A93 /* floor.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = floor.tga; sourceTree = "<group>"; };
+		E9071C3D1C0B8A14009B0A93 /* top.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = top.tga; sourceTree = "<group>"; };
+		E9071C3E1C0B8A14009B0A93 /* wall.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = wall.tga; sourceTree = "<group>"; };
+		E9A9EEC91C0B63A600059AAA /* game code.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "game code.cpp"; sourceTree = "<group>"; };
+		E9A9EECA1C0B63A600059AAA /* game code.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "game code.h"; sourceTree = "<group>"; };
+		E9A9EECB1C0B63A600059AAA /* game main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "game main.cpp"; sourceTree = "<group>"; };
+		E9A9EECF1C0B7A3300059AAA /* game main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "game main.h"; sourceTree = "<group>"; };
+		E9C1BA5D1C0A4AD5007E3B7A /* Trap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trap.h; sourceTree = "<group>"; };
+		E9C1BA5E1C0A4AD5007E3B7A /* Trap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Trap.mm; sourceTree = "<group>"; };
+		E9C1BA601C0A4E47007E3B7A /* Missile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Missile.h; sourceTree = "<group>"; };
+		E9C1BA611C0A4E47007E3B7A /* Missile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Missile.mm; sourceTree = "<group>"; };
 		E9FCCB121C08E204003ED405 /* MarioKart */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MarioKart; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FCCB151C08E204003ED405 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		E9FCCB1D1C08E249003ED405 /* glm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glm.cpp; sourceTree = "<group>"; };
@@ -116,6 +131,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E9A9EED01C0B840F00059AAA /* SkyBox */ = {
+			isa = PBXGroup;
+			children = (
+				E9071C3C1C0B8A14009B0A93 /* floor.tga */,
+				E9071C3D1C0B8A14009B0A93 /* top.tga */,
+				E9071C3E1C0B8A14009B0A93 /* wall.tga */,
+			);
+			path = SkyBox;
+			sourceTree = "<group>";
+		};
 		E9FCCB091C08E204003ED405 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +166,10 @@
 				E9FCCB5E1C08E6F3003ED405 /* TWGL */,
 				E9FCCB6B1C090AFB003ED405 /* Nodes */,
 				E9FCCB151C08E204003ED405 /* main.mm */,
+				E9A9EEC91C0B63A600059AAA /* game code.cpp */,
+				E9A9EECA1C0B63A600059AAA /* game code.h */,
+				E9A9EECF1C0B7A3300059AAA /* game main.h */,
+				E9A9EECB1C0B63A600059AAA /* game main.cpp */,
 			);
 			path = MarioKart;
 			sourceTree = "<group>";
@@ -170,6 +199,7 @@
 		E9FCCB2B1C08E32D003ED405 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E9A9EED01C0B840F00059AAA /* SkyBox */,
 				E9FCCB2C1C08E32D003ED405 /* Bowser */,
 				E9FCCB341C08E32D003ED405 /* Caixa */,
 				E9FCCB391C08E32D003ED405 /* Esfera */,
@@ -304,6 +334,10 @@
 				E9FCCB731C092D73003ED405 /* CarNode.mm */,
 				E9FCCB6F1C090B67003ED405 /* QmarkBox.h */,
 				E9FCCB701C090B67003ED405 /* QmarkBox.mm */,
+				E9C1BA5D1C0A4AD5007E3B7A /* Trap.h */,
+				E9C1BA5E1C0A4AD5007E3B7A /* Trap.mm */,
+				E9C1BA601C0A4E47007E3B7A /* Missile.h */,
+				E9C1BA611C0A4E47007E3B7A /* Missile.mm */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -364,11 +398,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9C1BA5F1C0A4AD5007E3B7A /* Trap.mm in Sources */,
 				E9FCCB6E1C090B0A003ED405 /* GameScene.mm in Sources */,
 				E9FCCB231C08E249003ED405 /* glm.cpp in Sources */,
+				E9A9EECC1C0B63A600059AAA /* game code.cpp in Sources */,
 				E9FCCB251C08E249003ED405 /* Texture.cpp in Sources */,
 				E9FCCB771C092D9E003ED405 /* Pista.mm in Sources */,
 				E9FCCB711C090B67003ED405 /* QmarkBox.mm in Sources */,
+				E9C1BA621C0A4E47007E3B7A /* Missile.mm in Sources */,
+				E9A9EECD1C0B63A600059AAA /* game main.cpp in Sources */,
 				E9FCCB741C092D73003ED405 /* CarNode.mm in Sources */,
 				E9FCCB241C08E249003ED405 /* glmimg.cpp in Sources */,
 				E9FCCB161C08E204003ED405 /* main.mm in Sources */,
@@ -493,6 +531,7 @@
 				E9FCCB1B1C08E204003ED405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

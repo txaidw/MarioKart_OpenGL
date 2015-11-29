@@ -11,5 +11,6 @@
 @interface TWGLCamera: TWGLNode
 
 - (void)renderCamera;
+- (void)changeCameraMode;
 
 @end

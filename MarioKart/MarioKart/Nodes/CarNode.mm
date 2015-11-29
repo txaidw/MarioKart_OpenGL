@@ -1,4 +1,4 @@
-//
+    //
 //  CarNode.m
 //  MarioKart
 //
@@ -7,9 +7,18 @@
 //
 
 #import "CarNode.h"
+#import "Trap.h"
+#import "Missile.h"
+@interface CarNode ()
 
+@property CAR_ITEM itemNamed;
+
+@end
 
 @implementation CarNode {
+    float TURBO_VELOCITY_MULTIPLIER;
+    float TURBO_TIME;
+    
     float MAX_VELOCITY;
     float MIN_VELOCITY;
     float MINMAX_ACCELERATION;
@@ -25,6 +34,9 @@
     
     float currentConversion;
     float currentDirection;
+    BOOL turboActivated;
+    float currentTurboTime;
+
 }
 
 - (instancetype)init {
@@ -36,6 +48,9 @@
     GLMmodel *aModel = glmReadOBJ((char *)name.UTF8String);
     self = [super initWithModel:aModel];
     if (self) {
+        self.itemNamed = CAR_ITEM_TURBO;
+        TURBO_VELOCITY_MULTIPLIER = 3;
+        TURBO_TIME = 222;
         MAX_VELOCITY = 1;
         MIN_VELOCITY = -0.5;
         MINMAX_ACCELERATION = 0.01;
@@ -103,10 +118,76 @@
             currentVelocity = MIN_VELOCITY;
         }
         
-        self.rotationY += currentDirection;//*currentVelocity;
+        if (turboActivated) {
+            currentVelocity = MAX_VELOCITY*TURBO_VELOCITY_MULTIPLIER;
+            currentTurboTime += dt;
+            if (currentTurboTime >= TURBO_TIME) {
+                turboActivated = FALSE;
+                printf("TURBO DESACTIVATED\n");
+            }
+        }
+        self.rotationY += currentDirection*currentVelocity;
         self.positionX += currentVelocity * sin(self.rotationY*M_PI/180);
         self.positionZ += currentVelocity * cos(self.rotationY*M_PI/180);
         
     }
+}
+
+- (void)action {
+    if (self.itemNamed) {
+        if ([self.itemNamed isEqualToString:CAR_ITEM_TURBO]) {
+            [self activateTurbo];
+        } else if ([self.itemNamed isEqualToString:CAR_ITEM_TRAP]) {
+            [self dropTrap];
+        } else if ([self.itemNamed isEqualToString:CAR_ITEM_MISSILE]) {
+            [self shootMissile];
+        } else {
+            printf("EMPTY SLOT\n");
+        }
+//        self.itemNamed = NULL;
+    }
+}
+
+- (void)activateTurbo {
+    printf("TURBO ACTIVATED\n");
+    turboActivated = TRUE;
+    currentTurboTime = 0;
+}
+
+- (void)dropTrap {
+    printf("DROP TRAP\n");
+    Trap *trap = [[Trap alloc] init];
+    float xx, yy, zz;
+    [self calculateAbsolutePosition:&xx yy:&yy zz:&zz];
+    trap.positionX = xx;
+    trap.positionY = yy;
+    trap.positionZ = zz;
+    
+    float rx, ry, rz;
+    [self calculateAbsoluteRotation:&rx yy:&ry zz:&rz];
+    trap.rotationX = rx;
+    trap.rotationY = ry;
+    trap.rotationZ = rz;
+    
+    [self.scene addChild:trap];
+    
+}
+
+- (void)shootMissile {
+    printf("SHOOT MISSILE\n");
+    Missile *missile = [[Missile alloc] init];
+    float xx, yy, zz;
+    [self calculateAbsolutePosition:&xx yy:&yy zz:&zz];
+    missile.positionX = xx;
+    missile.positionY = yy;
+    missile.positionZ = zz;
+    
+    float rx, ry, rz;
+    [self calculateAbsoluteRotation:&rx yy:&ry zz:&rz];
+    missile.rotationX = rx;
+    missile.rotationY = ry;
+    missile.rotationZ = rz;
+    
+    [self.scene addChild:missile];
 }
 @end

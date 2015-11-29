@@ -15,8 +15,13 @@
 #define CAR_CHARACTER_LUIGI @"Luigi/luigi.obj"
 #define CAR_CHARACTER_PEACH @"Peach/pkart.obj"
 
+#define CAR_ITEM NSString*
+#define CAR_ITEM_TURBO @"CAR_ITEM_TURBO"
+#define CAR_ITEM_TRAP @"CAR_ITEM_TRAP"
+#define CAR_ITEM_MISSILE @"CAR_ITEM_MISSILE"
+
 @interface CarNode : TWGLNode
 
 @property (weak) TWGLScene *playerController;
-
+- (void)action;
 @end

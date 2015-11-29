@@ -16,6 +16,7 @@
     self = [super initWithModel:NULL];
     if (self) {
         _camera = [[TWGLCamera alloc] init];
+        self.scene = self;
     }
     return self;
 }

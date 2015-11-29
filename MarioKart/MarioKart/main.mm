@@ -21,11 +21,8 @@
 #include "glm.hpp"
 #include "vector3f.hpp"
 
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
-
-#define PERSPECTIVE 0
-#define ORTHO 1
+#define WINDOW_WIDTH ((GLfloat)800)
+#define WINDOW_HEIGHT ((GLfloat)600)
 
 #define PI 3.14159265
 
@@ -38,36 +35,29 @@
 
 GameScene* scene;
 
-GLboolean projection; // ORTHO | PERSPECTIVE
-GLfloat fAspect;
-
-vector3f eye;
-
-
 /* GLUT callback Handlers */
 
-static void resize(int width, int height)
-{
+static void resize(int width, int height) {
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    if(projection == PERSPECTIVE)
-        gluPerspective(60,fAspect,0.001,1000);
-    else
-        glOrtho(-5, 5, -5, 5, -3000, 3000);
+    float fAspect = WINDOW_WIDTH/WINDOW_HEIGHT;
+    
+//    if(projection == PERSPECTIVE)
+        gluPerspective(45,fAspect,0.001,1000);
+//    else
+//        glOrtho(-5, 5, -5, 5, -3000, 3000);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(eye.x,eye.y,eye.z, // EYE
-              0,0,0, // LOOK
-              0,1,0); // CAMERA UP
+//    gluLookAt(eye.x,eye.y,eye.z, // EYE
+//              0,0,0, // LOOK
+//              0,1,0); // CAMERA UP
 }
 
-static void display(void)
-{
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    [scene.camera renderCamera];
+static void display(void) {
     
+    glClearColor(0.1f, 0.2f, 0.8f, 0.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
     GLfloat light_position0[4]={0, INFINITO, 0, 0.0};
     GLfloat light_position1[4]={0, 0, INFINITO, 0.0};
     GLfloat light_position2[4]={INFINITO, 0, 0, 0.0};
@@ -75,8 +65,28 @@ static void display(void)
     glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
     glLightfv(GL_LIGHT2, GL_POSITION, light_position2);
     
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
     
+    
+    glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+    glClear(GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(45, WINDOW_WIDTH/WINDOW_HEIGHT, 0.001, 1000);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    [scene.camera renderCamera];
+    [scene render];
+
+    
+    glViewport(0, 0, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
+    glClear(GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(45, WINDOW_WIDTH/WINDOW_HEIGHT, 0.001, 1000);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    [scene.camera renderCamera];
     [scene render];
     
     glutSwapBuffers();
@@ -131,6 +141,13 @@ void onKeyUp(unsigned char key, int x, int y) {
         case 'D':
             scene.pressedKey_right = FALSE;
             break;
+        case 'v':
+        case 'V':
+            [scene.camera changeCameraMode];
+            break;
+        case 32:
+            [scene.playerCar action];
+            break;
         case 27:
             exit(0);
             break;
@@ -156,13 +173,6 @@ static void idle(void)
 
 void initialize()
 {
-    projection = PERSPECTIVE; // ORTHO | PERSPECTIVE
-    fAspect = (GLfloat)WINDOW_WIDTH/(GLfloat)WINDOW_HEIGHT;
-    
-    eye.set(3.0,1.0,3.0);
-    
-    fAspect = (GLfloat)WINDOW_WIDTH/(GLfloat)WINDOW_HEIGHT;
-    
     // fourth parameter: 1 -> finite distance, 0 -> inifinite distance
     glClearColor (1.0, 1.0, 1.0, 0.0);
     

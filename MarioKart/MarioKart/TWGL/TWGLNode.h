@@ -23,6 +23,7 @@
 
 
 @property (weak) TWGLNode *parent;
+@property (weak) TWGLNode *scene;
 
 - (instancetype)initWithModel:(GLMmodel *)model;
 
@@ -33,5 +34,8 @@
 - (void)addChild:(TWGLNode *)node;
 - (void)removeChild:(TWGLNode *)node;
 - (NSArray *)childrenArray;
+
+- (void)calculateAbsolutePosition:(float *)xx yy:(float *)yy zz:(float *)zz;
+- (void)calculateAbsoluteRotation:(float *)xx yy:(float *)yy zz:(float *)zz;
 
 @end

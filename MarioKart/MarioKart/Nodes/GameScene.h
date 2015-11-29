@@ -7,7 +7,10 @@
 //
 
 #import "TWGLScene.h"
+#import "CarNode.h"
 
 @interface GameScene : TWGLScene
+
+@property (weak) CarNode *playerCar;
 
 @end

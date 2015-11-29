@@ -1,28 +1,32 @@
 //
-//  qmarkBox.m
+//  Trap.m
 //  MarioKart
 //
-//  Created by Txai Wieser on 27/11/15.
+//  Created by Txai Wieser on 28/11/15.
 //  Copyright © 2015 Txai Wieser. All rights reserved.
 //
 
-#import "QmarkBox.h"
+#import "Trap.h"
 
-@implementation QmarkBox
+@implementation Trap
 
 
 - (instancetype)init
 {
-    GLMmodel *aModel = glmReadOBJ("MarioKart/Models/Caixa/qmark.obj");
+    GLMmodel *aModel = glmReadOBJ("MarioKart/Models/Esfera/ball.obj");
     self = [super initWithModel:aModel];
     if (self) {
-        self.scale = 0.5;
+        
     }
     return self;
 }
 
 - (void)updateWithDelta:(NSTimeInterval)dt {
     [super updateWithDelta:dt];
-    self.rotationY += 4 *dt;
+    self.rotationX -= 4 *dt;
+    self.rotationY += 8 *dt;
+    self.rotationZ -= 16 *dt;
 }
+
+
 @end

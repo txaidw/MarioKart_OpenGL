@@ -62,13 +62,39 @@
 - (void)addChild:(TWGLNode *)node {
     [_children addObject:node];
     node.parent = self;
+    node.scene = self.scene;
 }
 - (void)removeChild:(TWGLNode *)node {
     [_children removeObject:node];
     node.parent = NULL;
+    node.scene = NULL;
+}
+- (void)removeFromParent {
+    [self.parent removeChild:self];
 }
 
 - (NSArray *)childrenArray {
     return _children;
+}
+
+- (void)calculateAbsoluteRotation:(float *)xx yy:(float *)yy zz:(float *)zz {
+    *xx = *yy = *zz = 0;
+    TWGLNode *node = self;
+    while (node) {
+        *xx += node.rotationX;
+        *yy += node.rotationY;
+        *zz += node.rotationZ;
+        node = node.parent;
+    }
+}
+- (void)calculateAbsolutePosition:(float *)xx yy:(float *)yy zz:(float *)zz {
+    *xx = *yy = *zz = 0;
+    TWGLNode *node = self;
+    while (node) {
+        *xx += node.positionX;
+        *yy += node.positionY;
+        *zz += node.positionZ;
+        node = node.parent;
+    }
 }
 @end

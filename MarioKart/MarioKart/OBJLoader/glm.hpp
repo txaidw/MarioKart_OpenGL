@@ -285,6 +285,9 @@ glmList(GLMmodel* model, GLuint mode);
  *              ( 0.00001 is a good start for a unitized model)
  *
  */
+
+GLuint glmLoadTexture(char *filename, GLboolean alpha, GLboolean repeat, GLboolean filtering, GLboolean mipmaps, GLfloat *texcoordwidth, GLfloat *texcoordheight);
+
 GLvoid
 glmWeld(GLMmodel* model, GLfloat epsilon);
 
