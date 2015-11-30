@@ -16,6 +16,8 @@
     self = [super initWithModel:aModel];
     if (self) {
         self.scale = 15;
+        self.positionX = -75;
+        self.positionZ = 135;
     }
     return self;
 }

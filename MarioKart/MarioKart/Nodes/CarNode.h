@@ -8,6 +8,7 @@
 
 #import "TWGLNode.h"
 #import "TWGLScene.h"
+#import "MarkerNode.h"
 
 #define CAR_CHARACTER NSString*
 #define CAR_CHARACTER_MARIO @"Mario/mk_kart.obj"
@@ -22,6 +23,11 @@
 
 @interface CarNode : TWGLNode
 
+@property TWGLCamera *frontCamera;
+@property TWGLCamera *backCamera;
+@property TWGLNode *markerNode;
+
+
 @property (weak) TWGLScene *playerController;
-- (void)action;
+- (void)fireAction;
 @end

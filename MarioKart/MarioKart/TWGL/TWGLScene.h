@@ -11,9 +11,6 @@
 
 @interface TWGLScene : TWGLNode
 
-@property TWGLCamera *camera;
-
-
 @property BOOL pressedKey_forward;
 @property BOOL pressedKey_backwards;
 @property BOOL pressedKey_right;

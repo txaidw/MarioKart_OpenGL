@@ -12,5 +12,5 @@
 
 - (void)renderCamera;
 - (void)changeCameraMode;
-
+- (void)setOrtho;
 @end

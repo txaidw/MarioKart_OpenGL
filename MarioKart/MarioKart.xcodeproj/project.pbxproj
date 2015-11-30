@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E981E00C1C0BF5A8009549F0 /* MarkerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E981E00B1C0BF5A8009549F0 /* MarkerNode.m */; };
+		E981E00E1C0C02B4009549F0 /* testCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = E981E00D1C0C02B4009549F0 /* testCollision.mm */; };
 		E9A9EECC1C0B63A600059AAA /* game code.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A9EEC91C0B63A600059AAA /* game code.cpp */; };
 		E9A9EECD1C0B63A600059AAA /* game main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A9EECB1C0B63A600059AAA /* game main.cpp */; };
 		E9C1BA5F1C0A4AD5007E3B7A /* Trap.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9C1BA5E1C0A4AD5007E3B7A /* Trap.mm */; };
@@ -42,6 +44,9 @@
 		E9071C3C1C0B8A14009B0A93 /* floor.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = floor.tga; sourceTree = "<group>"; };
 		E9071C3D1C0B8A14009B0A93 /* top.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = top.tga; sourceTree = "<group>"; };
 		E9071C3E1C0B8A14009B0A93 /* wall.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = wall.tga; sourceTree = "<group>"; };
+		E981E00A1C0BF5A8009549F0 /* MarkerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerNode.h; sourceTree = "<group>"; };
+		E981E00B1C0BF5A8009549F0 /* MarkerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerNode.m; sourceTree = "<group>"; };
+		E981E00D1C0C02B4009549F0 /* testCollision.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = testCollision.mm; sourceTree = "<group>"; };
 		E9A9EEC91C0B63A600059AAA /* game code.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "game code.cpp"; sourceTree = "<group>"; };
 		E9A9EECA1C0B63A600059AAA /* game code.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "game code.h"; sourceTree = "<group>"; };
 		E9A9EECB1C0B63A600059AAA /* game main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "game main.cpp"; sourceTree = "<group>"; };
@@ -166,6 +171,7 @@
 				E9FCCB5E1C08E6F3003ED405 /* TWGL */,
 				E9FCCB6B1C090AFB003ED405 /* Nodes */,
 				E9FCCB151C08E204003ED405 /* main.mm */,
+				E981E00D1C0C02B4009549F0 /* testCollision.mm */,
 				E9A9EEC91C0B63A600059AAA /* game code.cpp */,
 				E9A9EECA1C0B63A600059AAA /* game code.h */,
 				E9A9EECF1C0B7A3300059AAA /* game main.h */,
@@ -338,6 +344,8 @@
 				E9C1BA5E1C0A4AD5007E3B7A /* Trap.mm */,
 				E9C1BA601C0A4E47007E3B7A /* Missile.h */,
 				E9C1BA611C0A4E47007E3B7A /* Missile.mm */,
+				E981E00A1C0BF5A8009549F0 /* MarkerNode.h */,
+				E981E00B1C0BF5A8009549F0 /* MarkerNode.m */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -403,8 +411,10 @@
 				E9FCCB231C08E249003ED405 /* glm.cpp in Sources */,
 				E9A9EECC1C0B63A600059AAA /* game code.cpp in Sources */,
 				E9FCCB251C08E249003ED405 /* Texture.cpp in Sources */,
+				E981E00C1C0BF5A8009549F0 /* MarkerNode.m in Sources */,
 				E9FCCB771C092D9E003ED405 /* Pista.mm in Sources */,
 				E9FCCB711C090B67003ED405 /* QmarkBox.mm in Sources */,
+				E981E00E1C0C02B4009549F0 /* testCollision.mm in Sources */,
 				E9C1BA621C0A4E47007E3B7A /* Missile.mm in Sources */,
 				E9A9EECD1C0B63A600059AAA /* game main.cpp in Sources */,
 				E9FCCB741C092D73003ED405 /* CarNode.mm in Sources */,

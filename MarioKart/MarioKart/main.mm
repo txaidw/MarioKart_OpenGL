@@ -21,15 +21,8 @@
 #include "glm.hpp"
 #include "vector3f.hpp"
 
-#define WINDOW_WIDTH ((GLfloat)800)
-#define WINDOW_HEIGHT ((GLfloat)600)
-
-#define PI 3.14159265
 
 #define INFINITO 1 // 1 to see the lights if activated
-
-#define MOVEMENT_ROTATION_OBJECT 5//0.5
-#define MOVEMENT_SCALE_OBJECT 0.1//0.05
 #include "GameScene.h"
 
 
@@ -37,57 +30,37 @@ GameScene* scene;
 
 /* GLUT callback Handlers */
 
+GLfloat WINDOW_WIDTH;
+GLfloat WINDOW_HEIGHT;
+
 static void resize(int width, int height) {
-    glViewport(0, 0, width, height);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    float fAspect = WINDOW_WIDTH/WINDOW_HEIGHT;
-    
-//    if(projection == PERSPECTIVE)
-        gluPerspective(45,fAspect,0.001,1000);
-//    else
-//        glOrtho(-5, 5, -5, 5, -3000, 3000);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-//    gluLookAt(eye.x,eye.y,eye.z, // EYE
-//              0,0,0, // LOOK
-//              0,1,0); // CAMERA UP
+    WINDOW_WIDTH = width;
+    WINDOW_HEIGHT = height;
 }
 
 static void display(void) {
     
     glClearColor(0.1f, 0.2f, 0.8f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    GLfloat light_position0[4]={0, INFINITO, 0, 0.0};
-    GLfloat light_position1[4]={0, 0, INFINITO, 0.0};
-    GLfloat light_position2[4]={INFINITO, 0, 0, 0.0};
-    glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
-    glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
-    glLightfv(GL_LIGHT2, GL_POSITION, light_position2);
-    
-
-    
     
     glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     glClear(GL_DEPTH_BUFFER_BIT);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluPerspective(45, WINDOW_WIDTH/WINDOW_HEIGHT, 0.001, 1000);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    [scene.camera renderCamera];
+    [scene.playerCar.frontCamera renderCamera];
     [scene render];
 
-    
-    glViewport(0, 0, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
+    glViewport(WINDOW_WIDTH*(1/2.0 - 1/8.0), WINDOW_HEIGHT-(20 +WINDOW_WIDTH/15.0), WINDOW_WIDTH/4.0, WINDOW_WIDTH/15.0);
     glClear(GL_DEPTH_BUFFER_BIT);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluPerspective(45, WINDOW_WIDTH/WINDOW_HEIGHT, 0.001, 1000);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    [scene.camera renderCamera];
+    [scene.playerCar.backCamera renderCamera];
     [scene render];
+    
+    
+    glViewport(20, 20, WINDOW_HEIGHT/4, WINDOW_HEIGHT/4);
+    glClear(GL_DEPTH_BUFFER_BIT);
+    [scene.trackCamera renderCamera];
+    [scene.playerCar addChild:scene.playerCar.markerNode];
+    [scene render];
+    [scene.playerCar removeChild:scene.playerCar.markerNode];
+
     
     glutSwapBuffers();
 }
@@ -143,10 +116,10 @@ void onKeyUp(unsigned char key, int x, int y) {
             break;
         case 'v':
         case 'V':
-            [scene.camera changeCameraMode];
+            [scene.playerCar.frontCamera changeCameraMode];
             break;
         case 32:
-            [scene.playerCar action];
+            [scene.playerCar fireAction];
             break;
         case 27:
             exit(0);
@@ -160,7 +133,7 @@ static void timer(int value) {
 //    int timeSinceStart = glutGet(GLUT_ELAPSED_TIME);
 //    int deltaTime = timeSinceStart - oldTimeSinceStart;
 //    oldTimeSinceStart = timeSinceStart;
-    
+    [scene collisionCheck];
     [scene updateWithDelta:1];
     glutPostRedisplay();
     glutTimerFunc(1, timer, 1);
@@ -206,6 +179,9 @@ void initialize()
 int main(int argc, char *argv[])
 {
     glutInit(&argc, argv);
+    WINDOW_WIDTH = 800;
+    WINDOW_HEIGHT = 600;
+    
     glutInitWindowSize(WINDOW_WIDTH,WINDOW_HEIGHT);
     glutInitWindowPosition(0,0);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);

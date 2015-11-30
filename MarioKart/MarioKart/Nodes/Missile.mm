@@ -25,8 +25,8 @@
 - (void)updateWithDelta:(NSTimeInterval)dt {
     [super updateWithDelta:dt];
     self.rotationZ += 1 *dt;
-    self.positionX += MISSILE_VELOCITY * sin(self.rotationY*M_PI/180);
-    self.positionZ += MISSILE_VELOCITY * cos(self.rotationY*M_PI/180);
+    self.positionX += MISSILE_VELOCITY * sin(self.rotationY*M_PI/180.0);
+    self.positionZ += MISSILE_VELOCITY * cos(self.rotationY*M_PI/180.0);
 }
 
 @end

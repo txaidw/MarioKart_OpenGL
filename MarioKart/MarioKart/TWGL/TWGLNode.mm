@@ -16,7 +16,9 @@
 
 @end
 
-@implementation TWGLNode
+@implementation TWGLNode {
+    float radius;
+}
 
 - (instancetype)initWithModel:(GLMmodel *)model
 {
@@ -31,7 +33,8 @@
         _rotationX = 0;
         _rotationY = 0;
         _rotationZ = 0;
-
+        
+        radius = 2;
     }
     return self;
 }
@@ -53,11 +56,48 @@
 }
 
 - (void)updateWithDelta:(NSTimeInterval)dt {
+    if (self.action) {
+        self.action(self, dt);
+    }
     for (TWGLNode *child in self.children) {
         [child updateWithDelta:dt];
     }
 }
 
+- (void)didCollideWith:(TWGLNode *)node {
+    printf("Collide: %s - %s\n", NSStringFromClass([self class]).UTF8String, NSStringFromClass([node class]).UTF8String);
+}
+
+- (void)collisionCheck {
+    for (TWGLNode *node in self.childrenArray) {
+        [node collisionCheck];
+    }
+    
+    for (TWGLNode *node in self.scene.childrenArray) {
+        if ([self isCollidingWith:node]) {
+            [self didCollideWith:node];
+        }
+    }
+}
+
+- (BOOL)isCollidingWith:(TWGLNode *)node {
+    if (self != node && self.hasPhysicsBody && node.hasPhysicsBody) {
+        float sx, sy, sz, nx, ny, nz;
+        [self calculateAbsolutePosition:&sx yy:&sy zz:&sz];
+        [node calculateAbsolutePosition:&nx yy:&ny zz:&nz];
+        float x_diff = sx - nx;
+        float y_diff = sy - ny;
+        float z_diff = sz - nz;
+        float distance = sqrtf(x_diff*x_diff + y_diff*y_diff + z_diff*z_diff);
+        if (distance <= radius) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    } else {
+        return FALSE;
+    }
+}
 
 - (void)addChild:(TWGLNode *)node {
     [_children addObject:node];

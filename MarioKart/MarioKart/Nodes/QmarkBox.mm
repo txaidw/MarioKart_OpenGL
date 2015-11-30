@@ -17,6 +17,7 @@
     self = [super initWithModel:aModel];
     if (self) {
         self.scale = 0.5;
+        self.hasPhysicsBody = TRUE;
     }
     return self;
 }

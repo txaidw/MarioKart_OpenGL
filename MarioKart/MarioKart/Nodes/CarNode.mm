@@ -9,10 +9,11 @@
 #import "CarNode.h"
 #import "Trap.h"
 #import "Missile.h"
+#import "MarkerNode.h"
+
 @interface CarNode ()
 
 @property CAR_ITEM itemNamed;
-
 @end
 
 @implementation CarNode {
@@ -59,13 +60,24 @@
         MAX_DIRECTION = 80;
         MAX_CONVERSION = 10;
         CONVERSION_RATE = 1;
+        
+        self.hasPhysicsBody = TRUE;
+
+        self.frontCamera = [[TWGLCamera alloc] init];
+        [self addChild:self.frontCamera];
+        self.backCamera = [[TWGLCamera alloc] init];
+        [self addChild:self.backCamera];
+        self.backCamera.rotationY = 180;
+        self.backCamera.positionZ = -1.2;
+        
+        
+        self.markerNode = [[MarkerNode alloc] init];
     }
     return self;
 }
 
 - (void)updateWithDelta:(NSTimeInterval)dt {
     [super updateWithDelta:dt];
-    
     if (self.playerController) {
         
         if (self.playerController.pressedKey_left) {
@@ -127,13 +139,14 @@
             }
         }
         self.rotationY += currentDirection*currentVelocity;
-        self.positionX += currentVelocity * sin(self.rotationY*M_PI/180);
-        self.positionZ += currentVelocity * cos(self.rotationY*M_PI/180);
+        self.positionX += currentVelocity * sin(self.rotationY*M_PI/180.0);
+        self.positionZ += currentVelocity * cos(self.rotationY*M_PI/180.0);
         
     }
 }
 
-- (void)action {
+
+- (void)fireAction {
     if (self.itemNamed) {
         if ([self.itemNamed isEqualToString:CAR_ITEM_TURBO]) {
             [self activateTurbo];
@@ -190,4 +203,5 @@
     
     [self.scene addChild:missile];
 }
+
 @end

@@ -21,9 +21,12 @@
 @property float rotationY;
 @property float rotationZ;
 
+@property BOOL hasPhysicsBody;
 
 @property (weak) TWGLNode *parent;
 @property (weak) TWGLNode *scene;
+
+@property (nonatomic, copy) void (^action)(TWGLNode *node, GLfloat dt);
 
 - (instancetype)initWithModel:(GLMmodel *)model;
 
@@ -37,5 +40,7 @@
 
 - (void)calculateAbsolutePosition:(float *)xx yy:(float *)yy zz:(float *)zz;
 - (void)calculateAbsoluteRotation:(float *)xx yy:(float *)yy zz:(float *)zz;
+
+- (void)collisionCheck;
 
 @end

@@ -13,4 +13,5 @@
 
 @property (weak) CarNode *playerCar;
 
+@property TWGLCamera *trackCamera;
 @end
