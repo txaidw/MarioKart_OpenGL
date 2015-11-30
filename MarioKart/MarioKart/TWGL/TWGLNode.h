@@ -42,5 +42,5 @@
 - (void)calculateAbsoluteRotation:(float *)xx yy:(float *)yy zz:(float *)zz;
 
 - (void)collisionCheck;
-
+- (void)didCollideWith:(TWGLNode *)node;
 @end

@@ -7,7 +7,10 @@
 //
 
 #import "TWGLNode.h"
+#import "CarNode.h"
 
 @interface QmarkBox : TWGLNode
+
+@property CAR_ITEM item;
 
 @end

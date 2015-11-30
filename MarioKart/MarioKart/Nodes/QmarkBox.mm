@@ -13,11 +13,24 @@
 
 - (instancetype)init
 {
-    GLMmodel *aModel = glmReadOBJ("MarioKart/Models/Caixa/qmark.obj");
+    GLMmodel *aModel = glmReadOBJ((char *)"MarioKart/Models/Caixa/qmark.obj");
     self = [super initWithModel:aModel];
     if (self) {
         self.scale = 0.5;
         self.hasPhysicsBody = TRUE;
+        
+        int num = rand()%3;
+        switch (num) {
+            case 0:
+                self.item = CAR_ITEM_TURBO;
+                break;
+            case 1:
+                self.item = CAR_ITEM_MISSILE;
+                break;
+            default:
+                self.item = CAR_ITEM_TRAP;
+                break;
+        }
     }
     return self;
 }

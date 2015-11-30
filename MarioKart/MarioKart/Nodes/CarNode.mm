@@ -10,6 +10,7 @@
 #import "Trap.h"
 #import "Missile.h"
 #import "MarkerNode.h"
+#import "QmarkBox.h"
 
 @interface CarNode ()
 
@@ -49,7 +50,7 @@
     GLMmodel *aModel = glmReadOBJ((char *)name.UTF8String);
     self = [super initWithModel:aModel];
     if (self) {
-        self.itemNamed = CAR_ITEM_TURBO;
+        self.itemNamed = NULL;
         TURBO_VELOCITY_MULTIPLIER = 3;
         TURBO_TIME = 222;
         MAX_VELOCITY = 1;
@@ -57,9 +58,9 @@
         MINMAX_ACCELERATION = 0.01;
         ACCELERATION_RATE = 0.001;
         
-        MAX_DIRECTION = 80;
-        MAX_CONVERSION = 10;
-        CONVERSION_RATE = 1;
+        MAX_DIRECTION = 60;
+        MAX_CONVERSION = 8;
+        CONVERSION_RATE = 2;
         
         self.hasPhysicsBody = TRUE;
 
@@ -138,13 +139,19 @@
                 printf("TURBO DESACTIVATED\n");
             }
         }
-        self.rotationY += currentDirection*currentVelocity;
+        self.rotationY += currentDirection*(0.1+currentVelocity/5);
         self.positionX += currentVelocity * sin(self.rotationY*M_PI/180.0);
         self.positionZ += currentVelocity * cos(self.rotationY*M_PI/180.0);
         
     }
 }
 
+- (void)didCollideWith:(TWGLNode *)node {
+    [super didCollideWith:node];
+    if ([node isKindOfClass:[QmarkBox class]]) {
+        self.itemNamed = ((QmarkBox *)node).item;
+    }
+}
 
 - (void)fireAction {
     if (self.itemNamed) {
@@ -155,9 +162,11 @@
         } else if ([self.itemNamed isEqualToString:CAR_ITEM_MISSILE]) {
             [self shootMissile];
         } else {
-            printf("EMPTY SLOT\n");
+            printf("WRONG ITEM\n");
         }
-//        self.itemNamed = NULL;
+        self.itemNamed = NULL;
+    } else {
+        printf("EMPTY SLOT\n");
     }
 }
 
