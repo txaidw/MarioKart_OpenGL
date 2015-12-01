@@ -12,6 +12,18 @@
 #import "MarkerNode.h"
 #import "QmarkBox.h"
 
+#define P1x 375.0
+#define P1z 375.0
+
+#define P2x -375.0
+#define P2z 375.0
+
+#define P3x -375.0
+#define P3z -375.0
+
+#define P4x 375.0
+#define P4z -375.0
+
 @interface CarNode ()
 
 @property CAR_ITEM itemNamed;
@@ -39,6 +51,14 @@
     BOOL turboActivated;
     float currentTurboTime;
 
+    
+    int nextCheckpoint;
+    
+    BOOL conversion;
+    
+    float checkpoints[8];
+    
+    BOOL automaticAI;
 }
 
 - (instancetype)init {
@@ -73,12 +93,27 @@
         
         
         self.markerNode = [[MarkerNode alloc] init];
+        
+        
+        checkpoints[0] = P1x;
+        checkpoints[1] = P1z;
+        checkpoints[2] = P2x;
+        checkpoints[3] = P2z;
+        checkpoints[4] = P3x;
+        checkpoints[5] = P3z;
+        checkpoints[6] = P4x;
+        checkpoints[7] = P4z;
+        
+        nextCheckpoint = 0;
+        
+        automaticAI = TRUE;
     }
     return self;
 }
 
 - (void)updateWithDelta:(NSTimeInterval)dt {
     [super updateWithDelta:dt];
+
     if (self.playerController) {
         
         if (self.playerController.pressedKey_left) {
@@ -142,15 +177,94 @@
         self.rotationY += currentDirection*(0.1+currentVelocity/5);
         self.positionX += currentVelocity * sin(self.rotationY*M_PI/180.0);
         self.positionZ += currentVelocity * cos(self.rotationY*M_PI/180.0);
+    } else if (automaticAI) {
+        currentAcceleration += ACCELERATION_RATE;
+        if (currentAcceleration > MINMAX_ACCELERATION) {
+            currentAcceleration = MINMAX_ACCELERATION;
+        }
+        currentVelocity += currentAcceleration;
+        if (currentVelocity > MAX_VELOCITY) {
+            currentVelocity = MAX_VELOCITY;
+        } else if (currentVelocity < MIN_VELOCITY) {
+            currentVelocity = MIN_VELOCITY;
+        }
         
+        self.rotationY += currentDirection*(0.1+currentVelocity/5);
+        self.positionX += currentVelocity * sin(self.rotationY*M_PI/180.0);
+        self.positionZ += currentVelocity * cos(self.rotationY*M_PI/180.0);
+        
+   
+        if (conversion) {
+            self.rotationY -= 90;
+            nextCheckpoint++;
+            if (nextCheckpoint >= 4) {
+                nextCheckpoint = 0;
+            }
+            conversion = FALSE;
+        } else {
+            float distanceToNextPoint = [self distanceToPointX:checkpoints[2*nextCheckpoint] y:self.positionY z:checkpoints[2*nextCheckpoint+1]];
+            if (distanceToNextPoint < 5) {
+                conversion = TRUE;
+            }
+            
+        }
     }
+    [self checkTrackBoundaries];
+
 }
 
 - (void)didCollideWith:(TWGLNode *)node {
     [super didCollideWith:node];
+    
+    
     if ([node isKindOfClass:[QmarkBox class]]) {
         self.itemNamed = ((QmarkBox *)node).item;
+        [node removeFromParent];
+    } else if ([node isKindOfClass:[Trap class]]) {
+        currentAcceleration = 0;
+        currentVelocity = 0;
+        currentConversion = 0;
+        currentDirection = 0;
+        currentTurboTime = 9999;
+        [node removeFromParent];
+    } else if ([node isKindOfClass:[Missile class]]) {
+        currentAcceleration = 0;
+        currentVelocity = 0;
+        currentConversion = 0;
+        currentDirection = 0;
+        currentTurboTime = 9999;
+        [node removeFromParent];
+    } else if ([node isKindOfClass:[CarNode class]]) {
+        
+//        
+//        self.positionX += 10;
+//        self.positionZ += 10;
     }
+}
+
+- (void)checkTrackBoundaries {
+    float xx, yy, zz;
+    [self calculateAbsolutePosition:&xx yy:&yy zz:&zz];
+    
+    float insideWall = 361;
+    float outsideWall = 389;
+    if ((xx < insideWall && xx > -insideWall) &&
+        (zz < insideWall && zz > -insideWall)) {
+        currentAcceleration = 0;
+        currentVelocity = 0;
+        currentConversion = 0;
+        currentDirection = 0;
+        currentTurboTime = 9999;
+    } else if ((xx > outsideWall || xx < -outsideWall) ||
+               (zz > outsideWall || zz < -outsideWall)) {
+        currentAcceleration = 0;
+        currentVelocity = 0;
+        currentConversion = 0;
+        currentDirection = 0;
+        currentTurboTime = 9999;
+    }
+
+    
 }
 
 - (void)fireAction {
@@ -191,6 +305,7 @@
     trap.rotationY = ry;
     trap.rotationZ = rz;
     
+    trap.positionZ -= 3;
     [self.scene addChild:trap];
     
 }

@@ -14,7 +14,7 @@
 #define CAR_CHARACTER_MARIO @"Mario/mk_kart.obj"
 #define CAR_CHARACTER_BOWSER @"Bowser/kk_kart.obj"
 #define CAR_CHARACTER_LUIGI @"Luigi/luigi.obj"
-#define CAR_CHARACTER_PEACH @"Peach/pkart.obj"
+#define CAR_CHARACTER_PEACH @"Peach/pk_kart.obj"
 
 #define CAR_ITEM NSString*
 #define CAR_ITEM_TURBO @"CAR_ITEM_TURBO"
@@ -27,6 +27,7 @@
 @property TWGLCamera *backCamera;
 @property TWGLNode *markerNode;
 
+- (instancetype)initWithModelNamed:(CAR_CHARACTER)named;
 
 @property (weak) TWGLScene *playerController;
 - (void)fireAction;

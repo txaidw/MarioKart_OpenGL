@@ -36,6 +36,7 @@
 
 - (void)addChild:(TWGLNode *)node;
 - (void)removeChild:(TWGLNode *)node;
+- (void)removeFromParent;
 - (NSArray *)childrenArray;
 
 - (void)calculateAbsolutePosition:(float *)xx yy:(float *)yy zz:(float *)zz;
@@ -43,4 +44,8 @@
 
 - (void)collisionCheck;
 - (void)didCollideWith:(TWGLNode *)node;
+
+- (float)distanceToNode:(TWGLNode *)node;
+- (float)distanceToPointX:(float)nx y:(float)ny z:(float)nz;
+
 @end

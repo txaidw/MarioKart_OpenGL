@@ -13,11 +13,11 @@
 
 @property GLMmodel *model;
 @property NSMutableArray *children;
-
 @end
 
 @implementation TWGLNode {
     float radius;
+
 }
 
 - (instancetype)initWithModel:(GLMmodel *)model
@@ -49,7 +49,7 @@
     
         glmDraw(_model, GLM_MATERIAL | GLM_TEXTURE); //GLM_SMOOTH |
     
-        for (TWGLNode *child in self.children) {
+        for (TWGLNode *child in self.childrenArray) {
             [child render];
         }
     glPopMatrix();
@@ -59,7 +59,7 @@
     if (self.action) {
         self.action(self, dt);
     }
-    for (TWGLNode *child in self.children) {
+    for (TWGLNode *child in self.childrenArray) {
         [child updateWithDelta:dt];
     }
 }
@@ -82,13 +82,8 @@
 
 - (BOOL)isCollidingWith:(TWGLNode *)node {
     if (self != node && self.hasPhysicsBody && node.hasPhysicsBody) {
-        float sx, sy, sz, nx, ny, nz;
-        [self calculateAbsolutePosition:&sx yy:&sy zz:&sz];
-        [node calculateAbsolutePosition:&nx yy:&ny zz:&nz];
-        float x_diff = sx - nx;
-        float y_diff = sy - ny;
-        float z_diff = sz - nz;
-        float distance = sqrtf(x_diff*x_diff + y_diff*y_diff + z_diff*z_diff);
+
+        float distance = [self distanceToNode:node];
         if (distance <= radius) {
             return TRUE;
         } else {
@@ -97,6 +92,21 @@
     } else {
         return FALSE;
     }
+}
+
+- (float)distanceToNode:(TWGLNode *)node {
+    float nx, ny, nz;
+    [node calculateAbsolutePosition:&nx yy:&ny zz:&nz];
+    return [self distanceToPointX:nx y:ny z:nz];
+}
+
+- (float)distanceToPointX:(float)nx y:(float)ny z:(float)nz {
+    float sx, sy, sz;
+    [self calculateAbsolutePosition:&sx yy:&sy zz:&sz];
+    float x_diff = sx - nx;
+    float y_diff = sy - ny;
+    float z_diff = sz - nz;
+    return sqrtf(x_diff*x_diff + y_diff*y_diff + z_diff*z_diff);
 }
 
 - (void)addChild:(TWGLNode *)node {
@@ -114,7 +124,7 @@
 }
 
 - (NSArray *)childrenArray {
-    return _children;
+    return [NSArray arrayWithArray:_children];
 }
 
 - (void)calculateAbsoluteRotation:(float *)xx yy:(float *)yy zz:(float *)zz {

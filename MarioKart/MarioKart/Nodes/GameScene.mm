@@ -18,7 +18,6 @@
 @interface GameScene ()
 
 @property Pista *pista;
-@property CarNode *testCar;
 
 @end
 
@@ -45,10 +44,32 @@
         _pista = [[Pista alloc] init];
         [self addChild:_pista];
         
-        _testCar = [[CarNode alloc] init];
-        _testCar.playerController = self;
-        _testCar.positionX = 375;
-        [self addChild:_testCar];
+
+        float dist = 6;
+        float line = 100;
+        
+        CarNode *mario = [[CarNode alloc] initWithModelNamed:CAR_CHARACTER_MARIO];
+        mario.positionX = 375 - dist/2;
+        mario.positionZ = line;
+        mario.playerController = self;
+        [self addChild:mario];
+        self.playerCar = mario;
+
+        CarNode *peach = [[CarNode alloc] initWithModelNamed:CAR_CHARACTER_PEACH];
+        peach.positionX = 375 + dist/2;
+        peach.positionZ = line;
+        [self addChild:peach];
+        
+        CarNode *luigi = [[CarNode alloc] initWithModelNamed:CAR_CHARACTER_LUIGI];
+        luigi.positionX = 375 + dist/2;
+        luigi.positionZ = line - dist;
+        [self addChild:luigi];
+        
+        CarNode *bowser = [[CarNode alloc] initWithModelNamed:CAR_CHARACTER_BOWSER];
+        bowser.positionX = 375 - dist/2;
+        bowser.positionZ = line - dist;
+        [self addChild:bowser];
+        
         
         QmarkBox *centerBox = [[QmarkBox alloc] init];
         [self addChild:centerBox];
@@ -60,7 +81,6 @@
             node.rotationZ += 0.2*dt;
         };
         
-        self.playerCar = _testCar;
         
         [self generateRandomBoxes];
         

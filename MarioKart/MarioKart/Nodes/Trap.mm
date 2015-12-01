@@ -16,7 +16,7 @@
     GLMmodel *aModel = glmReadOBJ("MarioKart/Models/Esfera/ball.obj");
     self = [super initWithModel:aModel];
     if (self) {
-        
+        self.hasPhysicsBody = TRUE;
     }
     return self;
 }

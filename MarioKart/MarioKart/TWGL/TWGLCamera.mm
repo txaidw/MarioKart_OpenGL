@@ -14,8 +14,8 @@
 #define CAMERA_TYPE1_PZ -3.7
 
 #define CAMERA_TYPE2_PX 0
-#define CAMERA_TYPE2_PY 4
-#define CAMERA_TYPE2_PZ -10
+#define CAMERA_TYPE2_PY 3
+#define CAMERA_TYPE2_PZ -12
 
 #define CAMERA_TYPE3_PX 0
 #define CAMERA_TYPE3_PY 0.5
