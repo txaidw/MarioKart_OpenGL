@@ -14,4 +14,9 @@
 @property (weak) CarNode *playerCar;
 
 @property TWGLCamera *trackCamera;
+
+- (void)renderHUD;
+
+- (void)prepareForTrackCamera;
+- (void)backFromTrackCamera;
 @end

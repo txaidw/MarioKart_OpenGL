@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "glm.hpp"
+#import <GLUT/GLUT.h>
 
 @interface TWGLNode : NSObject
 

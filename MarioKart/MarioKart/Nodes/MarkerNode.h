@@ -8,6 +8,14 @@
 
 #import "TWGLNode.h"
 #import "Trap.h"
+#import "CarNode.h"
 @interface MarkerNode : Trap
+
+
+- (instancetype)initWithModelNamed:(NSString *)named;
+
+@property float colorR;
+@property float colorG;
+@property float colorB;
 
 @end

@@ -9,8 +9,8 @@
 #import "CarNode.h"
 #import "Trap.h"
 #import "Missile.h"
-#import "MarkerNode.h"
 #import "QmarkBox.h"
+#import "MarkerNode.h"
 
 #define P1x 375.0
 #define P1z 375.0
@@ -26,7 +26,6 @@
 
 @interface CarNode ()
 
-@property CAR_ITEM itemNamed;
 @end
 
 @implementation CarNode {
@@ -59,8 +58,12 @@
     float checkpoints[8];
     
     BOOL automaticAI;
+    float randomPercentage;
 }
 
+- (void)updateVelocity:(float)v {
+    currentVelocity = v;
+}
 - (instancetype)init {
     return [self initWithModelNamed:CAR_CHARACTER_BOWSER];
 }
@@ -71,7 +74,7 @@
     self = [super initWithModel:aModel];
     if (self) {
         self.itemNamed = NULL;
-        TURBO_VELOCITY_MULTIPLIER = 3;
+        TURBO_VELOCITY_MULTIPLIER = 1.8;
         TURBO_TIME = 222;
         MAX_VELOCITY = 1;
         MIN_VELOCITY = -0.5;
@@ -80,7 +83,7 @@
         
         MAX_DIRECTION = 60;
         MAX_CONVERSION = 8;
-        CONVERSION_RATE = 2;
+        CONVERSION_RATE = 8;
         
         self.hasPhysicsBody = TRUE;
 
@@ -91,9 +94,7 @@
         self.backCamera.rotationY = 180;
         self.backCamera.positionZ = -1.2;
         
-        
-        self.markerNode = [[MarkerNode alloc] init];
-        
+        self.markerNode = [[MarkerNode alloc] initWithModelNamed:named];
         
         checkpoints[0] = P1x;
         checkpoints[1] = P1z;
@@ -107,6 +108,7 @@
         nextCheckpoint = 0;
         
         automaticAI = TRUE;
+        randomPercentage = (rand()%10)/100.0;
     }
     return self;
 }
@@ -117,12 +119,12 @@
     if (self.playerController) {
         
         if (self.playerController.pressedKey_left) {
-            currentConversion += CONVERSION_RATE;
+            currentConversion = CONVERSION_RATE;
             if (currentConversion > MAX_CONVERSION) {
                 currentConversion = MAX_CONVERSION;
             }
         } else if (self.playerController.pressedKey_right) {
-            currentConversion -= CONVERSION_RATE;
+            currentConversion = -CONVERSION_RATE;
             if (currentConversion < -MAX_CONVERSION) {
                 currentConversion = -MAX_CONVERSION;
             }
@@ -167,7 +169,8 @@
         }
         
         if (turboActivated) {
-            currentVelocity = MAX_VELOCITY*TURBO_VELOCITY_MULTIPLIER;
+            int s = currentVelocity*ABS(currentVelocity);
+            currentVelocity = (s == 0 ? 1 : s) * MAX_VELOCITY*TURBO_VELOCITY_MULTIPLIER;
             currentTurboTime += dt;
             if (currentTurboTime >= TURBO_TIME) {
                 turboActivated = FALSE;
@@ -183,8 +186,8 @@
             currentAcceleration = MINMAX_ACCELERATION;
         }
         currentVelocity += currentAcceleration;
-        if (currentVelocity > MAX_VELOCITY) {
-            currentVelocity = MAX_VELOCITY;
+        if (currentVelocity > MAX_VELOCITY*(1-randomPercentage)) {
+            currentVelocity = MAX_VELOCITY*(1-randomPercentage);
         } else if (currentVelocity < MIN_VELOCITY) {
             currentVelocity = MIN_VELOCITY;
         }
@@ -235,10 +238,17 @@
         currentTurboTime = 9999;
         [node removeFromParent];
     } else if ([node isKindOfClass:[CarNode class]]) {
+        currentAcceleration = 0;
+        currentConversion = 0;
+        currentVelocity = -MAX_VELOCITY/4.0;
         
-//        
+        [((CarNode *)node) updateVelocity:-currentVelocity];
 //        self.positionX += 10;
 //        self.positionZ += 10;
+        
+//        self.rotationY += currentDirection*(0.1+currentVelocity/5);
+//        self.positionX += currentVelocity * sin(self.rotationY*M_PI/180.0);
+//        self.positionZ += currentVelocity * cos(self.rotationY*M_PI/180.0);
     }
 }
 
@@ -247,21 +257,17 @@
     [self calculateAbsolutePosition:&xx yy:&yy zz:&zz];
     
     float insideWall = 361;
-    float outsideWall = 389;
+    float outsideWall = 389.6;
     if ((xx < insideWall && xx > -insideWall) &&
         (zz < insideWall && zz > -insideWall)) {
         currentAcceleration = 0;
-        currentVelocity = 0;
         currentConversion = 0;
-        currentDirection = 0;
-        currentTurboTime = 9999;
+        currentVelocity = -MAX_VELOCITY/4.0;
     } else if ((xx > outsideWall || xx < -outsideWall) ||
                (zz > outsideWall || zz < -outsideWall)) {
         currentAcceleration = 0;
-        currentVelocity = 0;
         currentConversion = 0;
-        currentDirection = 0;
-        currentTurboTime = 9999;
+        currentVelocity = -MAX_VELOCITY/4.0;
     }
 
     

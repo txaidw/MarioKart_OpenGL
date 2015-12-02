@@ -47,19 +47,19 @@ static void display(void) {
     glClear(GL_DEPTH_BUFFER_BIT);
     [scene.playerCar.frontCamera renderCamera];
     [scene render];
+    [scene renderHUD];
 
     glViewport(WINDOW_WIDTH*(1/2.0 - 1/8.0), WINDOW_HEIGHT-(20 +WINDOW_WIDTH/15.0), WINDOW_WIDTH/4.0, WINDOW_WIDTH/15.0);
     glClear(GL_DEPTH_BUFFER_BIT);
     [scene.playerCar.backCamera renderCamera];
     [scene render];
     
-    
     glViewport(20, 20, WINDOW_HEIGHT/4, WINDOW_HEIGHT/4);
     glClear(GL_DEPTH_BUFFER_BIT);
     [scene.trackCamera renderCamera];
-    [scene.playerCar addChild:scene.playerCar.markerNode];
+    [scene prepareForTrackCamera];
     [scene render];
-    [scene.playerCar removeChild:scene.playerCar.markerNode];
+    [scene backFromTrackCamera];
 
     
     glutSwapBuffers();

@@ -11,25 +11,22 @@
 #import "Pista.h"
 #import "CarNode.h"
 #import "QmarkBox.h"
+#import "SkyBox.h"
 
 #import "game main.h"
 #import "glm.hpp"
 
+
 @interface GameScene ()
 
 @property Pista *pista;
+@property NSMutableArray *cars;
+@property SkyBox *sky;
+
 
 @end
 
-@implementation GameScene {
-    GLuint n1;
-    GLuint n2;
-    GLuint n3;
-    GLuint n4;
-    GLuint n5;
-    GLuint n6;
-}
-
+@implementation GameScene
 - (instancetype)init
 {
     self = [super init];
@@ -59,7 +56,7 @@
         peach.positionX = 375 + dist/2;
         peach.positionZ = line;
         [self addChild:peach];
-        
+
         CarNode *luigi = [[CarNode alloc] initWithModelNamed:CAR_CHARACTER_LUIGI];
         luigi.positionX = 375 + dist/2;
         luigi.positionZ = line - dist;
@@ -70,6 +67,7 @@
         bowser.positionZ = line - dist;
         [self addChild:bowser];
         
+        _cars = [[NSMutableArray alloc] initWithObjects:mario, peach, luigi, bowser, nil];
         
         QmarkBox *centerBox = [[QmarkBox alloc] init];
         [self addChild:centerBox];
@@ -84,11 +82,8 @@
         
         [self generateRandomBoxes];
         
-        GLfloat ww, hh;
+        _sky = [[SkyBox alloc] init];
         
-        n6 = glmLoadTexture("MarioKart/Models/SkyBox/floor.tga", false, false, false, true, &ww, &hh);
-        n5 = glmLoadTexture("MarioKart/Models/SkyBox/top.tga", false, false, false, true, &ww, &hh);
-        n1 = n2 = n3 = n4 = glmLoadTexture("MarioKart/Models/SkyBox/wall.tga", false, false, false, true, &ww, &hh);
     }
     return self;
 }
@@ -141,85 +136,56 @@
     glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
     glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
     glLightfv(GL_LIGHT2, GL_POSITION, light_position2);
-    [self renderSky];
+    [self.sky render];
     [super render];
+    [self renderHUD];
 }
 
-- (void)renderSky {
-    // Store the current matrix
 
+- (void)renderHUD {
+
+    GLint m_viewport[4]; glGetIntegerv(GL_VIEWPORT, m_viewport);
+
+    glMatrixMode(GL_PROJECTION);    //Select projection matrix
+    glPushMatrix();                 //save it
+    glLoadIdentity();
     
-    float size = 1000;
-    glPushMatrix();
+    glMatrixMode(GL_MODELVIEW);    //Select modelview matrix
+    glPushMatrix();                //save it
+    glLoadIdentity();
     
-    // Enable/Disable features
-    glPushAttrib(GL_ENABLE_BIT);
-    glEnable(GL_TEXTURE_2D);
-    glDisable(GL_DEPTH_TEST);
+    // set up ur glOrtho
+    glDisable(GL_TEXTURE_2D);
     glDisable(GL_LIGHTING);
-    glDisable(GL_BLEND);
+    glOrtho(m_viewport[0], m_viewport[2], m_viewport[1], m_viewport[3], 0, 1000);
+
+    drawText((self.playerCar.itemNamed == NULL ? @"EMPTY SLOT" : self.playerCar.itemNamed), m_viewport[2]-160, 20);
     
-    // Just in case we set all vertices to white.
-    glColor4f(1,1,1,1);
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();                //Restore your old projection matrix
     
-    // Render the front quad
-    glBindTexture(GL_TEXTURE_2D, n1);
-    glBegin(GL_QUADS);
-    glTexCoord2f(0, 0); glVertex3f(  0.5*size, -0.0*size, -0.5*size );
-    glTexCoord2f(1, 0); glVertex3f( -0.5*size, -0.0*size, -0.5*size );
-    glTexCoord2f(1, 1); glVertex3f( -0.5*size,  1.0*size, -0.5*size );
-    glTexCoord2f(0, 1); glVertex3f(  0.5*size,  1.0*size, -0.5*size );
-    glEnd();
-    
-    // Render the left quad
-    glBindTexture(GL_TEXTURE_2D, n2);
-    glBegin(GL_QUADS);
-    glTexCoord2f(0, 0); glVertex3f(  0.5*size, -0.0*size,  0.5*size );
-    glTexCoord2f(1, 0); glVertex3f(  0.5*size, -0.0*size, -0.5*size );
-    glTexCoord2f(1, 1); glVertex3f(  0.5*size,  1.0*size, -0.5*size );
-    glTexCoord2f(0, 1); glVertex3f(  0.5*size,  1.0*size,  0.5*size );
-    glEnd();
-    
-    // Render the back quad
-    glBindTexture(GL_TEXTURE_2D, n3);
-    glBegin(GL_QUADS);
-    glTexCoord2f(0, 0); glVertex3f( -0.5*size, -0.0*size,  0.5*size );
-    glTexCoord2f(1, 0); glVertex3f(  0.5*size, -0.0*size,  0.5*size );
-    glTexCoord2f(1, 1); glVertex3f(  0.5*size,  1.0*size,  0.5*size );
-    glTexCoord2f(0, 1); glVertex3f( -0.5*size,  1.0*size,  0.5*size );
-    
-    glEnd();
-    
-    // Render the right quad
-    glBindTexture(GL_TEXTURE_2D, n4);
-    glBegin(GL_QUADS);
-    glTexCoord2f(0, 0); glVertex3f( -0.5*size, -0.0*size, -0.5*size );
-    glTexCoord2f(1, 0); glVertex3f( -0.5*size, -0.0*size,  0.5*size );
-    glTexCoord2f(1, 1); glVertex3f( -0.5*size,  1.0*size,  0.5*size );
-    glTexCoord2f(0, 1); glVertex3f( -0.5*size,  1.0*size, -0.5*size );
-    glEnd();
-    
-    // Render the top quad
-    glBindTexture(GL_TEXTURE_2D, n5);
-    glBegin(GL_QUADS);
-    glTexCoord2f(0, 1); glVertex3f( -0.5*size,  1.0*size, -0.5*size );
-    glTexCoord2f(0, 0); glVertex3f( -0.5*size,  1.0*size,  0.5*size );
-    glTexCoord2f(1, 0); glVertex3f(  0.5*size,  1.0*size,  0.5*size );
-    glTexCoord2f(1, 1); glVertex3f(  0.5*size,  1.0*size, -0.5*size );
-    glEnd();
-    
-    // Render the bottom quad
-    glBindTexture(GL_TEXTURE_2D, n6);
-    glBegin(GL_QUADS);
-    glTexCoord2f(0, 0); glVertex3f( -0.5*size, -0.0*size, -0.5*size );
-    glTexCoord2f(0, 1); glVertex3f( -0.5*size, -0.0*size,  0.5*size );
-    glTexCoord2f(1, 1); glVertex3f(  0.5*size, -0.0*size,  0.5*size );
-    glTexCoord2f(1, 0); glVertex3f(  0.5*size, -0.0*size, -0.5*size );
-    glEnd();
-    
-    // Restore enable bits and matrix
-    glPopAttrib();
-    glPopMatrix();
+    glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();               //Restore old modelview matrix
+}
+void drawText(NSString* name, GLdouble x, GLdouble y)
+{
+    glColor4f(1.0, 1.0, 0.0, 1.0);
+    glRasterPos2f(x, y);
+    for (int i = 0; i < name.length; ++i)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, [name characterAtIndex:i]);
+    }
 }
 
+- (void)prepareForTrackCamera {
+    for (CarNode *node in self.cars) {
+        [node addChild:node.markerNode];
+    }
+}
+
+- (void)backFromTrackCamera {
+    for (CarNode *node in self.cars) {
+        [node removeChild:node.markerNode];
+    }
+}
 @end
