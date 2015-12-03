@@ -193,18 +193,7 @@
                 currentVelocity = MIN_VELOCITY;
             }
             
-            float xxx = checkpoints[2*nextCheckpoint] - self.positionX;
-            float zzz = checkpoints[2*nextCheckpoint+1] - self.positionZ;
-            
-            float ang = 0;
-            if (zzz <= 0) {
-                ang += M_PI + atan2(-zzz, -xxx);
-            } else {
-                ang += atan2(zzz, xxx);
-            }
-            
-            
-            self.rotationY = -ang;
+            self.rotationY += currentDirection*(0.1+currentVelocity/5);
             self.positionX += currentVelocity * sin(self.rotationY*M_PI/180.0);
             self.positionZ += currentVelocity * cos(self.rotationY*M_PI/180.0);
             
