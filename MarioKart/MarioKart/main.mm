@@ -61,17 +61,17 @@ static void display(void) {
     [scene render];
     [scene renderHUD];
 
-//    glViewport(WINDOW_WIDTH*(1/2.0 - 1/8.0), WINDOW_HEIGHT-(20 +WINDOW_WIDTH/15.0), WINDOW_WIDTH/4.0, WINDOW_WIDTH/15.0);
-//    glClear(GL_DEPTH_BUFFER_BIT);
-//    [scene.playerCar.backCamera renderCamera];
-//    [scene render];
-//    
-//    glViewport(20, 20, WINDOW_HEIGHT/4, WINDOW_HEIGHT/4);
-//    glClear(GL_DEPTH_BUFFER_BIT);
-//    [scene.trackCamera renderCamera];
-//    [scene prepareForTrackCamera];
-//    [scene render];
-//    [scene backFromTrackCamera];
+    glViewport(WINDOW_WIDTH*(1/2.0 - 1/8.0), WINDOW_HEIGHT-(20 +WINDOW_WIDTH/15.0), WINDOW_WIDTH/4.0, WINDOW_WIDTH/15.0);
+    glClear(GL_DEPTH_BUFFER_BIT);
+    [scene.playerCar.backCamera renderCamera];
+    [scene render];
+    
+    glViewport(20, 20, WINDOW_HEIGHT/4, WINDOW_HEIGHT/4);
+    glClear(GL_DEPTH_BUFFER_BIT);
+    [scene.trackCamera renderCamera];
+    [scene prepareForTrackCamera];
+    [scene render];
+    [scene backFromTrackCamera];
 
     
     glutSwapBuffers();
@@ -181,7 +181,7 @@ void initialize()
     glLightfv(GL_LIGHT3, GL_DIFFUSE, diffuse_light );
     glLightfv(GL_LIGHT3, GL_SPECULAR, specular_light );
     
-    glEnable(GL_LIGHTING);
+//    glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
     glEnable(GL_LIGHT2);

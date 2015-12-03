@@ -23,6 +23,7 @@
 @property SkyBox *sky;
 @property int playerPosition;
 @property BOOL gameIsFinished;
+@property QmarkBox *centerBox;
 @end
 
 @implementation GameScene
@@ -67,11 +68,11 @@
         
         _cars = [[NSMutableArray alloc] initWithObjects:mario, peach, luigi, bowser, nil];
         
-        QmarkBox *centerBox = [[QmarkBox alloc] init];
-        [self addChild:centerBox];
-        centerBox.positionY = 50;
-        centerBox.scale = 20;
-        centerBox.action = ^(TWGLNode *node, GLfloat dt) {
+        _centerBox = [[QmarkBox alloc] init];
+        [self addChild:_centerBox];
+        _centerBox.positionY = 50;
+        _centerBox.scale = 20;
+        _centerBox.action = ^(TWGLNode *node, GLfloat dt) {
             node.rotationX += 0.2*dt;
             node.rotationY += 0.2*dt;
             node.rotationZ += 0.2*dt;
@@ -195,12 +196,14 @@ void drawText(NSString* name, GLdouble x, GLdouble y)
     for (CarNode *node in self.cars) {
         [node addChild:node.markerNode];
     }
+    [self removeChild:_centerBox];
 }
 
 - (void)backFromTrackCamera {
     for (CarNode *node in self.cars) {
         [node removeChild:node.markerNode];
     }
+    [self addChild:_centerBox];
 }
 
 @end
