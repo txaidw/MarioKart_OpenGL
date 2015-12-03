@@ -1,47 +1,58 @@
-
-Will become a heading
+Mario Kart - OpenGL + GLUT
 ==============
 
-Will become a sub heading
+**Txai Wieser - 00217052**
+*Fundamentos de Computação Gráfica - UFRGS*
+*Dezembro/2015*
+
+Descrição:
 --------------
 
-*This will be Italic*
+GLUT (OpenGL Utility Toolkit) é uma biblioteca para OpenGL cujo principal objetivo é a abstração de conceitos na comunicação do OpenGL com o sistema operacional, como por exemplo o gerenciamento de janelas e tratamento de eventos de dispositivos de entrada.
 
-**This will be Bold**
+Para a criação do jogo Mario Kart, resolvi por criar uma estrutura de engine básica para depois desenvolver o jogo em cima, assim o trabalho maior estaria em criar essa mini-engine lidando com OpenGL diretamente e depois o jogo em sí poderia ser trabalhado mais facilmente.
 
-- This will be a list item
-- This will be a list item
+A linguagem escolhida para a realização do trabalho foi uma variação do Objective-C chamada de Objective-C++. Assim é possível utilizar em um mesmo programa as linguagens C, C++ e Objective-C. Portando o projeto deve ser aberto e compilado através da IDE Xcode.
 
-Add a indent and this will end up as code
+Além dos frameworks OpenGL e GLUT foi utilizado uma pequena biblioteca para leitura dos arquivos modelos .OBJ e as texturas .TGA, chama GLM.
+As classes dessa engine possuem o prefixo (TWGL). As classes criadas foram TWGLNode, TWGLScene e TWGLCamera.
+A classe mais importante é a TWGLNode, sendo herdada tanto na TWGLScene como na TWGLCamera.
+Algumas das principais propriedades e métodos:
+@property GLfloat scale;
+@property Vector3 position
+@property Vector3 rotation;
 
-## Mario Kart
+@property (weak) TWGLNode *parent;
+@property (weak) TWGLNode *scene;
+@property GLMmodel *model;
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+@property (nonatomic, copy) void (^action)(TWGLNode *node, GLfloat dt);
 
-## Code Example
+- (void)render;
+- (void)updateWithDelta:(NSTimeInterval)dt;
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+- (void)addChild:(TWGLNode *)node;
+- (void)removeChild:(TWGLNode *)node;
+- (void)removeFromParent;
 
-## Motivation
+- (void)calculateAbsolutePosition:(GLfloat *)xx yy:(GLfloat *)yy zz:(GLfloat *)zz;
+- (void)calculateAbsoluteRotation:(GLfloat *)xx yy:(GLfloat *)yy zz:(GLfloat *)zz;
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+- (void)collisionCheck;
+- (void)didCollideWith:(TWGLNode *)node;
 
-## Installation
+- (GLfloat)distanceToNode:(TWGLNode *)node;
+- (GLfloat)distanceToPointX:(float)nx y:(float)ny z:(float)nz;
 
-Provide code examples and explanations of how to get the project.
 
-## API Reference
+O método render() toma conta de criar um espaço especifico para o nodo e renderiza o model atrelado ao nodo na cena. A funcionalidade dos outros métodos e propriedades podem ser inferidas pelos seus nomes ou visualizando o código fonte.
+O maior ganho em utilizar o padrão de nodos na cena herdando de uma mesma classe é que diversos métodos podem ser compartilhados, como a renderização, o posicionamento e a colisão.
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-
-## Contributors
-
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
-
-## License
-
-A short snippet describing the license (MIT, Apache, etc.)
+## Controles ##
+Para controlar o carro principal basta utilizar os seguintes comandos:
+• Tecla W (ou seta para cima): acelerar o kart para a frente; 
+•	Tecla S (ou seta para baixo): frear o kart e acelerar para trás quando parado; 
+•	Tecla A (ou seta para esquerda): vira o kart para esquerda; 
+•	Tecla D (ou seta para direita): vira o kart para direita; 
+•	Barra de espaço: utiliza o item armazenado; 
+•	Tecla V: alterna entre os diferentes tipos de câmera. 
