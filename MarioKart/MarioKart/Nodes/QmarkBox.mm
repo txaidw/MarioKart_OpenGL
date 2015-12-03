@@ -16,7 +16,7 @@
     GLMmodel *aModel = glmReadOBJ((char *)"MarioKart/Models/Caixa/qmark.obj");
     self = [super initWithModel:aModel];
     if (self) {
-        self.scale = 0.5;
+        self.scale = 0.3;
         self.hasPhysicsBody = TRUE;
         
         int num = rand()%3;

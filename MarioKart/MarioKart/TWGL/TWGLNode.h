@@ -48,5 +48,5 @@
 
 - (float)distanceToNode:(TWGLNode *)node;
 - (float)distanceToPointX:(float)nx y:(float)ny z:(float)nz;
-
+- (void)initialize;
 @end

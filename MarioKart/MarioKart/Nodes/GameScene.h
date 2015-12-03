@@ -19,4 +19,5 @@
 
 - (void)prepareForTrackCamera;
 - (void)backFromTrackCamera;
+- (void)finishGame;
 @end

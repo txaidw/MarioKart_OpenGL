@@ -41,14 +41,15 @@
 
 - (void)render {
     glPushMatrix();
+    
         glTranslatef(_positionX, _positionY, _positionZ);
         glRotatef(_rotationX, 1, 0, 0);
         glRotatef(_rotationY, 0, 1, 0);
         glRotatef(_rotationZ, 0, 0, 1);
         glScalef(_scale, _scale, _scale);
     
-        glmDraw(_model, GLM_MATERIAL | GLM_TEXTURE); //GLM_SMOOTH |
-    
+        glmDraw(_model, GLM_MATERIAL | GLM_TEXTURE);// | GLM_SMOOTH);
+
         for (TWGLNode *child in self.childrenArray) {
             [child render];
         }
@@ -146,5 +147,9 @@
         *zz += node.positionZ;
         node = node.parent;
     }
+}
+
+- (void)initialize {
+    
 }
 @end

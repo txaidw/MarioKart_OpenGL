@@ -11,7 +11,7 @@
 
 #define CAMERA_TYPE1_PX 0
 #define CAMERA_TYPE1_PY 2.0
-#define CAMERA_TYPE1_PZ -3.7
+#define CAMERA_TYPE1_PZ -3.9
 
 #define CAMERA_TYPE2_PX 0
 #define CAMERA_TYPE2_PY 3
@@ -54,7 +54,7 @@
         
         glGetIntegerv( GL_VIEWPORT, m_viewport);
         
-        gluPerspective(45, (float)m_viewport[2]/(float)m_viewport[3], 0.001, 1000);
+        gluPerspective(45, (float)m_viewport[2]/(float)m_viewport[3], 0.001, 4000);
         
     }
     

@@ -34,4 +34,11 @@
 - (void)fireAction;
 - (void)updateVelocity:(float)v;
 
+- (float)trackAbsoluteAngle;
+
+
+@property BOOL checkpointCompleted1;
+@property BOOL checkpointCompleted2;
+@property BOOL checkpointCompleted3;
+@property BOOL checkpointCompleted4;
 @end

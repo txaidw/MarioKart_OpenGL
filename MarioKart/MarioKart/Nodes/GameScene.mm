@@ -13,7 +13,6 @@
 #import "QmarkBox.h"
 #import "SkyBox.h"
 
-#import "game main.h"
 #import "glm.hpp"
 
 
@@ -22,8 +21,8 @@
 @property Pista *pista;
 @property NSMutableArray *cars;
 @property SkyBox *sky;
-
-
+@property int playerPosition;
+@property BOOL gameIsFinished;
 @end
 
 @implementation GameScene
@@ -37,7 +36,6 @@
         self.trackCamera.rotationX = 90;
         [self.trackCamera setOrtho];
 
-        
         _pista = [[Pista alloc] init];
         [self addChild:_pista];
         
@@ -83,6 +81,7 @@
         [self generateRandomBoxes];
         
         _sky = [[SkyBox alloc] init];
+        self.playerPosition = 1;
         
     }
     return self;
@@ -122,8 +121,39 @@
 
 - (void)updateWithDelta:(NSTimeInterval)dt {
     [super updateWithDelta:dt];
+    NSArray *positions = [_cars sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey: @"self.trackAbsoluteAngle" ascending: FALSE]]];
+    
+    self.playerPosition = [positions indexOfObject:self.playerCar]+1;
 }
 
+
+
+- (void)initialize {
+    // fourth parameter: 1 -> finite distance, 0 -> inifinite distance
+    
+    GLfloat ambient_light[4]={1.0,1.0,1.0,1.0};
+    GLfloat diffuse_light[4]={1.0,1.0,1.0,1.0};	   // "cor"
+    GLfloat specular_light[4]={1.0,1.0,1.0,1.0};// "brilho"
+    
+    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_light);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_light );
+    glLightfv(GL_LIGHT0, GL_SPECULAR, specular_light );
+    
+    glLightfv(GL_LIGHT1, GL_AMBIENT, ambient_light);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse_light );
+    glLightfv(GL_LIGHT1, GL_SPECULAR, specular_light );
+    
+    glLightfv(GL_LIGHT2, GL_AMBIENT, ambient_light);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, diffuse_light );
+    glLightfv(GL_LIGHT2, GL_SPECULAR, specular_light );
+    
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHT1);
+    glEnable(GL_LIGHT2);
+    
+    glEnable(GL_DEPTH_TEST);
+}
 
 - (void)render {
     glMatrixMode(GL_MODELVIEW);
@@ -136,11 +166,17 @@
     glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
     glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
     glLightfv(GL_LIGHT2, GL_POSITION, light_position2);
+    [self renderHUD];
+
     [self.sky render];
     [super render];
-    [self renderHUD];
+
 }
 
+
+- (void)finishGame {
+    _gameIsFinished = TRUE;
+}
 
 - (void)renderHUD {
 
@@ -156,23 +192,31 @@
     
     // set up ur glOrtho
     glDisable(GL_TEXTURE_2D);
-    glDisable(GL_LIGHTING);
     glOrtho(m_viewport[0], m_viewport[2], m_viewport[1], m_viewport[3], 0, 1000);
 
     drawText((self.playerCar.itemNamed == NULL ? @"EMPTY SLOT" : self.playerCar.itemNamed), m_viewport[2]-160, 20);
     
+    drawText([NSString stringWithFormat:@"%dº LUGAR", self.playerPosition], m_viewport[2]-160, 50);
+    
+    if (_gameIsFinished) {
+        drawText(@"FIM", m_viewport[2]/2-14, m_viewport[3]/2);
+        drawText([NSString stringWithFormat:@"COLOCAÇÃO: %dº LUGAR", self.playerPosition], m_viewport[2]/2-100, m_viewport[3]/2 - 30);
+
+    }
     glMatrixMode(GL_PROJECTION);
     glPopMatrix();                //Restore your old projection matrix
     
     glMatrixMode(GL_MODELVIEW);
     glPopMatrix();               //Restore old modelview matrix
 }
+
 void drawText(NSString* name, GLdouble x, GLdouble y)
 {
+    
     glColor4f(1.0, 1.0, 0.0, 1.0);
     glRasterPos2f(x, y);
-    for (int i = 0; i < name.length; ++i)
-    {
+
+    for (int i = 0; i < name.length; ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, [name characterAtIndex:i]);
     }
 }
