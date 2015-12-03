@@ -16,7 +16,7 @@ GLUT (OpenGL Utility Toolkit) é uma biblioteca para OpenGL cujo principal objet
 
 Para a criação do jogo Mario Kart, resolvi por criar uma estrutura de engine básica para depois desenvolver o jogo em cima, assim o trabalho maior estaria em criar essa mini-engine lidando com OpenGL diretamente e depois o jogo em sí poderia ser trabalhado mais facilmente.
 
-** Objective-C & Objective-C++ & C++ & C **
+**Objective-C & Objective-C++ & C++ & C**
 A linguagem escolhida para a realização do trabalho foi uma variação do Objective-C chamada de Objective-C++. Assim é possível utilizar em um mesmo programa as linguagens C, C++ e Objective-C. Portando o projeto deve ser aberto e compilado através da IDE Xcode.
 
 ![ss 2](https://github.com/txaidw/MarioKart_OpenGL/blob/master/ss/ss2.png)
