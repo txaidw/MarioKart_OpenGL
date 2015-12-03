@@ -1701,11 +1701,16 @@ GLvoid glmDraw(GLMmodel* model, GLuint mode)
     if (mode & GLM_SMOOTH && !model->normals) {
         printf("glmDraw() warning: smooth render mode requested "
             "with no normals defined.\n");
+        printf(model->pathname);
+        printf("\n");
+
         mode &= ~GLM_SMOOTH;
     }
     if (mode & GLM_TEXTURE && !model->texcoords) {
         printf("glmDraw() warning: texture render mode requested "
             "with no texture coordinates defined.\n");
+        printf(model->pathname);
+        printf("\n");
         mode &= ~GLM_TEXTURE;
     }
     if (mode & GLM_FLAT && mode & GLM_SMOOTH) {

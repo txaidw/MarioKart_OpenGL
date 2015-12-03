@@ -22,7 +22,7 @@
 #include "vector3f.hpp"
 
 
-#define INFINITO 1 // 1 to see the lights if activated
+#define INFINITO 400 // 1 to see the lights if activated
 #include "GameScene.h"
 
 
@@ -41,25 +41,37 @@ static void resize(int width, int height) {
 static void display(void) {
     
     glClearColor(0.1f, 0.2f, 0.8f, 0.0f);
+
+
     glClear(GL_COLOR_BUFFER_BIT);
     
     glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     glClear(GL_DEPTH_BUFFER_BIT);
+    
+    GLfloat light_position0[4]={INFINITO, 10, INFINITO, 0.0};
+    GLfloat light_position1[4]={-INFINITO, 10, INFINITO, 0.0};
+    GLfloat light_position2[4]={-INFINITO, 10, INFINITO, 0.0};
+    GLfloat light_position3[4]={INFINITO, 10, -INFINITO, 0.0};
+    glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
+    glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
+    glLightfv(GL_LIGHT2, GL_POSITION, light_position2);
+    glLightfv(GL_LIGHT3, GL_POSITION, light_position3);
+    
     [scene.playerCar.frontCamera renderCamera];
     [scene render];
     [scene renderHUD];
 
-    glViewport(WINDOW_WIDTH*(1/2.0 - 1/8.0), WINDOW_HEIGHT-(20 +WINDOW_WIDTH/15.0), WINDOW_WIDTH/4.0, WINDOW_WIDTH/15.0);
-    glClear(GL_DEPTH_BUFFER_BIT);
-    [scene.playerCar.backCamera renderCamera];
-    [scene render];
-    
-    glViewport(20, 20, WINDOW_HEIGHT/4, WINDOW_HEIGHT/4);
-    glClear(GL_DEPTH_BUFFER_BIT);
-    [scene.trackCamera renderCamera];
-    [scene prepareForTrackCamera];
-    [scene render];
-    [scene backFromTrackCamera];
+//    glViewport(WINDOW_WIDTH*(1/2.0 - 1/8.0), WINDOW_HEIGHT-(20 +WINDOW_WIDTH/15.0), WINDOW_WIDTH/4.0, WINDOW_WIDTH/15.0);
+//    glClear(GL_DEPTH_BUFFER_BIT);
+//    [scene.playerCar.backCamera renderCamera];
+//    [scene render];
+//    
+//    glViewport(20, 20, WINDOW_HEIGHT/4, WINDOW_HEIGHT/4);
+//    glClear(GL_DEPTH_BUFFER_BIT);
+//    [scene.trackCamera renderCamera];
+//    [scene prepareForTrackCamera];
+//    [scene render];
+//    [scene backFromTrackCamera];
 
     
     glutSwapBuffers();
@@ -164,11 +176,16 @@ void initialize()
     glLightfv(GL_LIGHT2, GL_AMBIENT, ambient_light);
     glLightfv(GL_LIGHT2, GL_DIFFUSE, diffuse_light );
     glLightfv(GL_LIGHT2, GL_SPECULAR, specular_light );
+
+    glLightfv(GL_LIGHT3, GL_AMBIENT, ambient_light);
+    glLightfv(GL_LIGHT3, GL_DIFFUSE, diffuse_light );
+    glLightfv(GL_LIGHT3, GL_SPECULAR, specular_light );
     
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
     glEnable(GL_LIGHT2);
+    glEnable(GL_LIGHT3);
     
     glEnable(GL_DEPTH_TEST);
     

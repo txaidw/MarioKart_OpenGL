@@ -1,185 +1,244 @@
-#include <Foundation/Foundation.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <queue>
-#include <cassert>
-
-using namespace std;
-
-struct state {
-    int x, y, dx, dy;
-};
-
-ostream& operator<<(ostream& os, state const& s) {
-    return os << "(" << s.x << ", " << s.y << ") (dx=" << s.dx << ", dy=" << s.dy << ")";
-}
-
-struct solution {
-    int nSteps;
-    state s;
-};
-
-typedef map<pair<int, int>, solution> mapIItoS;
-
-vector<vector<mapIItoS> > v;		// The s part points to the previous state.
-queue<solution> q;
-
-int width, height;
-int goalX, goalY;
-int circleX, circleY, circleRadius;
-int nStatesSeen = 0;
-
-// Assumes that the direction and length of the move would be valid if there
-// were no obstacles and we were on an infinite grid.
-//HACK: For now, we just check whether this move intersects a single user-provided circle.
-bool isMoveValid(state from, state to) {
-    //	return to.x >= 0 && to.x < width && to.y >= 0 && to.y < height;
-    if (to.x < 0 || to.x >= width || to.y < 0 || to.y >= height) {
-        return false;
-    } else {
-        if (circleRadius == -1) {
-            return true;		// No obstacle
-        } else {
-            // There's a circular obstacle.
-            int dx = to.x - from.x;
-            int dy = to.y - from.y;
-            
-            if (!dx) {
-                // Handle vertical lines specially.
-                return to.x < circleX - circleRadius || to.x > circleX + circleRadius || max(to.y, from.y) < circleY - circleRadius || min(to.y, from.y) > circleY + circleRadius;
-            } else {
-                double m = (double) dy / dx;		// Slope
-                double c = (to.y - circleY) - m * (to.x - circleX);		// Intercept, after translating so that circle is located at origin
-                double discrim = circleRadius * circleRadius * (m * m + 1) - c * c;
-                
-                if (discrim < 0) {
-                    return true;		// Line does not intersect circle anywhere
-                } else {
-                    double sqrtD = sqrt(discrim);
-                    double x1 = (-m * c - sqrtD) / (m * m + 1);
-                    if (x1 > max(to.x - circleX, from.x - circleX)) {
-                        return true;		// Intersection occurs to the right of the line segment's end
-                    }
-                    
-                    double x2 = (-m * c + sqrtD) / (m * m + 1);
-                    if (x2 < min(to.x - circleX, from.x - circleX)) {
-                        return true;		// Intersection occurs to the left of the line segment's end
-                    }
-                    
-                    return false;		// Line either intersects or is totally contained.
-                }
-            }
-        }
-    }
-}
-
-// This could be defined in several ways, but currently we simply have
-// a single target location, and we don't care about the velocity.
-bool isGoalState(state s) {
-    return s.x == goalX && s.y == goalY;
-}
-
-solution solve() {
-    while (!q.empty()) {
-        solution s(q.front());
-        q.pop();
-        ++nStatesSeen;
-        
-        // Invariant: We already have an optimal path to s stored in v.
-        assert(v[s.s.x][s.s.y].find(make_pair(s.s.dx, s.s.dy)) != v[s.s.x][s.s.y].end());
-        
-        // Generate all valid moves we could make from here.
-        for (int dy = -1; dy <= 1; ++dy) {
-            for (int dx = -1; dx <= 1; ++dx) {
-                solution ns;
-                ns.s.dx = s.s.dx + dx;
-                ns.s.dy = s.s.dy + dy;
-                ns.s.x = s.s.x + ns.s.dx;
-                ns.s.y = s.s.y + ns.s.dy;
-                ns.nSteps = s.nSteps + 1;
-                if (isMoveValid(s.s, ns.s)) {
-                    // If we haven't seen this new state before, then we have discovered
-                    // an optimal path to it.
-                    pair<int, int> newDxDy(make_pair(ns.s.dx, ns.s.dy));
-                    if (v[ns.s.x][ns.s.y].find(newDxDy) == v[ns.s.x][ns.s.y].end()) {
-                        solution tmp(s);
-                        ++tmp.nSteps;
-                        v[ns.s.x][ns.s.y][newDxDy] = tmp;		// The s field points back to the previous state
-                        
-                        if (isGoalState(ns.s)) {
-                            // We're done!
-                            return ns;
-                        }
-                        
-                        q.push(ns);
-                    }
-                }
-            }
-        }
-    }
-    
-    // We failed to find a path.
-    solution s;
-    s.nSteps = -1;
-    return s;
-}
-
-//HACK: For now we just have a totally empty grid of fixed size!
-void loadGrid() {
-    width = 100;
-    height = 100;
-    
-    // Need to make the 2D matrix large enough
-    v.resize(width, vector<mapIItoS>(height));
-}
-
-
-void calcTrack(float _startX, float _startY, float _goalX, float _goalY, float _circleX, float _circleY, float _radius) {
-    goalX = _goalX;
-    goalY = _goalY;
-    
-    loadGrid();
-    
-    cout << "Starting at (" << _startX << ", " << _startY << ").\n";
-    cout << "Goal is (" << goalX << ", " << goalY << ").\n";
-    cout << "Grid size is " << width << "*" << height << " (W*H).\n";
-    
-    circleX = _circleX;
-    circleY = _circleY;
-    circleRadius = _radius;
-    cout << "A circular obstacle of radius " << circleRadius << " is centred at (" << circleX << ", " << circleY << ").\n";
-
-    
-    solution start;
-    start.nSteps = 0;
-    start.s.x = _startX;
-    start.s.y = _startY;
-    start.s.dx = 0;
-    start.s.dy = 0;
-    v[_startX][_startY][make_pair(0, 0)] = start;
-    
-    q.push(start);
-    
-    solution final = solve();
-    
-    if (final.nSteps == -1) {
-        cout << "No solution could be found!\n";
-    } else {
-        cout << final.nSteps << "-step solution:\n";
-        solution cur(final);
-        while (cur.nSteps) {
-            cout << cur.s << "\n";
-            cur = v[cur.s.x][cur.s.y][make_pair(cur.s.dx, cur.s.dy)];
-        }
-    }
-    
-    cout << nStatesSeen << " states were examined in the process.\n";
-}
-
-int msain(void) {
-    calcTrack(1, 1, 99, 99, 50, 50, 35);
-    return 0;
-}
+///*
+// Leitor-OBJ-MTL-TGA-FCG: Visualizador de modelos simples com rotaÁ„o utilizando as teclas W,A,S,D
+// Files: main.cpp, glm.h, glm.cpp, glmimg.cpp, Texture.cpp, Texture.h, vector3f.h + Esfera/ball.obj,ball.mtl,orange3.tga
+// Last update: 29/09/2015
+// */
+//
+//#ifdef __APPLE__
+//#include <GLUT/glut.h>
+//#else
+//#include <GL/glut.h>
+//#endif
+//
+//#include <stdlib.h>
+//#include <stdio.h>
+//#include "string.h"
+//
+//#include "glm.hpp"
+//#include "vector3f.hpp"
+//
+//#define WINDOW_WIDTH 800
+//#define WINDOW_HEIGHT 600
+//
+//#define PERSPECTIVE 0
+//#define ORTHO 1
+//
+//#define PI 3.14159265
+//
+//#define INFINITO 1 // 1 to see the lights if activated
+//
+//#define MOVEMENT_ROTATION_OBJECT 5//0.5
+//#define MOVEMENT_SCALE_OBJECT 0.1//0.05
+//
+//GLMmodel* modelEsfera;
+//
+//GLboolean projection; // ORTHO | PERSPECTIVE
+//GLfloat fAspect;
+//
+//vector3f eye;
+//
+//GLfloat angleUpDown;
+//GLfloat angleLeftRight;
+//
+//GLfloat roty;
+//GLfloat rotx;
+//
+//bool C3DObject_Load_New(const char *pszFilename, GLMmodel **model)
+//{
+//    char aszFilename[256];
+//    strcpy(aszFilename, pszFilename);
+//    
+//    if (*model) {
+//        
+//        free(*model);
+//        *model = NULL;
+//    }
+//    
+//    *model = glmReadOBJ(aszFilename);
+//    if (!(*model))
+//        return false;
+//    
+//    glmUnitize(*model);
+//    //glmScale(model,sFactor); // USED TO SCALE THE OBJECT
+//    glmFacetNormals(*model);
+//    glmVertexNormals(*model, 90.0);
+//    
+//    return true;
+//}
+//
+///* GLUT callback Handlers */
+//
+//static void resize(int width, int height)
+//{
+//    glViewport(0, 0, width, height);
+//    glMatrixMode(GL_PROJECTION);
+//    glLoadIdentity();
+//    if(projection == PERSPECTIVE)
+//        gluPerspective(60,fAspect,0.001,1000);
+//    else
+//        glOrtho(-5, 5, -5, 5, -3000, 3000);
+//    glMatrixMode(GL_MODELVIEW);
+//    glLoadIdentity();
+//    gluLookAt(eye.x,eye.y,eye.z, // EYE
+//              0,0,0, // LOOK
+//              0,1,0); // CAMERA UP
+//}
+//
+//static void display(void)
+//{
+//    glMatrixMode(GL_MODELVIEW);
+//    glLoadIdentity();
+//    gluLookAt(eye.x,eye.y,eye.z, // EYE
+//              0,0,0, // LOOK
+//              0,1,0); // CAMERA UP
+//    
+//    GLfloat light_position0[4]={0, INFINITO, 0, 0.0};
+//    GLfloat light_position1[4]={0, 0, INFINITO, 0.0};
+//    GLfloat light_position2[4]={INFINITO, 0, 0, 0.0};
+//    glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
+//    glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
+//    glLightfv(GL_LIGHT2, GL_POSITION, light_position2);
+//    
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//    
+//    // OBJECT
+//    glPushMatrix();
+//    glRotatef(angleUpDown,1,0,0);
+//    glRotatef(angleLeftRight,0,1,0);
+//    glmDraw(modelEsfera, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+//    glPopMatrix();
+//    
+//    glutSwapBuffers();
+//}
+//
+///**
+// Key press event handler
+// */
+//void onKeyDown(unsigned char key, int x, int y) {
+//    
+//    switch (key) {
+//            // rotate and scale the model
+//        case 'w':
+//        case 'W':
+//            angleUpDown-=MOVEMENT_ROTATION_OBJECT;
+//            break;
+//        case 's':
+//        case 'S':
+//            angleUpDown+=MOVEMENT_ROTATION_OBJECT;
+//            break;
+//        case 'a':
+//        case 'A':
+//            angleLeftRight-=MOVEMENT_ROTATION_OBJECT;
+//            break;
+//        case 'd':
+//        case 'D':
+//            angleLeftRight+=MOVEMENT_ROTATION_OBJECT;
+//            break;
+//        case 27:
+//            exit(0);
+//            break;
+//        default:
+//            break;
+//    }
+//    
+//    //glutPostRedisplay();
+//}
+//
+///**
+// Key release event handler
+// */
+//void onKeyUp(unsigned char key, int x, int y) {
+//    //	switch (key) {
+//    //		default:
+//    //			break;
+//    //	}
+//    
+//    //glutPostRedisplay();
+//}
+//
+//static void timer(int value)
+//{
+//    glutPostRedisplay();
+//    glutTimerFunc(1,timer, 1);
+//}
+//
+//static void idle(void)
+//{
+//    glutPostRedisplay();
+//}
+//
+//void initialize()
+//{
+//    projection = PERSPECTIVE; // ORTHO | PERSPECTIVE
+//    fAspect = (GLfloat)WINDOW_WIDTH/(GLfloat)WINDOW_HEIGHT;
+//    
+//    eye.set(3.0,1.0,3.0);
+//    
+//    angleUpDown=0;
+//    angleLeftRight=0;
+//    
+//    roty = 0.0f;
+//    rotx = 90.0f;
+//    
+//    fAspect = (GLfloat)WINDOW_WIDTH/(GLfloat)WINDOW_HEIGHT;
+//    
+//    GLfloat angleUp = 0;
+//    GLfloat angleDown = 0;
+//    GLfloat angleLeft = 0;
+//    GLfloat angleRight = 0;
+//    
+//    // fourth parameter: 1 -> finite distance, 0 -> inifinite distance
+//    glClearColor (1.0, 1.0, 1.0, 0.0);
+//    
+//    GLfloat ambient_light[4]={0.0,0.0,0.0,1.0};
+//    GLfloat diffuse_light[4]={1.0,1.0,1.0,1.0};	   // "cor"
+//    GLfloat specular_light[4]={1.0,1.0,1.0,1.0};// "brilho"
+//    
+//    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_light);
+//    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_light );
+//    glLightfv(GL_LIGHT0, GL_SPECULAR, specular_light );
+//    
+//    glLightfv(GL_LIGHT1, GL_AMBIENT, ambient_light);
+//    glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse_light );
+//    glLightfv(GL_LIGHT1, GL_SPECULAR, specular_light );
+//    
+//    glLightfv(GL_LIGHT2, GL_AMBIENT, ambient_light);
+//    glLightfv(GL_LIGHT2, GL_DIFFUSE, diffuse_light );
+//    glLightfv(GL_LIGHT2, GL_SPECULAR, specular_light );
+//    
+//    glEnable(GL_LIGHTING);
+//    glEnable(GL_LIGHT0);
+////    glEnable(GL_LIGHT1);
+////    glEnable(GL_LIGHT2);
+//    
+//    glEnable(GL_DEPTH_TEST);
+//    
+//}
+//
+///* Program entry point */
+//
+//int main(int argc, char *argv[])
+//{
+//    glutInit(&argc, argv);
+//    glutInitWindowSize(WINDOW_WIDTH,WINDOW_HEIGHT);
+//    glutInitWindowPosition(0,0);
+//    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
+//    
+//    glutCreateWindow("OBJ Loader - GLM + GLMIMG + TGA TEXTURE");
+//    
+//    C3DObject_Load_New("MarioKart/Models/Esfera/ball.obj",&modelEsfera);
+//    
+//    glutReshapeFunc(resize);
+//    glutDisplayFunc(display);
+//    
+//    glutKeyboardFunc(onKeyDown);
+//    glutKeyboardUpFunc(onKeyUp);
+//    //glutIdleFunc(idle);
+//    glutTimerFunc(1,timer,1);
+//    
+//    initialize();
+//    
+//    glutMainLoop();
+//    
+//    return EXIT_SUCCESS;
+//}

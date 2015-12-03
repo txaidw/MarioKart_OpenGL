@@ -131,41 +131,11 @@
 - (void)initialize {
     // fourth parameter: 1 -> finite distance, 0 -> inifinite distance
     
-    GLfloat ambient_light[4]={1.0,1.0,1.0,1.0};
-    GLfloat diffuse_light[4]={1.0,1.0,1.0,1.0};	   // "cor"
-    GLfloat specular_light[4]={1.0,1.0,1.0,1.0};// "brilho"
-    
-    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_light);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_light );
-    glLightfv(GL_LIGHT0, GL_SPECULAR, specular_light );
-    
-    glLightfv(GL_LIGHT1, GL_AMBIENT, ambient_light);
-    glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse_light );
-    glLightfv(GL_LIGHT1, GL_SPECULAR, specular_light );
-    
-    glLightfv(GL_LIGHT2, GL_AMBIENT, ambient_light);
-    glLightfv(GL_LIGHT2, GL_DIFFUSE, diffuse_light );
-    glLightfv(GL_LIGHT2, GL_SPECULAR, specular_light );
-    
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glEnable(GL_LIGHT1);
-    glEnable(GL_LIGHT2);
-    
-    glEnable(GL_DEPTH_TEST);
 }
 
 - (void)render {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    
-    GLfloat INFINITO = 1;
-    GLfloat light_position0[4]={0, INFINITO, 0, 0.0};
-    GLfloat light_position1[4]={0, 0, INFINITO, 0.0};
-    GLfloat light_position2[4]={INFINITO, 0, 0, 0.0};
-    glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
-    glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
-    glLightfv(GL_LIGHT2, GL_POSITION, light_position2);
     [self renderHUD];
 
     [self.sky render];
@@ -232,4 +202,5 @@ void drawText(NSString* name, GLdouble x, GLdouble y)
         [node removeChild:node.markerNode];
     }
 }
+
 @end
