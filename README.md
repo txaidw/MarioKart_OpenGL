@@ -7,7 +7,7 @@ Mario Kart - OpenGL + GLUT
 
 *Dezembro/2015*
 
-![ss 1](https://github.com/txaidw/blob/master/ss/ss2.png)
+![ss 1](https://github.com/txaidw/MarioKart_OpenGL/blob/master/ss/ss1.png)
 
 Descrição:
 --------------
@@ -18,7 +18,7 @@ Para a criação do jogo Mario Kart, resolvi por criar uma estrutura de engine b
 
 A linguagem escolhida para a realização do trabalho foi uma variação do Objective-C chamada de Objective-C++. Assim é possível utilizar em um mesmo programa as linguagens C, C++ e Objective-C. Portando o projeto deve ser aberto e compilado através da IDE Xcode.
 
-![ss 2](https://github.com/txaidw/blob/master/ss/ss2.png)
+![ss 2](https://github.com/txaidw/MarioKart_OpenGL/blob/master/ss/ss2.png)
 
 Além dos frameworks OpenGL e GLUT foi utilizado uma pequena biblioteca para leitura dos arquivos modelos .OBJ e as texturas .TGA, chama GLM.
 As classes dessa engine possuem o prefixo (TWGL). As classes criadas foram TWGLNode, TWGLScene e TWGLCamera.
