@@ -65,7 +65,7 @@
 }
 
 - (void)didCollideWith:(TWGLNode *)node {
-    printf("Collide: %s - %s\n", NSStringFromClass([self class]).UTF8String, NSStringFromClass([node class]).UTF8String);
+    printf("Collide: %s - %s\n", NSStringFromClass([self class]).UTF8String,NSStringFromClass([node class]).UTF8String);
 }
 
 - (void)collisionCheck {
