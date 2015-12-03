@@ -54,9 +54,9 @@ O maior ganho em utilizar o padrão de nodos na cena herdando de uma mesma class
 
 ## Controles ##
 Para controlar o carro principal basta utilizar os seguintes comandos:
-• Tecla W (ou seta para cima): acelerar o kart para a frente; 
-•	Tecla S (ou seta para baixo): frear o kart e acelerar para trás quando parado; 
-•	Tecla A (ou seta para esquerda): vira o kart para esquerda; 
-•	Tecla D (ou seta para direita): vira o kart para direita; 
-•	Barra de espaço: utiliza o item armazenado; 
-•	Tecla V: alterna entre os diferentes tipos de câmera. 
+* Tecla W (ou seta para cima): acelerar o kart para a frente; 
+* Tecla S (ou seta para baixo): frear o kart e acelerar para trás quando parado; 
+* Tecla A (ou seta para esquerda): vira o kart para esquerda; 
+* Tecla D (ou seta para direita): vira o kart para direita; 
+* Barra de espaço: utiliza o item armazenado; 
+* Tecla V: alterna entre os diferentes tipos de câmera. 
