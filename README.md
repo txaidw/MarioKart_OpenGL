@@ -2,7 +2,9 @@ Mario Kart - OpenGL + GLUT
 ==============
 
 **Txai Wieser - 00217052**
+
 *Fundamentos de Computação Gráfica - UFRGS*
+
 *Dezembro/2015*
 
 Descrição:
@@ -18,6 +20,8 @@ Além dos frameworks OpenGL e GLUT foi utilizado uma pequena biblioteca para lei
 As classes dessa engine possuem o prefixo (TWGL). As classes criadas foram TWGLNode, TWGLScene e TWGLCamera.
 A classe mais importante é a TWGLNode, sendo herdada tanto na TWGLScene como na TWGLCamera.
 Algumas das principais propriedades e métodos:
+
+```Objective-C
 @property GLfloat scale;
 @property Vector3 position
 @property Vector3 rotation;
@@ -43,7 +47,7 @@ Algumas das principais propriedades e métodos:
 
 - (GLfloat)distanceToNode:(TWGLNode *)node;
 - (GLfloat)distanceToPointX:(float)nx y:(float)ny z:(float)nz;
-
+```
 
 O método render() toma conta de criar um espaço especifico para o nodo e renderiza o model atrelado ao nodo na cena. A funcionalidade dos outros métodos e propriedades podem ser inferidas pelos seus nomes ou visualizando o código fonte.
 O maior ganho em utilizar o padrão de nodos na cena herdando de uma mesma classe é que diversos métodos podem ser compartilhados, como a renderização, o posicionamento e a colisão.
