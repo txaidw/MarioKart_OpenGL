@@ -1,8 +1,47 @@
-# MarioKart_openGL_iOS
-O trabalho consiste em desenvolver um aplicativo baseado na série de jogos Mario Kart.
 
-# Objetivo
-Exercitar os conceitos de visualização 3D, manipulação de câmera e de objetos, movimentação em ambiente virtual, assim como representação de informações por meio do desenvolvimento de uma aplicação prática.
+Will become a heading
+==============
 
-# Descrição
-O trabalho consiste em desenvolver um aplicativo baseado na série de jogos Mario Kart (https://en.wikipedia.org/wiki/Mario_Kart). O jogador é carregado em um ambiente tridimensional e deve competir em uma corrida de kart com outros personagens controlados pelo computador ao longo de uma pista.
+Will become a sub heading
+--------------
+
+*This will be Italic*
+
+**This will be Bold**
+
+- This will be a list item
+- This will be a list item
+
+Add a indent and this will end up as code
+
+## Mario Kart
+
+At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+
+## Code Example
+
+Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+
+## Motivation
+
+A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+
+## Installation
+
+Provide code examples and explanations of how to get the project.
+
+## API Reference
+
+Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+
+## Tests
+
+Describe and show how to run the tests with code examples.
+
+## Contributors
+
+Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+
+## License
+
+A short snippet describing the license (MIT, Apache, etc.)
